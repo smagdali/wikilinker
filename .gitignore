@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+
+# Build artifacts
+*.zip
+
+# Local development
+.env
