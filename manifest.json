@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Wikiproxy",
+  "name": "Wikilinker",
   "version": "1.0.0",
   "description": "Auto-links proper nouns and entities to Wikipedia on news sites",
   "permissions": [

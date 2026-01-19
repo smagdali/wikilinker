@@ -1,4 +1,4 @@
-# Wikiproxy
+# Wikilinker
 
 A Chrome extension that auto-links named entities to Wikipedia on news sites.
 
@@ -31,16 +31,14 @@ BBC, CNN, The Guardian, New York Times, Washington Post, Reuters, AP News, NPR, 
 2. Open `chrome://extensions/` in Chrome
 3. Enable "Developer mode" (top right)
 4. Click "Load unpacked"
-5. Select the `wikiproxy-extension` folder
+5. Select the `wikilinker` folder
 
 ### Entity Data
 
 The extension includes pre-built entity data. To rebuild from Wikidata:
 
 ```bash
-# In the whitelabel.org repo
 node scripts/download-wikidata-entities.js
-cp wikiproxy-data/entities.json ../wikiproxy-extension/data/
 ```
 
 ## How It Works
