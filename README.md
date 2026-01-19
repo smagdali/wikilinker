@@ -4,6 +4,8 @@ A Chrome extension that auto-links named entities to Wikipedia on news sites.
 
 **A revival of the [original Wikiproxy](https://whitelabel.org/2004/10/04/dont-get-me-wrong-i-really-like-bbc-news-online/) from 2004.**
 
+> **Note:** This code was generated entirely by AI (Claude) and has not yet been tested by humans. Use at your own risk. Contributions and bug reports welcome!
+
 ## Features
 
 - Automatically detects proper nouns and entities in news articles
