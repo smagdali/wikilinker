@@ -1,12 +1,11 @@
 /**
- * Wikiproxy Link Styles
+ * Wikilinker Link Styles
  *
- * Different colors for different entity types:
- * - Person: blue
- * - Country: green
- * - City: teal
- * - Organization: purple
- * - Company: orange
+ * Colorblind-friendly palette with icons:
+ * - Person: blue (#2563eb) + bust emoji
+ * - Country/City: orange (#d97706) + pin emoji
+ * - Organization: purple (#7c3aed) + building emoji
+ * - Company: teal (#0d9488) + office emoji
  */
 
 /* Base link style */
@@ -26,6 +25,11 @@
   text-decoration-thickness: 2px;
 }
 
+.wikiproxy-icon {
+  margin-right: 2px;
+  font-size: 0.9em;
+}
+
 /* Person - Blue */
 .wikiproxy-person {
   color: inherit;
@@ -36,49 +40,44 @@
   background-color: rgba(37, 99, 235, 0.1);
 }
 
-/* Country - Green */
+/* Country - Orange (colorblind-friendly, was green) */
 .wikiproxy-country {
   color: inherit;
-  text-decoration-color: #16a34a;
+  text-decoration-color: #d97706;
 }
 
 .wikiproxy-country:hover {
-  background-color: rgba(22, 163, 74, 0.1);
+  background-color: rgba(217, 119, 6, 0.1);
 }
 
-/* City - Teal */
+/* City - Orange (same as country - both places) */
 .wikiproxy-city {
   color: inherit;
-  text-decoration-color: #0d9488;
+  text-decoration-color: #d97706;
 }
 
 .wikiproxy-city:hover {
-  background-color: rgba(13, 148, 136, 0.1);
+  background-color: rgba(217, 119, 6, 0.1);
 }
 
 /* Organization - Purple */
 .wikiproxy-org {
   color: inherit;
-  text-decoration-color: #9333ea;
+  text-decoration-color: #7c3aed;
 }
 
 .wikiproxy-org:hover {
-  background-color: rgba(147, 51, 234, 0.1);
+  background-color: rgba(124, 58, 237, 0.1);
 }
 
-/* Company - Orange */
+/* Company - Teal (colorblind-friendly, was orange) */
 .wikiproxy-company {
   color: inherit;
-  text-decoration-color: #ea580c;
+  text-decoration-color: #0d9488;
 }
 
 .wikiproxy-company:hover {
-  background-color: rgba(234, 88, 12, 0.1);
-}
-
-/* Tooltip on hover (using title attribute, but could enhance later) */
-.wikiproxy-link[data-entity-type]::after {
-  content: none; /* Reserve for future tooltip implementation */
+  background-color: rgba(13, 148, 136, 0.1);
 }
 
 /* Dark mode support */
@@ -87,20 +86,17 @@
     background-color: rgba(37, 99, 235, 0.2);
   }
 
-  .wikiproxy-country:hover {
-    background-color: rgba(22, 163, 74, 0.2);
-  }
-
+  .wikiproxy-country:hover,
   .wikiproxy-city:hover {
-    background-color: rgba(13, 148, 136, 0.2);
+    background-color: rgba(217, 119, 6, 0.2);
   }
 
   .wikiproxy-org:hover {
-    background-color: rgba(147, 51, 234, 0.2);
+    background-color: rgba(124, 58, 237, 0.2);
   }
 
   .wikiproxy-company:hover {
-    background-color: rgba(234, 88, 12, 0.2);
+    background-color: rgba(13, 148, 136, 0.2);
   }
 }
 
@@ -110,5 +106,9 @@
     text-decoration: none !important;
     background-color: transparent !important;
     color: inherit !important;
+  }
+
+  .wikiproxy-icon {
+    display: none;
   }
 }

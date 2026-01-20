@@ -20,6 +20,15 @@
     5: 'company'
   };
 
+  // Type to icon mapping (colorblind-friendly)
+  const TYPE_ICONS = {
+    1: '\u{1F464}',  // person: bust silhouette
+    2: '\u{1F4CD}',  // country: pin
+    3: '\u{1F4CD}',  // city: pin
+    4: '\u{1F3DB}',  // org: classical building
+    5: '\u{1F3E2}', // company: office building
+  };
+
   // Entity data (loaded from background)
   let entities = null;
   let entitySet = null;
@@ -154,16 +163,25 @@
   function createWikiLink(text, entityInfo) {
     const [typeCode, wikidataId] = entityInfo;
     const typeName = TYPE_NAMES[typeCode] || 'entity';
+    const icon = TYPE_ICONS[typeCode] || '';
 
     const link = document.createElement('a');
     link.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(text.replace(/ /g, '_'))}`;
     link.className = `wikiproxy-link wikiproxy-${typeName}`;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.textContent = text;
     link.dataset.wikidataId = wikidataId;
     link.dataset.entityType = typeName;
     link.title = `${text} (${typeName}) - Click to view on Wikipedia`;
+
+    // Add icon span
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'wikiproxy-icon';
+    iconSpan.textContent = icon;
+    link.appendChild(iconSpan);
+
+    // Add text
+    link.appendChild(document.createTextNode(text));
 
     return link;
   }
