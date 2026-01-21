@@ -55,12 +55,65 @@
     'main p',
   ];
 
-  // Elements to skip
+  // Elements to skip - synced with wikilinker/shared/skip-rules.js
   const SKIP_TAGS = new Set([
-    'SCRIPT', 'STYLE', 'NOSCRIPT', 'IFRAME', 'OBJECT', 'EMBED',
-    'INPUT', 'TEXTAREA', 'SELECT', 'BUTTON', 'A', 'CODE', 'PRE',
-    'SVG', 'MATH', 'HEAD', 'TITLE', 'META', 'LINK'
+    // Script/style
+    'SCRIPT', 'STYLE', 'NOSCRIPT',
+    // Interactive elements
+    'A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'LABEL',
+    // Navigation/chrome
+    'NAV', 'HEADER', 'FOOTER', 'ASIDE',
+    // Headlines - these are navigation, not body text
+    'H1', 'H2', 'H3', 'H4', 'H5', 'H6',
+    // Code/preformatted
+    'CODE', 'PRE', 'KBD', 'SAMP',
+    // Media/embedded
+    'SVG', 'MATH', 'IFRAME', 'OBJECT', 'EMBED', 'CANVAS',
+    // Document structure (non-content)
+    'HEAD', 'TITLE', 'META', 'LINK',
+    // Figure captions - usually photo credits/descriptions
+    'FIGCAPTION',
+    // List elements - in news sites, lists are usually navigation/teasers
+    'LI',
+    // Table elements - usually data, not article text
+    'TH', 'TD',
   ]);
+
+  // Selectors to skip - ARIA roles and data attributes
+  const SKIP_SELECTORS = [
+    '[role="navigation"]',
+    '[role="banner"]',
+    '[role="contentinfo"]',
+    '[role="complementary"]',
+    '[role="search"]',
+    '[role="menu"]',
+    '[role="menubar"]',
+    '[role="toolbar"]',
+    '[role="button"]',
+    '[aria-hidden="true"]',
+    '[data-component="nav"]',
+    '[data-component="navigation"]',
+    '[data-component="header"]',
+    '[data-testid="promo"]',
+    '[data-testid="card"]',
+    '[data-commerce]',
+    '[data-affiliate]',
+  ];
+
+  // Class patterns that indicate non-article content
+  const SKIP_CLASS_PATTERNS = [
+    'menu', 'nav-', '-nav',
+    'headline', 'title', 'heading',
+    'teaser', 'dek', 'lede', 'leadin', 'lead-in', 'standfirst', 'summary', 'excerpt',
+    'card', 'promo', 'tout', 'featured', 'spotlight',
+    'credit', 'caption', 'byline', 'author', 'source',
+    'widget', 'embed', 'video-', '-video', 'interactive', 'module',
+    'item-info', 'item-image', 'list-item',
+    'grid', 'rail', 'sidebar', 'related',
+    'intro', 'outro', 'leadin', 'g-intro', 'g-leadin',
+    'commerce', 'shopping', 'buyline', 'affiliate', 'product',
+    'speakable', 'schema', 'ld-json',
+  ];
 
   // Common words that shouldn't be linked even if they match
   const SKIP_WORDS = new Set([
@@ -168,8 +221,6 @@
     const link = document.createElement('a');
     link.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(text.replace(/ /g, '_'))}`;
     link.className = `wikiproxy-link wikiproxy-${typeName}`;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
     link.dataset.wikidataId = wikidataId;
     link.dataset.entityType = typeName;
     link.title = `${text} (${typeName}) - Click to view on Wikipedia`;
@@ -233,6 +284,10 @@
 
       if (!wordBoundaryBefore || !wordBoundaryAfter) continue;
 
+      // Skip if this match is part of a larger capitalized phrase
+      // e.g., "Forum" in "World Economic Forum" should not match
+      if (isPartOfLargerPhrase(currentText, index, index + match.text.length)) continue;
+
       replacements.push({
         index,
         length: match.text.length,
@@ -273,15 +328,81 @@
     textNode.parentNode.replaceChild(fragment, textNode);
   }
 
+  // Check if matched text is part of a larger proper noun phrase
+  // e.g., "Forum" in "World Economic Forum" should not match
+  function isPartOfLargerPhrase(text, start, end) {
+    // Check character before - is it preceded by a capitalized word?
+    if (start > 0) {
+      const charBefore = text[start - 1];
+      if (charBefore === ' ') {
+        const textBefore = text.slice(0, start - 1);
+        const lastWord = textBefore.match(/[A-Z][a-zA-Z''\-]*$/);
+        if (lastWord) {
+          return true;
+        }
+      }
+    }
+
+    // Check character after - is it followed by more capitalized words?
+    if (end < text.length) {
+      const charAfter = text[end];
+      if (charAfter === ' ') {
+        const textAfter = text.slice(end + 1);
+        const nextWord = textAfter.match(/^[A-Z][a-zA-Z''\-]*/);
+        if (nextWord) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
+  // Check if element or ancestors have a class matching skip patterns
+  function hasSkipClassPattern(element) {
+    let current = element;
+    while (current && current.classList) {
+      const className = current.className;
+      if (typeof className === 'string' && className) {
+        const classLower = className.toLowerCase();
+        for (const pattern of SKIP_CLASS_PATTERNS) {
+          if (classLower.includes(pattern)) {
+            return true;
+          }
+        }
+      }
+      current = current.parentElement;
+    }
+    return false;
+  }
+
+  // Check if element should be skipped
+  function shouldSkipElement(element) {
+    // Skip by tag name
+    if (SKIP_TAGS.has(element.tagName)) return true;
+
+    // Skip if already a wikiproxy link
+    if (element.classList.contains('wikiproxy-link')) return true;
+    if (element.closest('.wikiproxy-link')) return true;
+
+    // Skip by selector
+    for (const selector of SKIP_SELECTORS) {
+      if (element.closest(selector)) return true;
+    }
+
+    // Skip by class pattern
+    if (hasSkipClassPattern(element)) return true;
+
+    return false;
+  }
+
   // Walk DOM tree and process text nodes
   function walkAndProcess(element) {
     if (!element) return;
 
     // Skip certain elements
     if (element.nodeType === Node.ELEMENT_NODE) {
-      if (SKIP_TAGS.has(element.tagName)) return;
-      if (element.classList.contains('wikiproxy-link')) return;
-      if (element.closest('.wikiproxy-link')) return;
+      if (shouldSkipElement(element)) return;
     }
 
     // Process text nodes
