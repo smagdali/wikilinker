@@ -9,3 +9,7 @@ node_modules/
 
 # Local development
 .env
+
+# Server
+server/cache/
+*.log

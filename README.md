@@ -1,66 +1,29 @@
 # Wikilinker
 
-A Chrome extension that auto-links named entities to Wikipedia on news sites.
+Auto-links people, places, and organizations to Wikipedia in news articles.
 
-**A revival of the [original Wikiproxy](https://whitelabel.org/2004/10/04/dont-get-me-wrong-i-really-like-bbc-news-online/) from 2004.**
+Two components:
 
-> **Note:** This code was generated entirely by AI (Claude) and has not yet been tested by humans. Use at your own risk. Contributions and bug reports welcome!
+- **[Server proxy](server/)** — a Node.js web proxy at [whitelabel.org/wikilinker](https://whitelabel.org/wikilinker) that fetches news pages and injects Wikipedia links into the article text.
+- **[Chrome extension](extension/)** — a browser extension that does the same thing client-side, directly in your browser.
 
-## Features
+Both share a set of [skip rules](server/shared/skip-rules.js) that determine which parts of a page to leave alone (navigation, headings, captions, etc.).
 
-- Automatically detects proper nouns and entities in news articles
-- Links them to their Wikipedia pages
-- Color-coded by entity type:
-  - **Blue** - People
-  - **Green** - Countries
-  - **Teal** - Cities
-  - **Purple** - Organizations
-  - **Orange** - Companies
-- Works on 25+ major news sites
-- 343,000+ entities from Wikidata
-- No API calls - instant local matching
-- Configurable via popup settings
-
-## Supported Sites
-
-BBC, CNN, The Guardian, New York Times, Washington Post, Reuters, AP News, NPR, Al Jazeera, NBC News, CBS News, ABC News, Fox News, USA Today, Daily Mail, The Independent, The Telegraph, The Economist, Financial Times, The Atlantic, The New Yorker, Politico, Axios, Vox
-
-## Installation
-
-### From Source (Developer Mode)
-
-1. Clone this repository
-2. Open `chrome://extensions/` in Chrome
-3. Enable "Developer mode" (top right)
-4. Click "Load unpacked"
-5. Select the `wikilinker` folder
-
-### Entity Data
-
-The extension includes pre-built entity data. To rebuild from Wikidata:
+## Server
 
 ```bash
-node scripts/download-wikidata-entities.js
+cd server
+npm install
+npm test
+npm start        # runs on port 3000
 ```
 
-## How It Works
+Deploy to production: `bash scripts/deploy.sh`
 
-1. **Content script** scans article text for capitalized phrases and acronyms
-2. **Candidate phrases** are matched against a local database of 343K+ Wikidata entities
-3. **Matching entities** are wrapped in Wikipedia links with type-specific styling
-4. **Badge** shows the count of linked entities on each page
+## Extension
 
-## Privacy
+Load `extension/` as an unpacked extension in Chrome via `chrome://extensions`.
 
-- All entity matching happens locally in your browser
-- No data is sent to external servers
-- No tracking or analytics
+## History
 
-## License
-
-MIT
-
-## Credits
-
-- Original Wikiproxy (2004): [Stefan Magdalinski](https://whitelabel.org)
-- Entity data: [Wikidata](https://www.wikidata.org/) (CC0)
+Wikilinker is an updated version of the [Wikiproxy](https://whitelabel.org/2004/10/04/dont-get-me-wrong-i-really-like-bbc-news-online/), a hack originally built in October 2004 that proxied BBC News Online, automatically hyperlinking capitalised phrases and acronyms to Wikipedia.

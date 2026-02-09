@@ -1,0 +1,671 @@
+{
+  "round": 0,
+  "totalPages": 400,
+  "totalCorrect": 9864,
+  "totalIncorrect": 486,
+  "clusters": [
+    {
+      "pattern": "html > div > p",
+      "count": 138,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "But",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...cally over the past 25 years. [🏛But] through that period of upheav..."
+        },
+        {
+          "entity": "Pedro",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "... Oscar-winning directors like [👤Pedro] Almodóvar, Sofia Coppola, Bar..."
+        },
+        {
+          "entity": "Toro",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...rry Jenkins and Guillermo del [🏢Toro], as well as acclaimed actors ..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > p",
+      "count": 89,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "More",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...[🏢More] than 500 influential director..."
+        },
+        {
+          "entity": "Song",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...ments: A detective (played by [🏛Song] Kang 📍Ho) summoned to invest..."
+        },
+        {
+          "entity": "Ho",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...ective (played by 🏛Song Kang [📍Ho]) summoned to investigate a de..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div > div > div > div",
+      "count": 35,
+      "sites": [
+        "nbcnews.com",
+        "dailymail.co.uk"
+      ],
+      "examples": [
+        {
+          "entity": "Fox",
+          "url": "https://www.nbcnews.com",
+          "textContext": "...e occasions on the set of the [🏢Fox] series &quot;The Cleaning Lad..."
+        },
+        {
+          "entity": "Fox",
+          "url": "https://www.nbcnews.com",
+          "textContext": "...e occasions on the set of the [🏢Fox] series &quot;The Cleaning Lad..."
+        },
+        {
+          "entity": "David",
+          "url": "https://www.nbcnews.com",
+          "textContext": "...The eldest son of [👤David] and 📍Victoria Beckham accuse..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > div > p",
+      "count": 31,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Michael",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...d Seth (Jonah Hill) and Evan ([👤Michael] Cera) trying to get laid befo..."
+        },
+        {
+          "entity": "But",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...e involving phallic cartoons. [🏛But] “Superbad” is also a feat of ..."
+        },
+        {
+          "entity": "Ryan",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...[👤Ryan] Coogler, 2018..."
+        }
+      ]
+    },
+    {
+      "pattern": "article > div > div > div > div > p",
+      "count": 26,
+      "sites": [
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "Malaysia",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...\n                FILE -[📍Malaysia]'s Foreign Minister Mohamad Ha..."
+        },
+        {
+          "entity": "Kuala Lumpur",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...foreign ministers' meeting in [📍Kuala Lumpur], Malaysia, Oct. 25, 2025. (AP..."
+        },
+        {
+          "entity": "Spain",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...llision in Adamuz in southern [📍Spain].\n                \n           ..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div > div > div > p",
+      "count": 20,
+      "sites": [
+        "dailymail.co.uk"
+      ],
+      "examples": [
+        {
+          "entity": "Day",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...SHOPPING: With Valentine's [👤Day] just around the corner, now i..."
+        },
+        {
+          "entity": "Day",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...SHOPPING: This Valentine's [👤Day], we're gifting our partners t..."
+        },
+        {
+          "entity": "TLC",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...ted and in need of nourishing [🏢TLC], then it may be time to consi..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > div > div > p > span",
+      "count": 17,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Wright",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...Voted for by Edgar [🏢Wright]..."
+        },
+        {
+          "entity": "Nicholas",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...Voted for by [👤Nicholas] Sparks..."
+        },
+        {
+          "entity": "Anderson",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...Voted for by Pamela [👤Anderson]..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > div > h2",
+      "count": 15,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Man",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...Grizzly [📍Man]..."
+        },
+        {
+          "entity": "Gravity",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...[🏢Gravity]..."
+        },
+        {
+          "entity": "Panther",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...Black [🏢Panther]..."
+        }
+      ]
+    },
+    {
+      "pattern": "html",
+      "count": 14,
+      "sites": [
+        "nytimes.com",
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "Arian",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...s tangible and entertaining.” [🏢Arian] Moayed, actor See his ballot ..."
+        },
+        {
+          "entity": "Aster",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...t feels genuinely alien.” Ari [🏛Aster], director  “This hypnotic sci..."
+        },
+        {
+          "entity": "Samara",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...ly [expletive] good at hers.” [🏛Samara] Weaving, actress See her ball..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > article > div > p",
+      "count": 14,
+      "sites": [
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "American",
+          "url": "https://www.npr.org/podcasts/510333/throughline",
+          "textContext": "...warm of mosquitoes shaped the [🏢American] Revolution and changed the co..."
+        },
+        {
+          "entity": "Ken Burns",
+          "url": "https://www.npr.org/podcasts/510333/throughline",
+          "textContext": "...• Ramtin talks with filmmaker [👤Ken Burns] about the revolution that mad..."
+        },
+        {
+          "entity": "Independence",
+          "url": "https://www.npr.org/podcasts/510333/throughline",
+          "textContext": "...versary of the Declaration of [🏛Independence] is just around the corner. Wa..."
+        }
+      ]
+    },
+    {
+      "pattern": "div[button] > div > div > div > div > span",
+      "count": 12,
+      "sites": [
+        "nbcnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "Greenland",
+          "url": "https://www.nbcnews.com",
+          "textContext": "...ations thrown into turmoil on [📍Greenland]..."
+        },
+        {
+          "entity": "Greenland",
+          "url": "https://www.nbcnews.com",
+          "textContext": "...x27;playing&#x27; Europe over [📍Greenland]..."
+        },
+        {
+          "entity": "Greenland",
+          "url": "https://www.nbcnews.com",
+          "textContext": "...In texts, Trump links [📍Greenland] tension to Nobel Prize..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > h2",
+      "count": 11,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Michael",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...[👤Michael] 👤Clayton..."
+        },
+        {
+          "entity": "Clayton",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...👤Michael [👤Clayton]..."
+        },
+        {
+          "entity": "Make",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...ural Learnings of America for [🏛Make] Benefit Glorious 🏛Nation of ..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > article > div > article > div > h4",
+      "count": 10,
+      "sites": [
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "Stage",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...Trump's World [🏢Stage], El Paso Detention Deaths, In..."
+        },
+        {
+          "entity": "Democrats",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...s a target for both Trump and [🏛Democrats]..."
+        },
+        {
+          "entity": "Ken Burns",
+          "url": "https://www.npr.org/podcasts/510333/throughline",
+          "textContext": "...[👤Ken Burns] and the 🏢American Revolution..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > article > div > div > span",
+      "count": 7,
+      "sites": [
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "Andrew",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...\n        \n        [👤Andrew] Caballero-Reynolds/AFP via Ge..."
+        },
+        {
+          "entity": "Judd",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...\n        \n        [🏢Judd] Demaline for KFF Health News\n..."
+        },
+        {
+          "entity": "Joe",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...\n        \n        [👤Joe] Raedle/Getty Images\n        \n..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > div > div > div > p",
+      "count": 7,
+      "sites": [
+        "npr.org",
+        "foxnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "Prince",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...sident Donald Trump and Crown [👤Prince] and 🏢Prime Minister Mohammed..."
+        },
+        {
+          "entity": "Prime",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "... Trump and Crown 👤Prince and [🏢Prime] Minister Mohammed bin Salman ..."
+        },
+        {
+          "entity": "Saudi Arabia",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...nister Mohammed bin Salman of [📍Saudi Arabia] stand for a photo with 🏢Tesl..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div > div > p > b",
+      "count": 6,
+      "sites": [
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "Andrew",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...         \n                    [👤Andrew] Caballero-Reynolds/AFP via Ge..."
+        },
+        {
+          "entity": "Judd",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...         \n                    [🏢Judd] Demaline for KFF Health News\n..."
+        },
+        {
+          "entity": "Joe",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...         \n                    [👤Joe] Raedle/Getty Images\n         ..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div > div > h2 > span",
+      "count": 6,
+      "sites": [
+        "nbcnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "Greenland",
+          "url": "https://www.nbcnews.com/politics",
+          "textContext": "...[📍Greenland]..."
+        },
+        {
+          "entity": "Greenland",
+          "url": "https://www.nbcnews.com/politics",
+          "textContext": "...[📍Greenland]..."
+        },
+        {
+          "entity": "United Kingdom",
+          "url": "https://www.nbcnews.com/politics",
+          "textContext": "...[📍United Kingdom]..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div > div > div > h2",
+      "count": 5,
+      "sites": [
+        "dailymail.co.uk"
+      ],
+      "examples": [
+        {
+          "entity": "Daily Mail",
+          "url": "https://www.dailymail.co.uk/home/contactus/index.html",
+          "textContext": "...Advertise on [🏢Daily Mail]..."
+        },
+        {
+          "entity": "Access",
+          "url": "https://www.dailymail.co.uk/home/contactus/index.html",
+          "textContext": "...Data Subject [🏢Access] Request..."
+        },
+        {
+          "entity": "Forum",
+          "url": "https://www.dailymail.co.uk/home/contactus/index.html",
+          "textContext": "...Mail [🏢Forum]..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div > ul > li > span",
+      "count": 4,
+      "sites": [
+        "dailymail.co.uk"
+      ],
+      "examples": [
+        {
+          "entity": "Inter",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...[🏢Inter] 1-1 🏢Arsenal (Sucic 18&#x27;..."
+        },
+        {
+          "entity": "Arsenal",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...🏢Inter 1-1 [🏢Arsenal] (Sucic 18&#x27;)..."
+        },
+        {
+          "entity": "Inter",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...[🏢Inter] 0-1 🏢Arsenal (Jesus 10&#x27;..."
+        }
+      ]
+    },
+    {
+      "pattern": "div. > div > section > div > div > h3",
+      "count": 3,
+      "sites": [
+        "nbcnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "More",
+          "url": "https://www.nbcnews.com",
+          "textContext": "...[🏢More] From NBC..."
+        },
+        {
+          "entity": "More",
+          "url": "https://www.nbcnews.com/politics",
+          "textContext": "...[🏢More] From NBC..."
+        },
+        {
+          "entity": "More",
+          "url": "https://www.nbcnews.com/us-news",
+          "textContext": "...[🏢More] From NBC..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > ul > li > div > h3 > span",
+      "count": 3,
+      "sites": [
+        "nbcnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "Greenland",
+          "url": "https://www.nbcnews.com",
+          "textContext": "...[📍Greenland]..."
+        },
+        {
+          "entity": "NBC News",
+          "url": "https://www.nbcnews.com/us-news",
+          "textContext": "...[🏢NBC News] NOW..."
+        },
+        {
+          "entity": "NBC News",
+          "url": "https://www.nbcnews.com/us-news",
+          "textContext": "...[🏢NBC News] NOW..."
+        }
+      ]
+    },
+    {
+      "pattern": "section > div > div > div > div > p",
+      "count": 2,
+      "sites": [
+        "nytimes.com",
+        "foxnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "Keep",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...[🏢Keep] track of the movies you want ..."
+        },
+        {
+          "entity": "Grace",
+          "url": "https://www.foxnews.com/books",
+          "textContext": "...How God's [🏢Grace] Plays a Role in Healing..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > div > div > p",
+      "count": 2,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Matthew McConaughey",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...sstated who is left behind by [👤Matthew McConaughey]’s widower in “Interstellar.” ..."
+        },
+        {
+          "entity": "Cord Jefferson",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...is article misstated the year [👤Cord Jefferson] won an Oscar. It was in 2024,..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div > section > div > h2",
+      "count": 2,
+      "sites": [
+        "nbcnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "NBC News",
+          "url": "https://www.nbcnews.com/politics",
+          "textContext": "...[🏢NBC News] Daily With Kate Snow and Zinh..."
+        },
+        {
+          "entity": "NBC News",
+          "url": "https://www.nbcnews.com/us-news",
+          "textContext": "...[🏢NBC News] Daily With Kate Snow and Zinh..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > b",
+      "count": 1,
+      "sites": [
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "World News",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...News: U.S. and [🏢World News] Headlines..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > article > div > h4",
+      "count": 1,
+      "sites": [
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "Winter",
+          "url": "https://www.npr.org/podcasts/510333/throughline",
+          "textContext": "...[👤Winter] Book Club: The Story of Us?..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div[button] > div > div > div",
+      "count": 1,
+      "sites": [
+        "nbcnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "NBC News",
+          "url": "https://www.nbcnews.com",
+          "textContext": "...[🏢NBC News]&#x27; Al Roker tracks the lat..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > section > div > div > h2",
+      "count": 1,
+      "sites": [
+        "nbcnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "More",
+          "url": "https://www.nbcnews.com/politics",
+          "textContext": "...[🏢More] politics news..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > section > div > div > div",
+      "count": 1,
+      "sites": [
+        "foxnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "More",
+          "url": "https://www.foxnews.com/books",
+          "textContext": "...See [🏢More] Books..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > section > div > h2",
+      "count": 1,
+      "sites": [
+        "foxnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "Fox",
+          "url": "https://www.foxnews.com/books",
+          "textContext": "...The [🏢Fox] News Books Podcast..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > div > h1",
+      "count": 1,
+      "sites": [
+        "dailymail.co.uk"
+      ],
+      "examples": [
+        {
+          "entity": "Home",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...[🏢Home]..."
+        }
+      ]
+    }
+  ]
+}

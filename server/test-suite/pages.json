@@ -1,0 +1,1766 @@
+[
+  {
+    "domain": "bbc.com",
+    "name": "BBC News",
+    "articleSelector": "article, [data-component=\"text-block\"], .ssrcss-11r1m41-RichTextComponentWrapper",
+    "pages": [
+      {
+        "url": "https://www.bbc.com/",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.bbc.com/news",
+        "type": "category"
+      },
+      {
+        "url": "https://www.bbc.com/sport",
+        "type": "category"
+      },
+      {
+        "url": "https://www.bbc.com/news/topics/c2vdnvdg6xxt",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/world/africa",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/world/asia",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/world/australia",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/world/europe",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/world/latin_america",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/world/middle_east",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/live/cx2k7gv0znmt",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/c0mkp021rvro",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/cj0n127y74go",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/c4g39w8k8zwo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/crle9k2gw6jo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/videos/cj0n127y9eqo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/c4gwp2me3gzo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/cvg1rxgl80yo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/cwy1lpgqenxo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.com/news/articles/c24g6pj2071o",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "bbc.co.uk",
+    "name": "BBC News UK",
+    "articleSelector": "article, [data-component=\"text-block\"], .ssrcss-11r1m41-RichTextComponentWrapper",
+    "pages": [
+      {
+        "url": "https://www.bbc.co.uk/",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news",
+        "type": "category"
+      },
+      {
+        "url": "https://www.bbc.co.uk/accessibility/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/topics/c2vdnvdg6xxt",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/topics/c1vw6q14rzqt",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/topics/cmj34zmwm1zt",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/live/cx2k7gv0znmt",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/c0mkp021rvro",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/c0mkp021rvro#comments",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/cm2xwp37dmgo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/cvg1rxgl80yo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/c5yxdgl21nko",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/crle9k2gw6jo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/world/europe",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/cj0n127y74go",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/sport/tennis/articles/c8d0yq0neq5o",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/cm2j8e9p2pgo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/sport/football/live/c1lr7yr1ye4t",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/c4gwp2me3gzo",
+        "type": "article"
+      },
+      {
+        "url": "https://www.bbc.co.uk/news/articles/c4gwp2me3gzo#comments",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "theguardian.com",
+    "name": "The Guardian",
+    "articleSelector": ".article-body-commercial-selector, .dcr-1cas496",
+    "pages": [
+      {
+        "url": "https://www.theguardian.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://support.theguardian.com/subscribe?REFPVID=undefined&INTCMP=undefined&acquisitionData=%7B%22source%22%3A%22GUARDIAN_WEB%22%2C%22componentId%22%3A%22PrintSubscriptionsHeaderLink%22%2C%22componentType%22%3A%22ACQUISITIONS_HEADER%22%2C%22referrerUrl%22%3A%22%22%7D",
+        "type": "category"
+      },
+      {
+        "url": "https://profile.theguardian.com/signin?INTCMP=DOTCOM_NEWHEADER_SIGNIN&ABCMP=ab-sign-in&componentEventParams=componentType%3Didentityauthentication%26componentId%3Dguardian_signin_header",
+        "type": "category"
+      },
+      {
+        "url": "https://www.theguardian.com/commentisfree/2026/jan/20/donald-trump-britain-europe-labour-uk",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/tv-and-radio/2026/jan/20/most-confusing-tv-shows-industry-twin-peaks-lost",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/commentisfree/2026/jan/20/brooklyn-peltz-beckham-inc-disaster-david-victoria",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/thefilter/2026/jan/20/how-i-shop-with-dawn-oporter",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/stage/2026/jan/20/macbeth-tina-turner-all-is-but-fantasy-musical-mashup-rsc-whitney-white",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/wellness/2026/jan/20/parasite-cleanse-worms",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/preference/edition/uk",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/preference/edition/us",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/preference/edition/au",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/preference/edition/eur",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/preference/edition/int",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/type/video+tone/comment",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/artanddesign/series/gnm-print-sales",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/theguardian/series/corrections-and-clarifications",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/world/live/2026/jan/20/europe-greenland-donald-trump-davos-europe-live-latest-updates",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/world/2026/jan/20/trump-tariffs-over-greenland-are-an-error-says-ursula-von-der-leyen",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theguardian.com/us-news/2026/jan/20/nervous-rex-davos-elite-trump-dinosaur-diplomacy",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "cnn.com",
+    "name": "CNN",
+    "articleSelector": ".pg-rail-tall__body, .article__content",
+    "pages": [
+      {
+        "url": "https://www.cnn.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://edition.cnn.com/us",
+        "type": "category"
+      },
+      {
+        "url": "https://edition.cnn.com/world",
+        "type": "category"
+      },
+      {
+        "url": "https://edition.cnn.com/world/europe/ukraine",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/world/middleeast/israel",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cnn.com/election/2025",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/politics/state-redistricting-maps-vis/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/business/markets/nightcap",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/health/life-but-better/fitness",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/health/life-but-better/food",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/health/life-but-better/sleep",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/health/life-but-better/mindfulness",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/health/life-but-better/relationships",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/business/tech/innovate",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/business/tech/foreseeable-future",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/business/tech/mission-ahead",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/business/tech/innovative-cities",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/sport/paris-olympics-2024",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/specials/weather/weather-video",
+        "type": "article"
+      },
+      {
+        "url": "https://edition.cnn.com/world/africa/inside-africa",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "nytimes.com",
+    "name": "New York Times",
+    "articleSelector": ".meteredContent, article[data-testid=\"article-body\"]",
+    "pages": [
+      {
+        "url": "https://www.nytimes.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.nytimes.com/international/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.nytimes.com/ca/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nytimes.com/interactive/2023/10/27/arts/music/music-fivemins-collection.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nytimes.com/interactive/2022/podcasts/serial-productions.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nytimes.com/crosswords/game/mini",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nytimes.com/games/wordle/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nytimes.com/crosswords/game/daily/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nytimes.com/interactive/2022/upshot/wordle-bot.html",
+        "type": "article"
+      },
+      {
+        "url": "https://cooking.nytimes.com/68861692-nyt-cooking/43843372-quick-recipes",
+        "type": "article"
+      },
+      {
+        "url": "https://cooking.nytimes.com/68861692-nyt-cooking/1334836-easy-salmon-recipes",
+        "type": "article"
+      },
+      {
+        "url": "https://cooking.nytimes.com/68861692-nyt-cooking/638891-best-soup-stew-recipes",
+        "type": "article"
+      },
+      {
+        "url": "https://cooking.nytimes.com/68861692-nyt-cooking/32998034-our-newest-recipes",
+        "type": "article"
+      },
+      {
+        "url": "https://cooking.nytimes.com/68861692-nyt-cooking/41238156-cheap-and-easy-dinner-ideas",
+        "type": "article"
+      },
+      {
+        "url": "https://cooking.nytimes.com/68861692-nyt-cooking/950138-amazing-slow-cooker-recipes",
+        "type": "article"
+      },
+      {
+        "url": "https://cooking.nytimes.com/68861692-nyt-cooking/16596-healthy-breakfast-ideas",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nytimes.com/wirecutter/make-a-plan/moving/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nytimes.com/wirecutter/reviews/best-air-purifier/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nytimes.com/wirecutter/reviews/best-electric-toothbrush/",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "washingtonpost.com",
+    "name": "Washington Post",
+    "articleSelector": ".article-body, .teaser-content",
+    "pages": [
+      {
+        "url": "https://www.washingtonpost.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.washingtonpost.com/accessibility/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.washingtonpost.com/politics/?itid=hp_top_nav_politics",
+        "type": "category"
+      },
+      {
+        "url": "https://www.washingtonpost.com/nation/2026/01/20/judge-steve-meyer-indiana/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/weather/2026/01/18/winter-drought-us-impacts-rain-fire/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/world/2026/01/20/luften-open-windows-house-burping/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/dc-md-va/2026/01/19/trump-epstein-birthday-card-mall/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/travel/tips/when-to-book-cheap-flights-2/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/politics/2026/01/20/trump-davos-greenland-europe-denmark/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/world/2026/01/20/trump-britain-greenland-chagos-islands/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/world/2026/01/20/us-trump-greenland-military-church-disobey/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/nation/2026/01/20/ice-minneapolis-immigration-enforcement-renee-good/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/technology/2026/01/20/tech-ice-letter-protest/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/immigration/2026/01/19/minnesota-church-anti-ice-protest/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/dc-md-va/2026/01/20/halligan-judges-standoff-virginia-prosecutor/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/business/2026/01/20/irs-tax-season-reorganization-trump-bisignano/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/climate-environment/2026/01/20/protein-meat-plant-myths/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/opinions/2026/01/20/homeland-security-world-cup-tourism-social-media/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/opinions/2026/01/20/ukraine-kyiv-air-defense-russian-drones-missiles/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.washingtonpost.com/opinions/2026/01/20/alcohol-moderate-drinking-health-risks/",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "reuters.com",
+    "name": "Reuters",
+    "articleSelector": ".article-body__content, [data-testid=\"ArticleBody\"]",
+    "pages": []
+  },
+  {
+    "domain": "apnews.com",
+    "name": "AP News",
+    "articleSelector": ".RichTextStoryBody, .Article",
+    "pages": [
+      {
+        "url": "https://apnews.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://apnews.com/world-news",
+        "type": "category"
+      },
+      {
+        "url": "https://apnews.com/hub/israel-hamas-war",
+        "type": "category"
+      },
+      {
+        "url": "https://apnews.com/article/mexico-us-sheinbaum-trump-military-a8e3382b52e181489f75097aba7cbd36",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/trump-europe-nato-greenland-security-8d31b28bb7076f534fba25b80aa3a59f",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/denmark-greenland-trump-bessent-davos-ab05ebfaae6a413d1f8125cb9726a4c5",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/minnesota-immigration-us-citizen-detained-hmong-d009590a491c0c8243ef21ef24db7182",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/winter-weather-snow-pileup-michigan-cfb7f2d1ad0355b917c1eb972e5c90c6",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/northern-lights-geomagnetic-storm-792c985d4422261dea66427e26acab2a",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/projects/election-results-2025/",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/projects/election-results-2025/early-voting-tracker/",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/minneapolis-shooting-congress-visit-ice-5eb6749b18d59ed8c47b5eeab9784432",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/trump-anniversary-davos-billionaires-housing-90f2e691725539c8d5cba6131baccb3f",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/trump-one-year-anniversary-attention-ec07936f45c67821b9b55f244195a626",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/hub/milan-cortina-2026-winter-olympics",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/live/miami-indiana-cfp-national-championship-2026-updates",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/naomi-osaka-costume-tennis-australian-open-b3dbbb2afd43d062cafa5d2bbe8908e3",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/sundance-film-festival-2026-preview-81c2a03be019d185418832a49089799b",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/photo-gallery/photos-valentino-garavani-fashion-designer-italy-red-6fbfe53c09322b1b85808e643873afe1",
+        "type": "article"
+      },
+      {
+        "url": "https://apnews.com/article/fashion-giorgio-armani-succession-milan-dellorco-menswear-f52d2549b52f129dc142651a34ebaa56",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "npr.org",
+    "name": "NPR",
+    "articleSelector": ".storytext, #storytext, .story-text",
+    "pages": [
+      {
+        "url": "https://www.npr.org",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.npr.org/newsletters/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.npr.org/sections/news/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.npr.org/2025/12/10/g-s1-99930/best-music-of-2025",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/series/770565791/npr-music-live-sessions",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/podcasts/510318/up-first/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/podcasts/510311/embedded",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/podcasts/510310/npr-politics-podcast",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/podcasts/510333/throughline",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/podcasts/510374/trumps-terms",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/series/750003/press-room/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/2026/01/20/nx-s1-5670378/trump-energy-promises-one-year",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/2026/01/20/nx-s1-5678927/trump-world-order-foreign-policy",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/series/g-s1-69417/world-reordering",
+        "type": "article"
+      },
+      {
+        "url": "https://ondemand.npr.org/anon.npr-mp3/npr/atc/2026/01/20260114_atc_how_trump_s_america_first_is_upending_the_world_order.mp3?t=progseg&e=nx-s1-5661941&p=2&seg=9&d=322&size=5160587&sc=siteplayer&aw_0_1st.playerid=siteplayer",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/transcripts/nx-s1-5678927",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/2026/01/20/nx-s1-5670290/polyester-fabric-clothing",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/2026/01/20/nx-s1-5675187/gretchen-whitmer-trump-midterm-elections",
+        "type": "article"
+      },
+      {
+        "url": "https://ondemand.npr.org/anon.npr-mp3/npr/me/2026/01/20260120_me_gretchen_whitmer_says_it_s_not_paranoia_to_fear_trump_using_the_military_in_elections.mp3?t=progseg&e=nx-s1-5631256&p=3&seg=6&d=466&size=7470229&sc=siteplayer&aw_0_1st.playerid=siteplayer",
+        "type": "article"
+      },
+      {
+        "url": "https://www.npr.org/transcripts/nx-s1-5675187",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "aljazeera.com",
+    "name": "Al Jazeera",
+    "articleSelector": ".wysiwyg, .article-p-wrapper",
+    "pages": [
+      {
+        "url": "https://www.aljazeera.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.aljazeera.com/live",
+        "type": "category"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/liveblog/2026/1/20/syria-fighting-live-ceasefire-under-duress-as-govt-moves-into-hasakah",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/2025/11/11/how-many-times-has-israel-violated-the-gaza-ceasefire-here-are-the-numbers",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/2026/1/20/iran-just-getting-started-on-punishing-rioters-arrested-during-protests",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/liveblog/2026/1/20/syria-fighting-live-ceasefire-under-duress-as-govt-moves-into-hasakah?update=4254932",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/liveblog/2026/1/20/syria-fighting-live-ceasefire-under-duress-as-govt-moves-into-hasakah?update=4254864",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/liveblog/2026/1/20/syria-fighting-live-ceasefire-under-duress-as-govt-moves-into-hasakah?update=4254870",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/liveblog/2026/1/20/syria-fighting-live-ceasefire-under-duress-as-govt-moves-into-hasakah?update=4254982",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/2026/1/20/ugandas-bobi-wine-we-have-evidence-of-election-fraud-in-museveni-win",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/liveblog/2026/1/20/trump-first-year-back-live-us-president-ramps-up-pressure-on-allies",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/2026/1/20/us-envoy-says-sdfs-role-in-syria-has-largely-expired-after-isil",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/sports/liveblog/2026/1/20/live-inter-milan-vs-arsenal-uefa-champions-league",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/longform/2026/1/20/act-fast-how-speed-defined-the-start-of-trumps-second-term",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/2026/1/20/gul-plaza-fire-how-a-deadly-inferno-exposed-karachis-safety-failures",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/2026/1/20/israel-bulldozes-unrwa-buildings-in-occupied-east-jerusalem",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/2026/1/20/gazas-phase-two-from-a-distance-why-hope-still-feels-out-of-reach",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/sports/2026/1/20/marseille-vs-liverpool-champions-league-salah-team-news-start-lineup",
+        "type": "article"
+      },
+      {
+        "url": "https://www.aljazeera.com/news/longform/2026/1/20/a-year-in-images-donald-trumps-return-to-the-white-house",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "nbcnews.com",
+    "name": "NBC News",
+    "articleSelector": ".article-body, .article-body__content",
+    "pages": [
+      {
+        "url": "https://www.nbcnews.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.nbcnews.com/politics",
+        "type": "category"
+      },
+      {
+        "url": "https://www.nbcnews.com/us-news",
+        "type": "category"
+      },
+      {
+        "url": "https://www.nbcnews.com/news/us-news/doj-serves-subpoenas-walz-frey-minnesota-officials-immigration-crackdo-rcna255028",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/news/nbc-news-now-live-audio-listen-live-news-audio-day-rcna70163",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/politics/trump-administration/live-blog/trump-mike-johnson-europe-greenland-tariffs-iran-live-updates-rcna254574",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/sports/college-football/indiana-hoosiers-miami-hurricanes-national-championship-rcna254911",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/world/greenland/trump-leaks-macron-text-greenland-nato-rutte-europe-davos-rcna254907",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/news/us-news/us-citizen-shares-fear-felt-ice-took-minnesota-home-nearly-naked-rcna254890",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/news/us-news/january-freeze-taking-hold-us-little-signs-letting-rcna254936",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/pop-culture/celebrity/brooklyn-beckham-speaks-parents-scathing-instagram-post-rcna254926",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/world/middle-east/isis-us-allies-syria-terrorism-al-hol-sdf-sharaa-rcna254930",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/world/gaza/trump-board-peace-world-order-pushback-allies-price-tag-rcna254851",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/world/united-kingdom/speaker-johnson-addresses-uk-parliament-trump-starmer-chagos-greenland-rcna254905",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/business/markets/stock-market-trump-tariffs-greenland-rcna254918",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/politics/trump-administration/trumps-approval-rating-takes-hit-first-year-back-office-rcna253192",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/politics/trump-administration/trumps-pardons-forgive-financial-crimes-came-hundreds-millions-punishm-rcna248277",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/politics/donald-trump/trumps-first-year-second-term-numbers-executive-orders-pardons-golf-rcna255003",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/politics/congress/congress-releases-massive-funding-bill-ahead-shutdown-deadline-ice-cla-rcna254968",
+        "type": "article"
+      },
+      {
+        "url": "https://www.nbcnews.com/news/us-news/timothy-busfield-due-court-detention-hearing-child-sex-abuse-case-rcna254935",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "cbsnews.com",
+    "name": "CBS News",
+    "articleSelector": ".content__body, .article-content",
+    "pages": [
+      {
+        "url": "https://www.cbsnews.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.cbsnews.com/us/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.cbsnews.com/world/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.cbsnews.com/news/pay-raise-2026-peanut-butter-style/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/news/spain-train-crash-2026-deaths-rise-cause-unclear/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/texas/news/dallas-exonerate-man-wrongfully-executed-murder-1956/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/news/which-form-of-silver-is-best-for-investing-in-january-2026/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/video/inside-cecot-60-minutes-video-2026-01-18/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/video/australia-crocodiles-60-minutes-video-2026-01-18/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/video/ice-minneapolis60-minutes-video-2026-01-18/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/video/venezuela-maduro-60-minutes-video-2026-01-04/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/video/ai-powered-humanoid-robots-60-minutes-video-2026-01-04/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/news/homeowner-tax-deductions-2026-tax-season/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/video/almanac-january-18-2026/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/pictures/notable-deaths-in-2025/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/minnesota/live-updates/minnesota-ice-shooting-protests-trump-insurrection-act/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/60-minutes/overtime/original/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/60-minutes/overtime/60-rewind/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/news/trump-invokes-1798-alien-enemies-act/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.cbsnews.com/news/cecot-statements-60-minutes-01-18-2026/",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "foxnews.com",
+    "name": "Fox News",
+    "articleSelector": ".article-body, .article-content",
+    "pages": [
+      {
+        "url": "https://www.foxnews.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.foxnews.com/books",
+        "type": "category"
+      },
+      {
+        "url": "https://www.foxnews.com/us",
+        "type": "category"
+      },
+      {
+        "url": "https://www.foxnews.com/video/5614615980001",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/video/topics/v-most-recent-episodes",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/video/topics/latest-news-video",
+        "type": "article"
+      },
+      {
+        "url": "https://privacy.foxnews.com/main/web/main",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/video/6387960148112",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/video/6387985696112",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/entertainment/teen-mom-star-farrah-abraham-austin-mayoral-campaign-confusing-2026-2028-election-dates",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/faith-values/buddhist-monks-walking-2300-miles-from-texas-dc-go-viral-1m-social-media-followers",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/sports/2026-nascar-paint-schemes-new-looks",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/sports/late-nascar-star-greg-biffles-home-burglarized-30000-missing-officials",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/video/6387984788112",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/video/6387975931112",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/video/6387976213112",
+        "type": "article"
+      },
+      {
+        "url": "https://www.foxnews.com/video/6387971235112",
+        "type": "article"
+      },
+      {
+        "url": "https://radio.foxnews.com/2026/01/20/chaos-continues-in-minneapolis/",
+        "type": "article"
+      },
+      {
+        "url": "https://radio.foxnews.com/2026/01/20/david-beckham-stays-silent-on-rift-with-son-brooklyn/",
+        "type": "article"
+      },
+      {
+        "url": "https://radio.foxnews.com/2026/01/20/nancy-mace-says-republicans-headed-for-midterm-loss-urges-trump-not-to-endorse-for-now/",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "usatoday.com",
+    "name": "USA Today",
+    "articleSelector": ".gnt_ar_b, .article-body",
+    "pages": [
+      {
+        "url": "https://www.usatoday.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.usatoday.com/news/nation/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.usatoday.com/news/politics/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.usatoday.com/story/news/nation/2026/01/20/minnesota-subpoenas-walz-frey-ellison/88268664007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/news/nation/2026/01/20/ice-releasing-immigrant-families/88236375007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/sports/ncaaf/2026/01/20/alberto-mendoza-transfer-portal-indiana-football-fernando-younger-brother-josh-hoover-cfp/88263286007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/entertainment/celebrities/2026/01/20/david-beckham-statement-brooklyn-nicola-peltz-drama/88262916007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/sports/ncaaf/2026/01/20/college-rankings-football-top-25-coaches-poll-indiana/88251489007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/entertainment/celebrities/2026/01/20/robert-redford-daughter-amy-comments/88262667007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/entertainment/celebrities/2026/01/20/don-lemon-nicki-minaj-anti-ice-church-protest-minnesota/88262077007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/news/world/2026/01/20/trump-greenland-europe-tariffs/88261309007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/news/politics/2026/01/20/vaccines-crunchy-moms-rfk-extremely-normal/88193132007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/news/politics/2026/01/20/trump-maga-year-two/88161701007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/news/politics/2026/01/19/donald-trump-doesnt-acknowledge-martin-luther-king-jr-day/88252240007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/life/health-wellness/2026/01/20/hot-take-dating-trend-explained-daters-singles/88216787007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/life/health-wellness/2026/01/20/brooklyn-beckham-wedding/88262700007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/sports/golf/2026/01/20/michael-la-sasso-liv-golf-pro-masters/88267042007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/news/nation/2026/01/20/northern-lights-tonight-forecast/88261584007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/cars/news/2026/01/20/ford-cheaper-hybrid-evs/88266165007/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.usatoday.com/story/sports/ncaaf/2026/01/20/indiana-national-championship-save-college-football-curt-cignetti-cfp/88258339007/",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "dailymail.co.uk",
+    "name": "Daily Mail",
+    "articleSelector": "[itemprop=\"articleBody\"], .article-text",
+    "pages": [
+      {
+        "url": "https://www.dailymail.co.uk",
+        "type": "homepage"
+      },
+      {
+        "url": "https://games.dailymail.co.uk/all-games?arkpromo=TopNavAllGames",
+        "type": "category"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/privacy",
+        "type": "category"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/news/royals/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/buyline/beauty/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/buyline/fashion/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/buyline/home-garden/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/buyline/black-friday/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/home/latest/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/home/books/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/money/cars/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/home/contactus/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/home/weather/index.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/tvshowbiz/article-15479661/trademark-row-Beckham-feud-Victoria-Brooklyn.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/tvshowbiz/article-15479661/trademark-row-Beckham-feud-Victoria-Brooklyn.html?ico=comment-anchor#comments",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/tvshowbiz/article-15479661/trademark-row-Beckham-feud-Victoria-Brooklyn.html#video",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/tvshowbiz/article-15480227/Beckhams-Victoria-behaviour-nickname-Nicola-Brooklyn-bombshell-revelations-ALISON-BOSHOFF.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/tvshowbiz/article-15480227/Beckhams-Victoria-behaviour-nickname-Nicola-Brooklyn-bombshell-revelations-ALISON-BOSHOFF.html?ico=comment-anchor#comments",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/tvshowbiz/article-15480227/Beckhams-Victoria-behaviour-nickname-Nicola-Brooklyn-bombshell-revelations-ALISON-BOSHOFF.html#video",
+        "type": "article"
+      },
+      {
+        "url": "https://www.dailymail.co.uk/health/article-15480319/Therapists-expert-verdict-Brooklyn-Beckhams-bombshell-Instagram-post-disowning-family-assault-no-kindness-parents-siblings.html",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "independent.co.uk",
+    "name": "The Independent",
+    "articleSelector": "#main-content article, .article-body",
+    "pages": [
+      {
+        "url": "https://www.independent.co.uk",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.independent.co.uk/asia?editionSwitcherSource=independent.co.uk",
+        "type": "category"
+      },
+      {
+        "url": "https://www.independent.co.uk/newsletters",
+        "type": "category"
+      },
+      {
+        "url": "https://www.independent.co.uk/news/uk/politics",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/sport/rugby/rugby-union",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/extras/indybest/black-friday",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/extras/indybest/house-garden",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/extras/indybest/gadgets-tech",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/extras/indybest/fashion-beauty",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/extras/indybest/food-drink",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/extras/indybest/kids",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/extras/indybest/books",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/extras/indybest/travel-outdoors",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/extras/indybest/outdoor-activity",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/travel/north-america/usa",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/sport/betting-sites-b2584371.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/games/online-casinos-b2599494.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/news/world/europe/macron-trump-bully-tariffs-greenland-davos-b2904146.html",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/news/world/europe",
+        "type": "article"
+      },
+      {
+        "url": "https://www.independent.co.uk/news/world/europe/trump-greenland-tariffs-uk-denmark-eu-latest-news-b2903596.html",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "telegraph.co.uk",
+    "name": "The Telegraph",
+    "articleSelector": ".article-body-text, [data-test=\"article-body\"]",
+    "pages": [
+      {
+        "url": "https://www.telegraph.co.uk",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/search/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/news/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/music/0/best-albums-of-all-time/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/news/2022/03/02/russia-ukraine-war-listen-daily-podcast/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/customer/subscription/store?ICID=store_button_topnav",
+        "type": "article"
+      },
+      {
+        "url": "https://secure.telegraph.co.uk/customer/secure/login/?redirectTo=",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/travel/destinations/europe/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/travel/destinations/europe/united-kingdom/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/travel/destinations/worldwide/",
+        "type": "article"
+      },
+      {
+        "url": "https://secure.telegraph.co.uk/customer/secure/newsletter/ukraine/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/customer/subscription/store",
+        "type": "article"
+      },
+      {
+        "url": "https://dating.telegraph.co.uk/s/a/20500?utm_source=hamburger&utm_medium=TMGmain",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/world-news/2026/01/20/europe-hits-back-at-hungry-caterpillar-trump/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/world-news/2026/01/20/donald-trump-chagos-deal-greenland-takeover-macron-nato0/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/world-news/2026/01/20/trump-has-european-leaders-right-where-he-wants-them/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/authors/j/ja-je/james-crisp/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/business/2026/01/20/trump-gatecrashes-davos-cosy-cocktail-club/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/us/news/2026/01/20/canada-military-us-invasion-trump-carney/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.telegraph.co.uk/politics/2026/01/20/chinese-super-embassy-decision-keir-starmer-london/",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "economist.com",
+    "name": "The Economist",
+    "articleSelector": ".article__body, .layout-article-body",
+    "pages": []
+  },
+  {
+    "domain": "ft.com",
+    "name": "Financial Times",
+    "articleSelector": ".article__content-body, .body-text",
+    "pages": [
+      {
+        "url": "https://www.ft.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.ft.com/accessibility",
+        "type": "category"
+      },
+      {
+        "url": "https://markets.ft.com/data",
+        "type": "category"
+      },
+      {
+        "url": "https://www.ft.com/content/3bc80cb4-e08b-427e-81fd-a7ad5689f4a5",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/80d6b1e1-e17c-4ed4-aa3e-b9a50196eb72",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/9f518c00-ce6c-46d0-8ffb-d32275e945d8",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/fc4eda20-0129-4a02-878f-0fcc49a5defe",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/52c04197-4f6c-4a71-9c0f-82fc5eaecf24",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/159bc866-1f2a-44eb-8bff-ff7c73749def",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/73c80adc-776a-4738-950a-9c08ef08d759",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/c3266418-9035-4fe5-8af7-69c1098ad9bb",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/2a29cbc9-7183-4f68-a1d2-bc88189672e6",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/4f80bf6a-5e50-4623-b37f-80528080ed1f",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/c670fa3a-05d8-41e5-9701-8239a9c7206f",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/6d29dab0-c18d-4244-ba89-c5a4bb40e516",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/39d6fd07-4202-4404-8f78-38a77caf79a0",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/e70b78ef-8d57-43ca-9f3f-c37f65147a9d",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/9f7361f4-e88a-40f5-a0b4-05a33b237e29",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/beeaf869-ca12-4178-95a1-bfb69ee27ae4",
+        "type": "article"
+      },
+      {
+        "url": "https://www.ft.com/content/68349aa9-9b4e-44a2-abd4-f1964308cf29",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "theatlantic.com",
+    "name": "The Atlantic",
+    "articleSelector": ".article-body, [data-article-content]",
+    "pages": [
+      {
+        "url": "https://www.theatlantic.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.theatlantic.com/most-popular/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.theatlantic.com/latest/",
+        "type": "category"
+      },
+      {
+        "url": "https://www.theatlantic.com/magazine/2026/03/pam-bondi-trump-doj-independence/685663/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/politics/2026/01/trump-first-year-democracy/685658/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/health/2026/01/casey-means-surgeon-general-religion-spirituality/685682/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/ideas/2026/01/american-democracy-signs-life/685678/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/international/2026/01/trump-khamenei-iran-protests/685680/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/ideas/2026/01/us-military-trump-greenland/685677/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/culture/2026/01/trump-one-year-culture/685643/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/ideas/2026/01/trump-letter-to-norway/685676/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/books/2026/01/writing-exercise-movement-creativity/685634/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/ideas/2026/01/democrats-welfare-fraud/685661/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/ideas/2026/01/trump-first-year-powers/685670/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/ideas/2026/01/looksmaxxing-clavicular-vanity-trump/685636/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/culture/2026/01/martin-luther-king-and-minnesota-protests/685655/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/magazine/2026/03/trump-national-security-greenland-spheres-of-interest/685673/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/culture/2026/01/trumps-national-gallery-portrait/685666/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/ideas/2026/01/how-to-understand-trumps-obsession-with-greenland/685675/",
+        "type": "article"
+      },
+      {
+        "url": "https://www.theatlantic.com/politics/2026/01/josh-shapiro-kamala-harris-israel/685674/",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "newyorker.com",
+    "name": "The New Yorker",
+    "articleSelector": ".body__inner-container, .article__body",
+    "pages": [
+      {
+        "url": "https://www.newyorker.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.newyorker.com/newsletters?sourceCode=navbar",
+        "type": "category"
+      },
+      {
+        "url": "https://www.newyorker.com/latest",
+        "type": "category"
+      },
+      {
+        "url": "https://www.newyorker.com/magazine/2026/01/26/lamonica-mciver-congress-ice-jail-visit-felony-charges",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/news/the-lede/an-unhappy-anniversary-trumps-year-in-office",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/news/the-lede/the-overlooked-deaths-of-the-attack-on-venezuela",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/news/the-lede/from-selma-to-minneapolis",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/culture/critics-notebook/acts-of-self-destruction",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/magazine/2026/01/26/inside-bari-weisss-hostile-takeover-of-cbs-news",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/magazine/2026/01/26/why-trump-supports-protesters-in-tehran-but-not-in-minneapolis",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/news/the-lede/a-dhs-shooting-puts-portland-back-under-the-microscope",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/news/the-lede/jay-powell-the-prepster-banker-who-is-standing-up-to-trump",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/news/the-lede/how-colombias-president-reached-an-uneasy-detente-with-donald-trump",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/news/the-lede/irans-regime-is-unsustainable",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/news/the-lede/the-supreme-court-gets-back-to-work",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/culture/the-new-yorker-interview/amanda-seyfrieds-epiphanies",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/culture/the-current-cinema/nia-dacosta-injects-new-blood-into-28-years-later-the-bone-temple",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/culture/the-front-row/erich-von-stroheims-spectacular-art-is-back",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/magazine/2026/01/26/how-to-kill-a-fish",
+        "type": "article"
+      },
+      {
+        "url": "https://www.newyorker.com/magazine/2026/01/26/with-heaven-on-top-zach-bryan-music-review",
+        "type": "article"
+      }
+    ]
+  },
+  {
+    "domain": "politico.com",
+    "name": "Politico",
+    "articleSelector": ".story-text, .article__content",
+    "pages": []
+  },
+  {
+    "domain": "axios.com",
+    "name": "Axios",
+    "articleSelector": ".gtm-story-text, [data-cy=\"story-text\"]",
+    "pages": []
+  },
+  {
+    "domain": "vox.com",
+    "name": "Vox",
+    "articleSelector": ".c-entry-content, .article-body",
+    "pages": [
+      {
+        "url": "https://www.vox.com",
+        "type": "homepage"
+      },
+      {
+        "url": "https://www.vox.com/explainers",
+        "type": "category"
+      },
+      {
+        "url": "https://www.vox.com/politics",
+        "type": "category"
+      },
+      {
+        "url": "https://www.vox.com/21523212/crossword-puzzles-free-daily-printable",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/politics/473967/us-venezuela-trump-maduro-oil-crisis-rodriguez",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/press-room/468040/vox-membership-patreon-launch-new-benefits",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/politics/475810/supreme-court-bruen-wolford-lopez-hawaii",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/politics/475325/cable-news-culture-war-social-media-trump",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/podcasts/475490/trump-greenland-congress-war-powers",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/future-perfect/475362/yimby-movement-housing-abundance-beauty-aesthetics",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/podcasts/475041/china-soft-power-labubu-movies-videogames",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/today-explained-newsletter/475753/project-2025-2026-trump-administration",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/technology/475290/ai-data-center-bubble-memory-shortage-sandisk",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/the-highlight/472589/group-therapy-psychology-behaviora",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/life/474795/too-much-fitness",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/technology/474380/chatgpt-openai-google-gemini-ustomer-service",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/life/473859/closer-friendships-strawberry-people",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/future-perfect/475436/gofundme-crowdfunding-poll-american-trust-chart",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/future-perfect/475623/ocean-conservation-high-seas-treaty-syliva-earle-united-nations",
+        "type": "article"
+      },
+      {
+        "url": "https://www.vox.com/future-perfect/475567/iran-protests-starlink-satellites-space-human-rights",
+        "type": "article"
+      }
+    ]
+  }
+]

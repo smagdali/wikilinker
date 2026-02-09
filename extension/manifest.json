@@ -1,0 +1,93 @@
+{
+  "manifest_version": 3,
+  "name": "Wikilinker",
+  "version": "1.0.0",
+  "description": "Auto-links proper nouns and entities to Wikipedia on news sites",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://*.bbc.com/*",
+    "https://*.bbc.co.uk/*",
+    "https://*.cnn.com/*",
+    "https://*.theguardian.com/*",
+    "https://*.nytimes.com/*",
+    "https://*.washingtonpost.com/*",
+    "https://*.reuters.com/*",
+    "https://*.apnews.com/*",
+    "https://*.npr.org/*",
+    "https://*.aljazeera.com/*",
+    "https://*.nbcnews.com/*",
+    "https://*.cbsnews.com/*",
+    "https://*.abcnews.go.com/*",
+    "https://*.foxnews.com/*",
+    "https://*.usatoday.com/*",
+    "https://*.dailymail.co.uk/*",
+    "https://*.independent.co.uk/*",
+    "https://*.telegraph.co.uk/*",
+    "https://*.economist.com/*",
+    "https://*.ft.com/*",
+    "https://*.theatlantic.com/*",
+    "https://*.newyorker.com/*",
+    "https://*.politico.com/*",
+    "https://*.axios.com/*",
+    "https://*.vox.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.bbc.com/*",
+        "https://*.bbc.co.uk/*",
+        "https://*.cnn.com/*",
+        "https://*.theguardian.com/*",
+        "https://*.nytimes.com/*",
+        "https://*.washingtonpost.com/*",
+        "https://*.reuters.com/*",
+        "https://*.apnews.com/*",
+        "https://*.npr.org/*",
+        "https://*.aljazeera.com/*",
+        "https://*.nbcnews.com/*",
+        "https://*.cbsnews.com/*",
+        "https://*.abcnews.go.com/*",
+        "https://*.foxnews.com/*",
+        "https://*.usatoday.com/*",
+        "https://*.dailymail.co.uk/*",
+        "https://*.independent.co.uk/*",
+        "https://*.telegraph.co.uk/*",
+        "https://*.economist.com/*",
+        "https://*.ft.com/*",
+        "https://*.theatlantic.com/*",
+        "https://*.newyorker.com/*",
+        "https://*.politico.com/*",
+        "https://*.axios.com/*",
+        "https://*.vox.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["data/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

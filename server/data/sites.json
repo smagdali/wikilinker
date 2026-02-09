@@ -1,0 +1,72 @@
+{
+  "bbc.com": {
+    "name": "BBC News",
+    "articleSelector": "article, [data-component=\"text-block\"], .ssrcss-11r1m41-RichTextComponentWrapper",
+    "homepageUrl": "https://www.bbc.com/news"
+  },
+  "bbc.co.uk": {
+    "name": "BBC News UK",
+    "articleSelector": "article, [data-component=\"text-block\"], .ssrcss-11r1m41-RichTextComponentWrapper",
+    "homepageUrl": "https://www.bbc.co.uk/news"
+  },
+  "apnews.com": {
+    "name": "AP News",
+    "articleSelector": ".RichTextStoryBody, .Article",
+    "homepageUrl": "https://apnews.com"
+  },
+  "npr.org": {
+    "name": "NPR",
+    "articleSelector": ".storytext, #storytext, .story-text",
+    "homepageUrl": "https://www.npr.org"
+  },
+  "aljazeera.com": {
+    "name": "Al Jazeera",
+    "articleSelector": ".wysiwyg, .article-p-wrapper",
+    "homepageUrl": "https://www.aljazeera.com"
+  },
+  "nbcnews.com": {
+    "name": "NBC News",
+    "articleSelector": ".article-body, .article-body__content",
+    "homepageUrl": "https://www.nbcnews.com"
+  },
+  "cbsnews.com": {
+    "name": "CBS News",
+    "articleSelector": ".content__body, .article-content",
+    "homepageUrl": "https://www.cbsnews.com"
+  },
+  "foxnews.com": {
+    "name": "Fox News",
+    "articleSelector": ".article-body, .article-content",
+    "homepageUrl": "https://www.foxnews.com"
+  },
+  "usatoday.com": {
+    "name": "USA Today",
+    "articleSelector": ".gnt_ar_b, .article-body",
+    "homepageUrl": "https://www.usatoday.com"
+  },
+  "dailymail.co.uk": {
+    "name": "Daily Mail",
+    "articleSelector": "[itemprop=\"articleBody\"], .article-text",
+    "homepageUrl": "https://www.dailymail.co.uk"
+  },
+  "independent.co.uk": {
+    "name": "The Independent",
+    "articleSelector": "article, #main-content, .article-body",
+    "homepageUrl": "https://www.independent.co.uk"
+  },
+  "theatlantic.com": {
+    "name": "The Atlantic",
+    "articleSelector": ".article-body, [data-article-content]",
+    "homepageUrl": "https://www.theatlantic.com"
+  },
+  "newyorker.com": {
+    "name": "The New Yorker",
+    "articleSelector": ".body__inner-container, .article__body",
+    "homepageUrl": "https://www.newyorker.com"
+  },
+  "vox.com": {
+    "name": "Vox",
+    "articleSelector": ".c-entry-content, .article-body",
+    "homepageUrl": "https://www.vox.com"
+  }
+}

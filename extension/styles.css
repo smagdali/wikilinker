@@ -1,0 +1,114 @@
+/**
+ * Wikilinker Link Styles
+ *
+ * Colorblind-friendly palette with icons:
+ * - Person: blue (#2563eb) + bust emoji
+ * - Country/City: orange (#d97706) + pin emoji
+ * - Organization: purple (#7c3aed) + building emoji
+ * - Company: teal (#0d9488) + office emoji
+ */
+
+/* Base link style */
+.wikiproxy-link {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, text-decoration-color 0.15s ease;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.wikiproxy-link:hover {
+  text-decoration-style: solid;
+  text-decoration-thickness: 2px;
+}
+
+.wikiproxy-icon {
+  margin-right: 2px;
+  font-size: 0.9em;
+}
+
+/* Person - Blue */
+.wikiproxy-person {
+  color: inherit;
+  text-decoration-color: #2563eb;
+}
+
+.wikiproxy-person:hover {
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
+/* Country - Orange (colorblind-friendly, was green) */
+.wikiproxy-country {
+  color: inherit;
+  text-decoration-color: #d97706;
+}
+
+.wikiproxy-country:hover {
+  background-color: rgba(217, 119, 6, 0.1);
+}
+
+/* City - Orange (same as country - both places) */
+.wikiproxy-city {
+  color: inherit;
+  text-decoration-color: #d97706;
+}
+
+.wikiproxy-city:hover {
+  background-color: rgba(217, 119, 6, 0.1);
+}
+
+/* Organization - Purple */
+.wikiproxy-org {
+  color: inherit;
+  text-decoration-color: #7c3aed;
+}
+
+.wikiproxy-org:hover {
+  background-color: rgba(124, 58, 237, 0.1);
+}
+
+/* Company - Teal (colorblind-friendly, was orange) */
+.wikiproxy-company {
+  color: inherit;
+  text-decoration-color: #0d9488;
+}
+
+.wikiproxy-company:hover {
+  background-color: rgba(13, 148, 136, 0.1);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .wikiproxy-person:hover {
+    background-color: rgba(37, 99, 235, 0.2);
+  }
+
+  .wikiproxy-country:hover,
+  .wikiproxy-city:hover {
+    background-color: rgba(217, 119, 6, 0.2);
+  }
+
+  .wikiproxy-org:hover {
+    background-color: rgba(124, 58, 237, 0.2);
+  }
+
+  .wikiproxy-company:hover {
+    background-color: rgba(13, 148, 136, 0.2);
+  }
+}
+
+/* Print styles - remove visual indicators */
+@media print {
+  .wikiproxy-link {
+    text-decoration: none !important;
+    background-color: transparent !important;
+    color: inherit !important;
+  }
+
+  .wikiproxy-icon {
+    display: none;
+  }
+}

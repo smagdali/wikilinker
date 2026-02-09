@@ -1,0 +1,263 @@
+{
+  "round": 1,
+  "totalPages": 400,
+  "totalCorrect": 5985,
+  "totalIncorrect": 376,
+  "clusters": [
+    {
+      "pattern": "html > div > p",
+      "count": 138,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "But",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...cally over the past 25 years. [🏛But] through that period of upheav..."
+        },
+        {
+          "entity": "Pedro",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "... Oscar-winning directors like [👤Pedro] Almodóvar, Sofia Coppola, Bar..."
+        },
+        {
+          "entity": "Toro",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...rry Jenkins and Guillermo del [🏢Toro], as well as acclaimed actors ..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > p",
+      "count": 88,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Song",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...ments: A detective (played by [🏛Song] Kang 📍Ho) summoned to invest..."
+        },
+        {
+          "entity": "Ho",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...ective (played by 🏛Song Kang [📍Ho]) summoned to investigate a de..."
+        },
+        {
+          "entity": "Michael",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...racle worker, I’m a janitor,” [👤Michael] 👤Clayton tells a disgruntled..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > ul > li > div > div",
+      "count": 39,
+      "sites": [
+        "dailymail.co.uk"
+      ],
+      "examples": [
+        {
+          "entity": "Amazon",
+          "url": "https://www.dailymail.co.uk/buyline/black-friday/index.html",
+          "textContext": "...[🏢Amazon] has warned its customers abou..."
+        },
+        {
+          "entity": "Amazon",
+          "url": "https://www.dailymail.co.uk/buyline/black-friday/index.html",
+          "textContext": "...d sales from brands including [🏢Amazon], Boots and 👤John Lewis handp..."
+        },
+        {
+          "entity": "John Lewis",
+          "url": "https://www.dailymail.co.uk/buyline/black-friday/index.html",
+          "textContext": "...including 🏢Amazon, Boots and [👤John Lewis] handpicked and price-checked ..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > div > p",
+      "count": 31,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Michael",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...d Seth (Jonah Hill) and Evan ([👤Michael] Cera) trying to get laid befo..."
+        },
+        {
+          "entity": "But",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...e involving phallic cartoons. [🏛But] “Superbad” is also a feat of ..."
+        },
+        {
+          "entity": "Ryan",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...[👤Ryan] Coogler, 2018..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div > div > div > div",
+      "count": 24,
+      "sites": [
+        "nbcnews.com",
+        "dailymail.co.uk"
+      ],
+      "examples": [
+        {
+          "entity": "Joe",
+          "url": "https://www.nbcnews.com/politics",
+          "textContext": "... people in the last year than [👤Joe] Biden did in four years...."
+        },
+        {
+          "entity": "The Republican",
+          "url": "https://www.nbcnews.com/politics",
+          "textContext": "...[🏢The Republican] announced her 🏛Senate run af..."
+        },
+        {
+          "entity": "Senate",
+          "url": "https://www.nbcnews.com/politics",
+          "textContext": "...\udfe2The Republican announced her [🏛Senate] run after earning Trump&#x27;..."
+        }
+      ]
+    },
+    {
+      "pattern": "div > div > div > div > div > p",
+      "count": 20,
+      "sites": [
+        "dailymail.co.uk"
+      ],
+      "examples": [
+        {
+          "entity": "Day",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...SHOPPING: With Valentine's [👤Day] just around the corner, now i..."
+        },
+        {
+          "entity": "Day",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...SHOPPING: This Valentine's [👤Day], we're gifting our partners t..."
+        },
+        {
+          "entity": "TLC",
+          "url": "https://www.dailymail.co.uk",
+          "textContext": "...ted and in need of nourishing [🏢TLC], then it may be time to consi..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > div > div > p > span",
+      "count": 17,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Wright",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...Voted for by Edgar [🏢Wright]..."
+        },
+        {
+          "entity": "Nicholas",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...Voted for by [👤Nicholas] Sparks..."
+        },
+        {
+          "entity": "Anderson",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...Voted for by Pamela [👤Anderson]..."
+        }
+      ]
+    },
+    {
+      "pattern": "html",
+      "count": 14,
+      "sites": [
+        "nytimes.com",
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "Arian",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...s tangible and entertaining.” [🏢Arian] Moayed, actor See his ballot ..."
+        },
+        {
+          "entity": "Aster",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...t feels genuinely alien.” Ari [🏛Aster], director  “This hypnotic sci..."
+        },
+        {
+          "entity": "Samara",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...ly [expletive] good at hers.” [🏛Samara] Weaving, actress See her ball..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > div > div > p",
+      "count": 2,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Matthew McConaughey",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...sstated who is left behind by [👤Matthew McConaughey]’s widower in “Interstellar.” ..."
+        },
+        {
+          "entity": "Cord Jefferson",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...is article misstated the year [👤Cord Jefferson] won an Oscar. It was in 2024,..."
+        }
+      ]
+    },
+    {
+      "pattern": "section > div > div > div > div > p",
+      "count": 1,
+      "sites": [
+        "nytimes.com"
+      ],
+      "examples": [
+        {
+          "entity": "Keep",
+          "url": "https://www.nytimes.com/interactive/2025/movies/best-movies-21st-century.html",
+          "textContext": "...[🏢Keep] track of the movies you want ..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > div > b",
+      "count": 1,
+      "sites": [
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "World News",
+          "url": "https://www.npr.org/sections/news/",
+          "textContext": "...News: U.S. and [🏢World News] Headlines..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > section > div > div > div",
+      "count": 1,
+      "sites": [
+        "foxnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "More",
+          "url": "https://www.foxnews.com/books",
+          "textContext": "...See [🏢More] Books..."
+        }
+      ]
+    }
+  ]
+}

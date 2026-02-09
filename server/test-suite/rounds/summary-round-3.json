@@ -1,0 +1,60 @@
+{
+  "round": 3,
+  "totalPages": 400,
+  "totalCorrect": 3461,
+  "totalIncorrect": 10,
+  "clusters": [
+    {
+      "pattern": "div > div > div > div > div > div",
+      "count": 8,
+      "sites": [
+        "dailymail.co.uk"
+      ],
+      "examples": [
+        {
+          "entity": "Ulta Beauty",
+          "url": "https://www.dailymail.co.uk/buyline/beauty/index.html",
+          "textContext": "...&#x27;s favorite beauty spot, [🏢Ulta Beauty], is a household name everywhe..."
+        },
+        {
+          "entity": "Valentine",
+          "url": "https://www.dailymail.co.uk/buyline/fashion/index.html",
+          "textContext": "...SHOPPING: With [🏢Valentine]&#x27;s 👤Day just around the ..."
+        },
+        {
+          "entity": "Day",
+          "url": "https://www.dailymail.co.uk/buyline/fashion/index.html",
+          "textContext": "...PING: With 🏢Valentine&#x27;s [👤Day] just around the corner, now i..."
+        }
+      ]
+    },
+    {
+      "pattern": "html",
+      "count": 1,
+      "sites": [
+        "npr.org"
+      ],
+      "examples": [
+        {
+          "entity": "History",
+          "url": "https://www.npr.org/podcasts/510333/throughline",
+          "textContext": "...n of Yesterday: A 50,000-Year [🏢History] Of Human Culture, Conflict An..."
+        }
+      ]
+    },
+    {
+      "pattern": "html > section > div > div > div",
+      "count": 1,
+      "sites": [
+        "foxnews.com"
+      ],
+      "examples": [
+        {
+          "entity": "More",
+          "url": "https://www.foxnews.com/books",
+          "textContext": "...See [🏢More] Books..."
+        }
+      ]
+    }
+  ]
+}
