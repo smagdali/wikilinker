@@ -14,15 +14,17 @@ Twenty-two years later, the idea is the same — news articles should connect yo
 
 ## What it does
 
-Wikilinker is a web proxy that takes any supported news article and automatically adds Wikipedia links to the people, places, organizations, and other notable entities mentioned in the text. Each entity is linked only on its first occurrence, keeping the reading experience clean.
+Wikilinker is a web proxy that takes news articles from any of its supported sites and automatically adds Wikipedia links to the people, places, organizations, and other notable entities mentioned in the text. Each entity is linked only on its first occurrence, keeping the reading experience clean.
+
+Currently supported sites: BBC News, BBC News UK, AP News, NPR, Al Jazeera, NBC News, CBS News, Fox News, USA Today, Daily Mail, The Independent, The Atlantic, The New Yorker, and Vox.
 
 ## How it works
 
 1. **Fetch** — The proxy fetches the original news page.
-2. **Extract** — If the page is an article (as opposed to some kind of index page), we use Mozilla's [Readability](https://github.com/mozilla/readability) library to extract the article's main text, just like Firefox Reader View.
-3. **Discover** — The extracted text is scanned for entity candidates: capitalised multi-word phrases and known acronyms that look like proper nouns (e.g. "European Union", "FBI").
-4. **Match** — Each candidate is checked against a local index of the most popular (by pageviews) 500,000 Wikipedia article titles. Only exact matches become links — no fuzzy matching, no API calls. There are sometimes, however, false positives, although it does try to link to disambiguation pages where appropriate.
-5. **Inject** — Matched entities are linked in the original page HTML. First occurrence only, skipping headlines, navigation, captions, and other non-body text.
+2. **Detect** — Index pages and section fronts are detected and passed through without modification — wikilinks are only added to articles.
+3. **Extract** — For articles, Mozilla's [Readability](https://github.com/mozilla/readability) library extracts the main text (like Firefox Reader View), which is then scanned for entity candidates: capitalised phrases, multi-word proper nouns, and known acronyms (e.g. "European Union", "FBI"). Short words are filtered — mixed-case words need at least 4 characters, ALL CAPS at least 2 — to avoid false positives on words like "In" or "It".
+4. **Match** — Each candidate is checked against a local index of the most popular (by pageviews) 500,000 Wikipedia article titles. Only exact matches become links — no fuzzy matching, no API calls. There are sometimes false positives, although it does try to link to disambiguation pages where appropriate.
+5. **Inject** — The discovered entities are linked in the original page HTML (not the Readability extract), using site-specific CSS selectors to target article body containers. Headlines, navigation, captions, and other non-body text are skipped.
 6. **Rewrite** — All links in the page are rewritten to route back through the proxy, so you can keep browsing with wikilinks enabled.
 
 ## Disclaimer
@@ -31,3 +33,5 @@ This is a non-commercial technology demo. All news content displayed through thi
 
 Stefan Magdalinski
 February 2026
+
+[Source code on GitHub](https://github.com/smagdali/wikilinker)

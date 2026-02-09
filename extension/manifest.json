@@ -10,28 +10,17 @@
   "host_permissions": [
     "https://*.bbc.com/*",
     "https://*.bbc.co.uk/*",
-    "https://*.cnn.com/*",
-    "https://*.theguardian.com/*",
-    "https://*.nytimes.com/*",
-    "https://*.washingtonpost.com/*",
-    "https://*.reuters.com/*",
     "https://*.apnews.com/*",
     "https://*.npr.org/*",
     "https://*.aljazeera.com/*",
     "https://*.nbcnews.com/*",
     "https://*.cbsnews.com/*",
-    "https://*.abcnews.go.com/*",
     "https://*.foxnews.com/*",
     "https://*.usatoday.com/*",
     "https://*.dailymail.co.uk/*",
     "https://*.independent.co.uk/*",
-    "https://*.telegraph.co.uk/*",
-    "https://*.economist.com/*",
-    "https://*.ft.com/*",
     "https://*.theatlantic.com/*",
     "https://*.newyorker.com/*",
-    "https://*.politico.com/*",
-    "https://*.axios.com/*",
     "https://*.vox.com/*"
   ],
   "action": {
@@ -48,38 +37,27 @@
     "128": "icons/icon128.png"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "dist/background.js"
   },
   "content_scripts": [
     {
       "matches": [
         "https://*.bbc.com/*",
         "https://*.bbc.co.uk/*",
-        "https://*.cnn.com/*",
-        "https://*.theguardian.com/*",
-        "https://*.nytimes.com/*",
-        "https://*.washingtonpost.com/*",
-        "https://*.reuters.com/*",
         "https://*.apnews.com/*",
         "https://*.npr.org/*",
         "https://*.aljazeera.com/*",
         "https://*.nbcnews.com/*",
         "https://*.cbsnews.com/*",
-        "https://*.abcnews.go.com/*",
         "https://*.foxnews.com/*",
         "https://*.usatoday.com/*",
         "https://*.dailymail.co.uk/*",
         "https://*.independent.co.uk/*",
-        "https://*.telegraph.co.uk/*",
-        "https://*.economist.com/*",
-        "https://*.ft.com/*",
         "https://*.theatlantic.com/*",
         "https://*.newyorker.com/*",
-        "https://*.politico.com/*",
-        "https://*.axios.com/*",
         "https://*.vox.com/*"
       ],
-      "js": ["content.js"],
+      "js": ["dist/content.js"],
       "css": ["styles.css"],
       "run_at": "document_idle"
     }

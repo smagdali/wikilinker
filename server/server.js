@@ -9,6 +9,7 @@ import { rewriteLinks, rewriteResourceUrls } from './lib/rewriter.js';
 import { generateHeader, getHeaderStyles, generateDebugPanel } from './lib/header.js';
 import { extractWithReadability } from './lib/readability.js';
 import { EntityMatcher } from './lib/matcher.js';
+import { logMatches } from './lib/logger.js';
 import { parse } from 'node-html-parser';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
@@ -171,6 +172,9 @@ app.get(PROXY_PATH, async (req, res) => {
         processedHtml = injectionResult.html;
       }
       readabilityDebug.linked = injectionResult.stats.linked;
+
+      // Log matches for daily digest
+      logMatches(injectionResult.matchLog, targetUrl);
     }
 
     // Rewrite links for proxy navigation

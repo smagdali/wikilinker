@@ -1,8 +1,6 @@
-/**
- * Wikiproxy Popup Script
- *
- * Handles settings UI and persistence
- */
+// extension/popup.js
+//
+// Handles settings UI and persistence for the popup.
 
 // Setting IDs that map to storage keys
 const SETTINGS = [

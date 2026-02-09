@@ -7,6 +7,7 @@
 import { parse } from 'node-html-parser';
 import { EntityMatcher } from './matcher.js';
 import { shouldSkipElement } from '../shared/skip-rules.js';
+import { toWikiUrl, extractContext } from '../shared/matcher-core.js';
 
 // Adapter for node-html-parser's closest() method
 function closestAdapter(element, selector) {
@@ -61,11 +62,14 @@ export function injectWikilinks(html, articleSelector, entities = null, debug = 
     skippedAlreadyLinked: [],
   } : null;
 
+  // Collect match log entries (always, for daily digest)
+  const matchLog = [];
+
   // Process each content element
   // insideArticle=true so we don't skip the article container itself or its
   // LI/TH/TD children (which are content in articles, but nav elsewhere)
   for (const element of contentElements) {
-    processElement(element, matcher, false, linkedEntities, debug, debugInfo, knownEntities, true, true);
+    processElement(element, matcher, false, linkedEntities, debug, debugInfo, knownEntities, true, true, matchLog);
   }
 
   const resultHtml = root.toString();
@@ -75,6 +79,7 @@ export function injectWikilinks(html, articleSelector, entities = null, debug = 
     return {
       html: resultHtml,
       stats,
+      matchLog,
       debugInfo: {
         allCandidates: [...debugInfo.allCandidates],
         matched: debugInfo.matched,
@@ -85,14 +90,14 @@ export function injectWikilinks(html, articleSelector, entities = null, debug = 
       },
     };
   }
-  return { html: resultHtml, stats };
+  return { html: resultHtml, stats, matchLog };
 }
 
 // Tags that are skipped globally but allowed inside the article container,
 // where they often hold real content (e.g. liveblog updates in <li>, data tables).
 const ALLOW_INSIDE_ARTICLE = new Set(['LI', 'TH', 'TD']);
 
-function processElement(element, matcher, insideLink = false, linkedEntities = new Set(), debug = false, debugInfo = null, knownEntities = null, isRoot = false, insideArticle = false) {
+function processElement(element, matcher, insideLink = false, linkedEntities = new Set(), debug = false, debugInfo = null, knownEntities = null, isRoot = false, insideArticle = false, matchLog = null) {
   if (!element) return;
 
   // Use shared skip rules — but never skip the root article container itself,
@@ -173,13 +178,22 @@ function processElement(element, matcher, insideLink = false, linkedEntities = n
         }
 
         // Add the wikilink
-        const wikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(match.text.replace(/ /g, '_'))}`;
+        const wikiUrl = toWikiUrl(match.text);
         newHtml += `<a href="${wikiUrl}" class="wikilink" title="${match.text}">${escapeHtml(match.text)}</a>`;
 
         lastIndex = match.index + match.text.length;
 
         // Mark this entity as linked
         linkedEntities.add(match.text);
+
+        // Record for match log
+        if (matchLog) {
+          matchLog.push({
+            text: match.text,
+            wikiUrl,
+            context: extractContext(text, match.index, match.text.length),
+          });
+        }
 
         if (debugInfo) {
           debugInfo.matched.push({ text: match.text });
@@ -197,7 +211,7 @@ function processElement(element, matcher, insideLink = false, linkedEntities = n
         node._rawText = newHtml;
       }
     } else if (node.nodeType === 1) { // Element node
-      processElement(node, matcher, nowInsideLink, linkedEntities, debug, debugInfo, knownEntities, false, insideArticle);
+      processElement(node, matcher, nowInsideLink, linkedEntities, debug, debugInfo, knownEntities, false, insideArticle, matchLog);
     }
   }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "wikilinker",
+  "version": "1.0.0",
+  "description": "Auto-links people, places, and organizations to Wikipedia in news articles.",
+  "main": "index.js",
+  "scripts": {
+    "build:extension": "node extension/build.js",
+    "test": "cd server && node --test lib/*.test.js test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smagdali/wikilinker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/smagdali/wikilinker/issues"
+  },
+  "homepage": "https://github.com/smagdali/wikilinker#readme",
+  "devDependencies": {
+    "esbuild": "^0.27.3"
+  }
+}
