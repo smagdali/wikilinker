@@ -1,6 +1,6 @@
 # Wikilinker
 
-Auto-links people, places, and organizations to [Wikipedia](https://en.wikipedia.org/) in news articles.
+Auto-links the most popular 500,000 people, places, organizations, and other matchable entities to their [Wikipedia](https://en.wikipedia.org/) pages in news articles.
 
 ## History
 
