@@ -1,0 +1,20 @@
+/* The New Yorker site fixes
+   The New Yorker uses a "stacked navigation" header that renders
+   as an unstyled bulleted list of ~12 nav links on article pages
+   without their client-side JS. */
+
+/* The stacked navigation header renders as unstyled nav list (~430px).
+   Contains logo, search, nav links, and "Open Navigation Menu" button. */
+[class*="StackedNavigationHeader"] {
+  display: none !important;
+}
+
+/* The navigation drawer button area */
+[class*="StackedNavigationDrawer"] {
+  display: none !important;
+}
+
+/* The navigation bottom bar */
+[class*="StackedNavigationBottom"] {
+  display: none !important;
+}

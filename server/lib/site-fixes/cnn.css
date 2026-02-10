@@ -1,0 +1,25 @@
+/* CNN site fixes
+   CNN's React app renders a massive navigation tree via JS-managed
+   elements. Without JS, the #pageHeader nav (class cnn-app-display-none)
+   expands to ~3800px and the footer subnav to ~2600px. */
+
+/* Main header nav — CNN's own class "cnn-app-display-none" indicates
+   this should be hidden without their JS. Contains ~135 links. */
+#pageHeader {
+  display: none !important;
+}
+
+/* The outer header wrapper that contains #pageHeader */
+.header__wrapper-outer {
+  display: none !important;
+}
+
+/* Footer subnav renders as ~2580px tall full nav tree */
+.footer__subnav {
+  display: none !important;
+}
+
+/* Ad slot placeholders render as empty grey boxes */
+[data-ad-section] {
+  display: none !important;
+}

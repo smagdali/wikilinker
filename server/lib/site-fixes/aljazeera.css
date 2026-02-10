@@ -1,0 +1,8 @@
+/* Al Jazeera site fixes
+   Without ad JS, leaderboard ad containers render as ~286px
+   empty grey placeholders above the fold. */
+
+/* Leaderboard ad placeholder above article content */
+.container--ads {
+  display: none !important;
+}

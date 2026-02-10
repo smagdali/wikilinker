@@ -1,0 +1,24 @@
+/* Guardian site fixes
+   The Guardian uses Emotion CSS (dcr-* classes) and several overlays
+   that default to visible without their client-side JS. */
+
+/* Lightbox/nav overlay shows as huge black block.
+   #gu-lightbox is an image lightbox that defaults to visible + 100vh
+   without the Guardian's client-side JS to manage it. */
+#gu-lightbox {
+  display: none !important;
+}
+
+/* Empty ad slot placeholders.
+   Without ad JS, these render as ~300px white/grey gaps. */
+.top-banner-ad-container,
+#bannerandheader > div[class*="dcr-"]:first-child {
+  display: none !important;
+}
+
+/* Images with object-fit:cover stretch to huge heights.
+   Without Guardian's JS to set container heights, these images explode. */
+figure[class*="dcr-"] img {
+  height: auto !important;
+  object-fit: contain !important;
+}

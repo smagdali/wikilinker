@@ -1,0 +1,20 @@
+/* The Independent site fixes
+   The Independent uses styled-components with dynamic class hashes.
+   Without JS, the hamburger menu nav tree inside the page-header
+   expands to ~2500px with 129 links, pushing article content to ~3000px. */
+
+/* The page-header contains a massive expanded nav menu.
+   Hide it entirely — the Wikilinker header provides navigation. */
+header.page-header {
+  display: none !important;
+}
+
+/* Notification prompt (cookie/push notification banner) */
+.notification-prompt {
+  display: none !important;
+}
+
+/* "Close popover" comment widget notification */
+[class*="js-comment"] {
+  display: none !important;
+}

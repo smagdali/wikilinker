@@ -1,0 +1,24 @@
+/* NBC News site fixes
+   NBC News renders several UI elements via client-side JS.
+   Without JS, ad banners, hamburger menu, and digest overlay
+   render as large blocking elements. */
+
+/* Top banner ad placeholder (~282px dark empty bar) */
+.header-and-footer--banner-ad {
+  display: none !important;
+}
+
+/* Hamburger menu renders fully expanded over the viewport (~1087px) */
+.menu.js-menu-selector {
+  display: none !important;
+}
+
+/* Digest overlay renders full-viewport (~1087px) */
+.digest {
+  display: none !important;
+}
+
+/* Generic ad container placeholders */
+.ad-container {
+  display: none !important;
+}

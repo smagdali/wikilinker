@@ -1,0 +1,8 @@
+/* Fox News site fixes
+   Without ad JS, Fox News renders many empty ad-container divs
+   as ~250-282px grey placeholder boxes throughout the page. */
+
+/* Empty ad container placeholders */
+.ad-container {
+  display: none !important;
+}

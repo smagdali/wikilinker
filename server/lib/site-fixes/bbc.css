@@ -1,0 +1,19 @@
+/* BBC site fixes
+   BBC's Next.js app renders many UI components via client-side JS.
+   Without JS, several elements render as broken/empty placeholders. */
+
+/* Hamburger drawer menu + backdrop render expanded over the full viewport */
+[data-testid="drawer-background"],
+[data-testid="backdrop"] {
+  display: none !important;
+}
+
+/* Empty ad unit placeholders (grey boxes, ~278px each) */
+[data-testid="ad-unit"] {
+  display: none !important;
+}
+
+/* BBC header renders as empty 81px white box without JS (logo is JS-rendered) */
+div.app > header {
+  display: none !important;
+}
