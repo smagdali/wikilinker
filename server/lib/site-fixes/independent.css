@@ -18,3 +18,10 @@ header.page-header {
 [class*="js-comment"] {
   display: none !important;
 }
+
+/* Newsletter signup images render at 496px natural width,
+   overflowing on mobile viewports. Constrain all images. */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+}
