@@ -67,5 +67,6 @@ export function getSecurityHeaders() {
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
     'Referrer-Policy': 'no-referrer',
+    'X-Robots-Tag': 'noindex, nofollow',
   };
 }
