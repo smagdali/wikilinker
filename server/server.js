@@ -3,7 +3,7 @@ import express from 'express';
 import { Cache } from './lib/cache.js';
 import { fetchPage, isUrlAllowed } from './lib/fetcher.js';
 import { sanitizeHtml, getSecurityHeaders } from './lib/sanitizer.js';
-import { getSiteConfig } from './lib/extractor.js';
+import { getSiteConfig, getAllSites } from './lib/extractor.js';
 import { injectWikilinks } from './lib/injector.js';
 import { rewriteLinks, rewriteResourceUrls } from './lib/rewriter.js';
 import { generateHeader, getHeaderStyles, generateDebugPanel } from './lib/header.js';
@@ -28,6 +28,35 @@ const PROXY_PATH = '/wikilinker';
 
 // Initialize cache
 const cache = new Cache({ dir: CACHE_DIR, maxSize: CACHE_MAX_SIZE });
+
+// Load allowed domains from sites.json
+const sites = getAllSites();
+const allowedDomains = Object.keys(sites);
+
+// Site names for error messages
+const siteNames = [...new Set(Object.values(sites).map(s => s.name))].join(', ');
+
+/**
+ * Escape HTML special characters to prevent XSS.
+ */
+function escapeHtml(str) {
+  if (!str) return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+// Apply security headers to ALL responses (including error pages)
+app.use((req, res, next) => {
+  const headers = getSecurityHeaders();
+  for (const [key, value] of Object.entries(headers)) {
+    res.setHeader(key, value);
+  }
+  next();
+});
 
 /**
  * Determine if a URL is likely a homepage or index page (not an article).
@@ -81,13 +110,13 @@ app.get(PROXY_PATH, async (req, res) => {
   }
 
   try {
-    // Validate URL
-    if (!isUrlAllowed(targetUrl)) {
+    // Validate URL against domain allowlist
+    if (!isUrlAllowed(targetUrl, allowedDomains)) {
       const unsafeKey = req.query.key;
       if (!UNSAFE_KEY || unsafeKey !== UNSAFE_KEY) {
         return res.status(403).send(getErrorPage(
-          'URL Blocked',
-          'This URL cannot be proxied for security reasons.',
+          'Site Not Supported',
+          `Wikilinker only works with supported news sites: ${escapeHtml(siteNames)}.`,
           targetUrl
         ));
       }
@@ -109,7 +138,7 @@ app.get(PROXY_PATH, async (req, res) => {
     // Fetch if not cached
     if (!html) {
       console.log(`Fetching: ${targetUrl}`);
-      const result = await fetchPage(targetUrl, { userAgent: req.headers['user-agent'] });
+      const result = await fetchPage(targetUrl, { userAgent: req.headers['user-agent'], allowedDomains });
       html = result.html;
 
       // Cache the raw HTML
@@ -187,6 +216,7 @@ app.get(PROXY_PATH, async (req, res) => {
     const body = root.querySelector('body');
 
     if (head) {
+      head.insertAdjacentHTML('beforeend', '<meta name="robots" content="noindex, nofollow">');
       head.insertAdjacentHTML('beforeend', getHeaderStyles());
     }
 
@@ -199,12 +229,6 @@ app.get(PROXY_PATH, async (req, res) => {
     }
 
     processedHtml = root.toString();
-
-    // Set security headers
-    const headers = getSecurityHeaders();
-    for (const [key, value] of Object.entries(headers)) {
-      res.setHeader(key, value);
-    }
 
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.send(processedHtml);
@@ -236,6 +260,11 @@ app.get(PROXY_PATH, async (req, res) => {
 });
 
 function getLandingPage() {
+  // Build site options from sites.json
+  const siteOptions = Object.values(sites)
+    .map(s => `          <option value="${escapeHtml(s.homepageUrl)}">${escapeHtml(s.name)}</option>`)
+    .join('\n');
+
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -243,6 +272,12 @@ function getLandingPage() {
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Wikilinker</title>
+      <meta name="description" content="Auto-links people, places, and organizations to Wikipedia in news articles from ${siteNames}.">
+      <meta property="og:title" content="Wikilinker">
+      <meta property="og:description" content="Auto-links people, places, and organizations to Wikipedia in news articles.">
+      <meta property="og:url" content="https://whitelabel.org${PROXY_PATH}">
+      <meta property="og:type" content="website">
+      <link rel="canonical" href="https://whitelabel.org${PROXY_PATH}">
       <style>
         body {
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -252,23 +287,14 @@ function getLandingPage() {
           text-align: center;
         }
         h1 { margin-bottom: 10px; }
+        .brand {
+          font-style: italic;
+          text-decoration: underline;
+          background-color: rgba(52, 168, 83, 0.12);
+          padding: 2px 6px;
+          border-radius: 3px;
+        }
         p { color: #666; margin-bottom: 30px; }
-        form {
-          display: flex;
-          gap: 10px;
-          margin-bottom: 30px;
-        }
-        input {
-          flex: 1;
-          padding: 12px;
-          font-size: 16px;
-          border: 2px solid #ddd;
-          border-radius: 6px;
-        }
-        input:focus {
-          outline: none;
-          border-color: #6366f1;
-        }
         button {
           padding: 12px 24px;
           font-size: 16px;
@@ -292,8 +318,8 @@ function getLandingPage() {
           font-weight: 500;
         }
         .site-picker select {
-          padding: 8px 16px;
-          font-size: 14px;
+          padding: 12px 16px;
+          font-size: 16px;
           border: 2px solid #ddd;
           border-radius: 6px;
           background: white;
@@ -303,41 +329,21 @@ function getLandingPage() {
           outline: none;
           border-color: #6366f1;
         }
-        .site-picker button {
-          padding: 8px 16px;
-          font-size: 14px;
-        }
+        .about { display: block; margin-top: 20px; color: #6366f1; font-size: 14px; }
       </style>
     </head>
     <body>
-      <h1>Wikilinker</h1>
-      <p>Auto-links people, places, and organizations to Wikipedia</p>
-
-      <form action="${PROXY_PATH}" method="GET">
-        <input type="url" name="url" placeholder="Enter a news URL..." required>
-        <button type="submit">Go</button>
-      </form>
+      <h1><span class="brand">Wikilinker</span></h1>
+      <p>Auto-links people, places, and organizations to Wikipedia in news articles</p>
 
       <div class="site-picker">
-        <label for="site-select">Sites:</label>
+        <label for="site-select">Pick a site:</label>
         <select id="site-select">
-          <option value="https://www.bbc.co.uk/news" selected>BBC News UK</option>
-          <option value="https://www.bbc.com/news">BBC News</option>
-<option value="https://apnews.com">AP News</option>
-          <option value="https://www.npr.org">NPR</option>
-          <option value="https://www.aljazeera.com">Al Jazeera</option>
-          <option value="https://www.nbcnews.com">NBC News</option>
-          <option value="https://www.cbsnews.com">CBS News</option>
-          <option value="https://www.foxnews.com">Fox News</option>
-          <option value="https://www.usatoday.com">USA Today</option>
-          <option value="https://www.dailymail.co.uk">Daily Mail</option>
-          <option value="https://www.independent.co.uk">The Independent</option>
-          <option value="https://www.theatlantic.com">The Atlantic</option>
-          <option value="https://www.newyorker.com">The New Yorker</option>
-          <option value="https://www.vox.com">Vox</option>
+${siteOptions}
         </select>
         <button type="button" onclick="window.location='${PROXY_PATH}?url='+encodeURIComponent(document.getElementById('site-select').value)">Go</button>
       </div>
+      <a class="about" href="${PROXY_PATH}/about">About</a>
     </body>
     </html>
   `;
@@ -345,7 +351,8 @@ function getLandingPage() {
 
 function getAboutPage() {
   const md = readFileSync(join(__dirname, 'static', 'about.md'), 'utf-8');
-  const html = renderMarkdown(md);
+  const html = renderMarkdown(md)
+    .replace(/Wikilinker/g, '<span class="brand">Wikilinker</span>');
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -370,6 +377,13 @@ function getAboutPage() {
         a:hover { text-decoration: none; }
         ol { padding-left: 20px; }
         li { margin-bottom: 8px; }
+        .brand {
+          font-style: italic;
+          text-decoration: underline;
+          background-color: rgba(52, 168, 83, 0.12);
+          padding: 2px 6px;
+          border-radius: 3px;
+        }
         .back {
           display: inline-block;
           margin-top: 30px;
@@ -384,7 +398,7 @@ function getAboutPage() {
     </head>
     <body>
       ${html}
-      <a class="back" href="${PROXY_PATH}">Try Wikilinker</a>
+      <a class="back" href="${PROXY_PATH}">Try <span class="brand">Wikilinker</span></a>
     </body>
     </html>
   `;
@@ -397,6 +411,7 @@ function renderMarkdown(md) {
   const lines = md.split('\n');
   let html = '';
   let inOl = false;
+  let inUl = false;
 
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i];
@@ -404,11 +419,13 @@ function renderMarkdown(md) {
     // Headings
     if (line.startsWith('## ')) {
       if (inOl) { html += '</ol>\n'; inOl = false; }
+      if (inUl) { html += '</ul>\n'; inUl = false; }
       html += `<h2>${inlineMarkdown(line.slice(3))}</h2>\n`;
       continue;
     }
     if (line.startsWith('# ')) {
       if (inOl) { html += '</ol>\n'; inOl = false; }
+      if (inUl) { html += '</ul>\n'; inUl = false; }
       html += `<h1>${inlineMarkdown(line.slice(2))}</h1>\n`;
       continue;
     }
@@ -416,13 +433,24 @@ function renderMarkdown(md) {
     // Ordered list items
     const olMatch = line.match(/^\d+\.\s+(.*)/);
     if (olMatch) {
+      if (inUl) { html += '</ul>\n'; inUl = false; }
       if (!inOl) { html += '<ol>\n'; inOl = true; }
       html += `  <li>${inlineMarkdown(olMatch[1])}</li>\n`;
       continue;
     }
 
-    // Close list if we hit a non-list line
+    // Unordered list items
+    const ulMatch = line.match(/^- (.*)/);
+    if (ulMatch) {
+      if (inOl) { html += '</ol>\n'; inOl = false; }
+      if (!inUl) { html += '<ul>\n'; inUl = true; }
+      html += `  <li>${inlineMarkdown(ulMatch[1])}</li>\n`;
+      continue;
+    }
+
+    // Close lists if we hit a non-list line
     if (inOl) { html += '</ol>\n'; inOl = false; }
+    if (inUl) { html += '</ul>\n'; inUl = false; }
 
     // Blank lines
     if (line.trim() === '') continue;
@@ -432,6 +460,7 @@ function renderMarkdown(md) {
   }
 
   if (inOl) html += '</ol>\n';
+  if (inUl) html += '</ul>\n';
   return html;
 }
 
@@ -452,7 +481,7 @@ function getErrorPage(title, message, url) {
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>${title} - Wikilinker</title>
+      <title>${escapeHtml(title)} - Wikilinker</title>
       <style>
         body {
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -483,9 +512,9 @@ function getErrorPage(title, message, url) {
       </style>
     </head>
     <body>
-      <h1>${title}</h1>
+      <h1>${escapeHtml(title)}</h1>
       <p>${message}</p>
-      ${url ? `<code>${url}</code>` : ''}
+      ${url ? `<code>${escapeHtml(url)}</code>` : ''}
       <a href="${PROXY_PATH}">Try another URL</a>
     </body>
     </html>

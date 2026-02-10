@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wikilink Style Options</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.8;
+      color: #1a1a1a;
+      font-size: 18px;
+    }
+    h1 { font-size: 24px; margin-bottom: 8px; font-family: -apple-system, sans-serif; }
+    h2 { font-size: 16px; color: #666; margin: 32px 0 12px; font-family: -apple-system, sans-serif; border-top: 1px solid #ddd; padding-top: 16px; }
+    p { margin-bottom: 20px; }
+    a { text-decoration: none; }
+
+    /* Option A: Yellow highlight */
+    .opt-a a {
+      color: #0645ad;
+      text-decoration: underline;
+      font-style: italic;
+      background-color: rgba(255, 237, 74, 0.35);
+      padding: 1px 3px;
+      border-radius: 2px;
+    }
+    .opt-a a:hover {
+      background-color: rgba(255, 237, 74, 0.6);
+    }
+
+    /* Option B: Blue tint (Wikipedia-ish) */
+    .opt-b a {
+      color: #0645ad;
+      text-decoration: underline;
+      font-style: italic;
+      background-color: rgba(51, 102, 204, 0.12);
+      padding: 1px 3px;
+      border-radius: 2px;
+    }
+    .opt-b a:hover {
+      background-color: rgba(51, 102, 204, 0.25);
+    }
+
+    /* Option C: Bottom border accent (no background) */
+    .opt-c a {
+      color: #0645ad;
+      text-decoration: none;
+      font-style: italic;
+      border-bottom: 2.5px solid rgba(51, 102, 204, 0.55);
+      padding-bottom: 1px;
+    }
+    .opt-c a:hover {
+      border-bottom-color: #0645ad;
+      background-color: rgba(51, 102, 204, 0.1);
+    }
+
+    /* Option D: Warm cream/sepia highlight */
+    .opt-d a {
+      color: #0645ad;
+      text-decoration: underline;
+      font-style: italic;
+      background-color: rgba(255, 200, 87, 0.25);
+      padding: 1px 3px;
+      border-radius: 2px;
+    }
+    .opt-d a:hover {
+      background-color: rgba(255, 200, 87, 0.45);
+    }
+
+    /* Option E: Green tint (knowledge/wiki feel) */
+    .opt-e a {
+      color: #0645ad;
+      text-decoration: underline;
+      font-style: italic;
+      background-color: rgba(52, 168, 83, 0.12);
+      padding: 1px 3px;
+      border-radius: 2px;
+    }
+    .opt-e a:hover {
+      background-color: rgba(52, 168, 83, 0.25);
+    }
+
+    /* Option F: Dotted underline + background on hover only */
+    .opt-f a {
+      color: #0645ad;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+      font-style: italic;
+    }
+    .opt-f a:hover {
+      text-decoration-style: solid;
+      background-color: rgba(255, 237, 74, 0.4);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wikilink Style Comparison</h1>
+  <p style="font-family: -apple-system, sans-serif; font-size: 14px; color: #666;">Same paragraph rendered six ways. Hover over the links to see the hover state.</p>
+
+  <h2>A — Yellow highlight</h2>
+  <div class="opt-a">
+    <p>The <a href="#">European Union</a> announced new trade negotiations with <a href="#">Japan</a> on Tuesday, as <a href="#">Ursula von der Leyen</a> met with officials from the <a href="#">World Trade Organization</a> in <a href="#">Geneva</a>. The talks are expected to focus on semiconductor supply chains and <a href="#">artificial intelligence</a> regulation, building on frameworks established by the <a href="#">OECD</a>.</p>
+  </div>
+
+  <h2>B — Blue tint</h2>
+  <div class="opt-b">
+    <p>The <a href="#">European Union</a> announced new trade negotiations with <a href="#">Japan</a> on Tuesday, as <a href="#">Ursula von der Leyen</a> met with officials from the <a href="#">World Trade Organization</a> in <a href="#">Geneva</a>. The talks are expected to focus on semiconductor supply chains and <a href="#">artificial intelligence</a> regulation, building on frameworks established by the <a href="#">OECD</a>.</p>
+  </div>
+
+  <h2>C — Bottom border (no background)</h2>
+  <div class="opt-c">
+    <p>The <a href="#">European Union</a> announced new trade negotiations with <a href="#">Japan</a> on Tuesday, as <a href="#">Ursula von der Leyen</a> met with officials from the <a href="#">World Trade Organization</a> in <a href="#">Geneva</a>. The talks are expected to focus on semiconductor supply chains and <a href="#">artificial intelligence</a> regulation, building on frameworks established by the <a href="#">OECD</a>.</p>
+  </div>
+
+  <h2>D — Warm cream</h2>
+  <div class="opt-d">
+    <p>The <a href="#">European Union</a> announced new trade negotiations with <a href="#">Japan</a> on Tuesday, as <a href="#">Ursula von der Leyen</a> met with officials from the <a href="#">World Trade Organization</a> in <a href="#">Geneva</a>. The talks are expected to focus on semiconductor supply chains and <a href="#">artificial intelligence</a> regulation, building on frameworks established by the <a href="#">OECD</a>.</p>
+  </div>
+
+  <h2>E — Green tint</h2>
+  <div class="opt-e">
+    <p>The <a href="#">European Union</a> announced new trade negotiations with <a href="#">Japan</a> on Tuesday, as <a href="#">Ursula von der Leyen</a> met with officials from the <a href="#">World Trade Organization</a> in <a href="#">Geneva</a>. The talks are expected to focus on semiconductor supply chains and <a href="#">artificial intelligence</a> regulation, building on frameworks established by the <a href="#">OECD</a>.</p>
+  </div>
+
+  <h2>F — Dotted underline, highlight on hover only</h2>
+  <div class="opt-f">
+    <p>The <a href="#">European Union</a> announced new trade negotiations with <a href="#">Japan</a> on Tuesday, as <a href="#">Ursula von der Leyen</a> met with officials from the <a href="#">World Trade Organization</a> in <a href="#">Geneva</a>. The talks are expected to focus on semiconductor supply chains and <a href="#">artificial intelligence</a> regulation, building on frameworks established by the <a href="#">OECD</a>.</p>
+  </div>
+
+</body>
+</html>

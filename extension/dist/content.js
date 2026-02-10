@@ -390,6 +390,31 @@
       name: "Vox",
       articleSelector: ".c-entry-content, .article-body",
       homepageUrl: "https://www.vox.com"
+    },
+    "theguardian.com": {
+      name: "The Guardian",
+      articleSelector: ".article-body-commercial-selector, [data-gu-name='body'], #maincontent",
+      homepageUrl: "https://www.theguardian.com"
+    },
+    "cnn.com": {
+      name: "CNN",
+      articleSelector: ".article__content, [itemprop='articleBody'], .article__content-container",
+      homepageUrl: "https://edition.cnn.com"
+    },
+    "abcnews.go.com": {
+      name: "ABC News",
+      articleSelector: "[data-testid='prism-article-body'], .FITT_Article_main__body",
+      homepageUrl: "https://abcnews.go.com"
+    },
+    "sky.com": {
+      name: "Sky News",
+      articleSelector: ".sdc-article-body",
+      homepageUrl: "https://news.sky.com"
+    },
+    "unherd.com": {
+      name: "UnHerd",
+      articleSelector: ".article-body, article",
+      homepageUrl: "https://unherd.com"
     }
   };
 

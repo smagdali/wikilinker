@@ -4,15 +4,40 @@
 // proxied page. Includes a URL input form, a site-picker dropdown
 // (populated from sites.json), an About link, and an optional debug panel.
 import { getAllSites } from './extractor.js';
+import { readFileSync, readdirSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+// Load per-site CSS fixes from site-fixes/*.css at startup.
+// These fix rendering issues on sites that rely on client-side JS
+// (hidden drawers, empty ad slots, broken images, etc.).
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const siteFixesDir = join(__dirname, 'site-fixes');
+let siteFixesCSS = '';
+try {
+  const files = readdirSync(siteFixesDir).filter(f => f.endsWith('.css')).sort();
+  siteFixesCSS = files
+    .map(f => readFileSync(join(siteFixesDir, f), 'utf8'))
+    .join('\n');
+} catch {
+  // No site-fixes directory — that's fine
+}
 
 export function generateHeader(currentUrl, proxyPath, options = {}) {
   const sites = getAllSites();
   const { isUnsupported = false, aboutUrl = `${proxyPath}/about`, extraHtml = '', debug = false, status = null } = options;
 
+  // Determine which site the current URL belongs to
+  let currentDomain = '';
+  try {
+    currentDomain = new URL(currentUrl).hostname.toLowerCase().replace(/^www\./, '');
+  } catch {}
+
   const siteOptions = Object.entries(sites)
-    .map(([domain, config]) =>
-      `<option value="${config.homepageUrl}">${config.name}</option>`
-    )
+    .map(([domain, config]) => {
+      const isCurrentSite = currentDomain === domain || currentDomain.endsWith('.' + domain);
+      return `<option value="${config.homepageUrl}"${isCurrentSite ? ' selected' : ''}>${config.name}</option>`;
+    })
     .join('\n');
 
   const warning = isUnsupported
@@ -20,14 +45,15 @@ export function generateHeader(currentUrl, proxyPath, options = {}) {
     : '';
 
   // Build status line
+  const wl = `<a href="${aboutUrl}" class="wikilinker-status-link">wikilinks</a>`;
   let statusLine = '';
   if (status) {
     const parts = [];
     if (status.status === 'skipped_index_page') {
-      parts.push('Homepage detected &mdash; wikilinks not added to index pages');
+      parts.push(`Not an article page &mdash; navigate to an article to see ${wl}`);
     } else if (status.status === 'skipped') {
       if (typeof status.linked === 'number') {
-        parts.push(`${status.linked} wikilink${status.linked !== 1 ? 's' : ''} added`);
+        parts.push(`${status.linked} <a href="${aboutUrl}" class="wikilinker-status-link">wikilink${status.linked !== 1 ? 's' : ''}</a> added`);
       }
       parts.push('Readability extraction failed &mdash; using fallback pipeline');
     } else if (status.status === 'active') {
@@ -35,7 +61,7 @@ export function generateHeader(currentUrl, proxyPath, options = {}) {
         parts.push(`${status.entitiesFound} entities discovered`);
       }
       if (typeof status.linked === 'number') {
-        parts.push(`${status.linked} wikilink${status.linked !== 1 ? 's' : ''} added`);
+        parts.push(`${status.linked} <a href="${aboutUrl}" class="wikilinker-status-link">wikilink${status.linked !== 1 ? 's' : ''}</a> added`);
       }
     }
     if (parts.length > 0) {
@@ -48,13 +74,6 @@ export function generateHeader(currentUrl, proxyPath, options = {}) {
       <div class="wikilinker-bar">
         <a href="${proxyPath}${debug ? '?debug=1' : ''}" class="wikilinker-title">Wikilinker</a>
 
-        <form class="wikilinker-form" action="${proxyPath}" method="GET">
-          <input type="text" name="url" value="${escapeAttr(currentUrl)}"
-                 placeholder="Enter URL..." class="wikilinker-input">
-          ${debug ? '<input type="hidden" name="debug" value="1">' : ''}
-          <button type="submit" class="wikilinker-button">Go</button>
-        </form>
-
         <form class="wikilinker-sites-form" action="${proxyPath}" method="GET">
           <label class="wikilinker-sites-label">Sites:</label>
           <select name="url" class="wikilinker-sites">
@@ -62,6 +81,13 @@ export function generateHeader(currentUrl, proxyPath, options = {}) {
           </select>
           ${debug ? '<input type="hidden" name="debug" value="1">' : ''}
           <button type="submit" class="wikilinker-sites-go">Go</button>
+        </form>
+
+        <form class="wikilinker-form" action="${proxyPath}" method="GET">
+          <input type="text" name="url" value="${escapeAttr(currentUrl)}"
+                 placeholder="Paste a supported site URL..." class="wikilinker-input">
+          ${debug ? '<input type="hidden" name="debug" value="1">' : ''}
+          <button type="submit" class="wikilinker-button">Go</button>
         </form>
 
         <div class="wikilinker-links">
@@ -72,6 +98,18 @@ export function generateHeader(currentUrl, proxyPath, options = {}) {
       ${warning}
       ${extraHtml}
     </div>
+    <script>
+      (function() {
+        try {
+          var bg = getComputedStyle(document.body).backgroundColor;
+          var m = bg.match(/\\d+/g);
+          if (m && m.length >= 3) {
+            var lum = (0.299 * m[0] + 0.587 * m[1] + 0.114 * m[2]) / 255;
+            if (lum < 0.4) document.body.classList.add('wikilinker-dark');
+          }
+        } catch(e) {}
+      })();
+    </script>
   `;
 }
 
@@ -103,11 +141,16 @@ export function getHeaderStyles() {
         font-weight: bold;
         font-size: 16px;
         color: #fff;
-        text-decoration: none;
+        text-decoration: underline;
+        font-style: italic;
+        background-color: rgba(52, 168, 83, 0.25);
+        padding: 2px 6px;
+        border-radius: 3px;
       }
 
       .wikilinker-title:hover {
-        color: #a5b4fc;
+        background-color: rgba(52, 168, 83, 0.4);
+        color: #fff;
       }
 
       .wikilinker-form {
@@ -198,11 +241,25 @@ export function getHeaderStyles() {
       }
 
       .wikilinker-status {
-        background: #12121f;
-        color: #8b8ba0;
-        padding: 4px 16px;
-        font-size: 12px;
+        background: #1e1e32;
+        color: #c0c0d0;
+        padding: 6px 16px;
+        font-size: 13px;
         border-top: 1px solid #2a2a4a;
+      }
+
+      .wikilinker-status-link {
+        color: #c0c0d0;
+        font-style: italic;
+        text-decoration: underline;
+        background-color: rgba(52, 168, 83, 0.2);
+        padding: 1px 4px;
+        border-radius: 2px;
+      }
+
+      .wikilinker-status-link:hover {
+        color: #fff;
+        background-color: rgba(52, 168, 83, 0.35);
       }
 
       .wikilinker-warning {
@@ -223,36 +280,74 @@ export function getHeaderStyles() {
         display: none !important;
       }
 
-      /* Fix Guardian's nav overlay showing as black block */
-      .dcr-h4unms,
-      .dcr-1e4oyvk {
-        height: auto !important;
-        position: relative !important;
-        min-height: 0 !important;
-      }
+      /* Per-site rendering fixes (loaded from lib/site-fixes/*.css) */
+      ${siteFixesCSS}
 
-      /* Wikilink styles */
+      /* Wikilink styles — Option E: Green tint */
       .wikilink {
-        font: inherit;
+        color: #0645ad !important;
+        text-decoration: underline !important;
+        font-style: italic !important;
+        background-color: rgba(52, 168, 83, 0.12) !important;
+        padding: 1px 3px !important;
+        border-radius: 2px !important;
         font-size: inherit;
         font-weight: inherit;
         line-height: inherit;
         letter-spacing: inherit;
-        text-decoration: none;
+      }
+
+      .wikilink:visited {
+        color: #0b0080 !important;
       }
 
       .wikilink:hover {
-        text-decoration: underline;
+        color: #3366bb !important;
+        background-color: rgba(52, 168, 83, 0.25) !important;
+      }
+
+      /* Dark mode wikilink styles — via OS preference or detected dark background */
+      @media (prefers-color-scheme: dark) {
+        .wikilink {
+          color: #6ea8fe !important;
+          background-color: rgba(52, 168, 83, 0.18) !important;
+        }
+        .wikilink:visited {
+          color: #9f8fef !important;
+        }
+        .wikilink:hover {
+          color: #8cb4ff !important;
+          background-color: rgba(52, 168, 83, 0.32) !important;
+        }
+      }
+      /* Class-based dark mode for sites with dark backgrounds regardless of OS setting */
+      .wikilinker-dark .wikilink {
+        color: #6ea8fe !important;
+        background-color: rgba(52, 168, 83, 0.18) !important;
+      }
+      .wikilinker-dark .wikilink:visited {
+        color: #9f8fef !important;
+      }
+      .wikilinker-dark .wikilink:hover {
+        color: #8cb4ff !important;
+        background-color: rgba(52, 168, 83, 0.32) !important;
       }
 
       @media (max-width: 768px) {
         .wikilinker-bar {
-          padding: 8px;
-          gap: 8px;
+          padding: 6px 8px;
+          gap: 6px;
+        }
+        .wikilinker-sites-label {
+          display: none;
         }
         .wikilinker-form {
           order: 10;
           flex-basis: 100%;
+          max-width: none;
+        }
+        .wikilinker-links a {
+          font-size: 12px;
         }
       }
 
