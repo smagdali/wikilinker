@@ -143,7 +143,6 @@ export function getHeaderStyles() {
         font-size: 16px;
         color: #fff;
         text-decoration: underline;
-        font-style: italic;
         background-color: rgba(52, 168, 83, 0.25);
         padding: 2px 6px;
         border-radius: 3px;
@@ -251,7 +250,6 @@ export function getHeaderStyles() {
 
       .wikilinker-status-link {
         color: #c0c0d0;
-        font-style: italic;
         text-decoration: underline;
         background-color: rgba(52, 168, 83, 0.2);
         padding: 1px 4px;
@@ -288,7 +286,6 @@ export function getHeaderStyles() {
       .wikilink {
         color: #0645ad !important;
         text-decoration: underline !important;
-        font-style: italic !important;
         background-color: rgba(52, 168, 83, 0.12) !important;
         padding: 1px 3px !important;
         border-radius: 2px !important;

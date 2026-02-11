@@ -11,6 +11,7 @@ export class Cache {
   constructor(options = {}) {
     this.dir = options.dir || './cache';
     this.maxSize = options.maxSize || 1024 * 1024 * 1024; // 1GB default
+    this.ttl = options.ttl || 60 * 60 * 1000; // 1 hour default
     this.indexFile = path.join(this.dir, 'index.json');
     this.index = null; // { key: { file, size, accessed } }
   }
@@ -38,6 +39,14 @@ export class Cache {
 
     const entry = this.index[key];
     if (!entry) return null;
+
+    // TTL check — expire stale entries
+    if (Date.now() - entry.accessed > this.ttl) {
+      try { await fs.unlink(path.join(this.dir, entry.file)); } catch { /* ignore */ }
+      delete this.index[key];
+      await this.saveIndex();
+      return null;
+    }
 
     try {
       const filePath = path.join(this.dir, entry.file);

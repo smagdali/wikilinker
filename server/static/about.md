@@ -39,6 +39,10 @@ Twenty-two years later, the idea is the same — news articles should connect yo
 
 This is a non-commercial technology demo. All news content displayed through this proxy is the copyright of its respective publishers. Wikilinker does not store, redistribute, or claim any ownership of that content — it simply fetches pages on your behalf (much like a browser) and adds hyperlinks to Wikipedia. If you are a rights holder and have concerns, put that lawyer down and ask nicely, and I'll take you off the list.
 
+## Thanks
+
+[George Oates](http://abitofgeorge.com/) for bullying me into thinking about styling.
+
 Stefan Magdalinski
 February 2026
 

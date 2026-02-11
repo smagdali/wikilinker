@@ -288,7 +288,6 @@ function getLandingPage() {
         }
         h1 { margin-bottom: 10px; }
         .brand {
-          font-style: italic;
           text-decoration: underline;
           background-color: rgba(52, 168, 83, 0.12);
           padding: 2px 6px;
@@ -378,7 +377,6 @@ function getAboutPage() {
         ol { padding-left: 20px; }
         li { margin-bottom: 8px; }
         .brand {
-          font-style: italic;
           text-decoration: underline;
           background-color: rgba(52, 168, 83, 0.12);
           padding: 2px 6px;

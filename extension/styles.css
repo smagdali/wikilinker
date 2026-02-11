@@ -13,8 +13,28 @@
   border-radius: 2px;
 }
 
+.wikilink:visited {
+  color: #0b0080;
+}
+
 .wikilink:hover {
+  color: #3366bb;
   background-color: rgba(52, 168, 83, 0.25);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .wikilink {
+    color: #6ea8fe;
+    background-color: rgba(52, 168, 83, 0.18);
+  }
+  .wikilink:visited {
+    color: #9f8fef;
+  }
+  .wikilink:hover {
+    color: #8cb4ff;
+    background-color: rgba(52, 168, 83, 0.32);
+  }
 }
 
 /* Print styles */
