@@ -3,23 +3,86 @@
 // Pure-function entity matching logic shared between the server and
 // Chrome extension. No I/O, no DOM — just string processing.
 
-// Common words to skip — pronouns, articles, days, months
+// Common words to skip — these are English words that happen to have Wikipedia
+// articles but are almost never useful entity links in news text.
 export const SKIP_WORDS = new Set([
+  // Pronouns and determiners
   'The', 'This', 'That', 'There', 'Their', 'They', 'What', 'When',
   'Where', 'Which', 'Who', 'Why', 'How',
   'He', 'She', 'His', 'Her', 'Him', 'Its', 'We', 'Our', 'You', 'Your', 'My',
+  // Days and months
   'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
   'January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December',
+  // Common English words that are also Wikipedia titles
+  'After', 'Again', 'Album', 'Also', 'Ammunition', 'Another', 'Assault',
+  'Before', 'Being', 'Both', 'But',
+  'Cash', 'Cast', 'Christmas', 'Copyright',
+  'Despite',
+  'Each', 'Email', 'Even', 'Every', 'Everything', 'Evidence', 'Expect',
+  'Family', 'Film', 'Fireworks', 'First', 'Following', 'Former', 'Freedom', 'From',
+  'Golden', 'Good', 'Great', 'Greatness',
+  'Here',
+  'Image', 'Indeed',
+  'Just',
+  'Keep',
+  'Last', 'Life', 'Link', 'Live',
+  'Machine', 'Many', 'Media', 'Meanwhile', 'Minutes', 'More', 'Most', 'Much',
+  'Never', 'New', 'Next', 'Nobody', 'None', 'Nothing', 'Number',
+  'Office', 'Often', 'Only', 'Other', 'Over',
+  'Page', 'People', 'Play', 'Please', 'Pointless', 'Police',
+  'Radio', 'Real',
+  'Same', 'Several', 'Since', 'Sniper', 'Some', 'South', 'Stalemate',
+  'State', 'Steam', 'Still', 'Success', 'Such', 'Sunrise',
+  'Time', 'Title', 'Today', 'Together',
+  'Very',
+  'Watch', 'Wedding', 'Well', 'While', 'White', 'Whole', 'Woman', 'Wood',
+  'World', 'Writer',
+  'Year',
+  'Zero',
+  // Compass/directional (match as part of multi-word like "South Korea")
+  'North', 'East', 'West',
+  // Demonym adjectives — link the country instead
+  'African', 'American', 'Arab', 'Asian', 'Australian',
+  'Brazilian', 'British',
+  'Canadian', 'Chinese',
+  'Dutch',
+  'Egyptian', 'English', 'European',
+  'French',
+  'German', 'Greek',
+  'Indian', 'Iranian', 'Iraqi', 'Irish', 'Islamic', 'Israeli', 'Italian',
+  'Japanese',
+  'Korean',
+  'Latin',
+  'Mexican',
+  'Palestinian', 'Polish',
+  'Russian',
+  'Scottish', 'Spanish', 'Swedish',
+  'Turkish',
+  'Ukrainian',
+  'Vietnamese',
+  'Welsh',
+  // Institutional/role words (too generic alone, valid in multi-word phrases)
+  'Academic', 'Athletes', 'Bureaucrat', 'Cabinet', 'Commons', 'Conservative',
+  'Constitution', 'Creativity', 'Customs', 'Democracy', 'Deputy', 'Environment',
+  'Geography', 'Health', 'History', 'House', 'Immigration',
+  'Justice', 'Liberal', 'Ministry',
+  'Opposition',
+  'Parliament', 'Partnership', 'Poetry', 'Prince', 'Princess',
+  'Producer', 'Professor',
+  'Republic',
+  'Secretary', 'Security', 'Transparency', 'Treasury',
+  // Stock photo attribution words
+  'Alamy', 'Getty', 'Shutterstock',
 ]);
 
 // Minimum length rules for single-word candidates:
-// - ALL CAPS (acronyms like UK, FBI): 2+ chars
+// - ALL CAPS (acronyms like FBI, NATO): 3+ chars (kills ambiguous 2-letter: US, UK, PM, MP)
 // - Mixed-case (like Israel, Gaza): 4+ chars
 // Multi-word phrases bypass this check entirely.
 export function meetsMinLength(phrase) {
   if (phrase.includes(' ')) return true;
-  if (/^[A-Z]+$/.test(phrase)) return phrase.length >= 2;
+  if (/^[A-Z]+$/.test(phrase)) return phrase.length >= 3;
   return phrase.length >= 4;
 }
 

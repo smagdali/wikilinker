@@ -1,114 +1,28 @@
 /**
  * Wikilinker Link Styles
  *
- * Colorblind-friendly palette with icons:
- * - Person: blue (#2563eb) + bust emoji
- * - Country/City: orange (#d97706) + pin emoji
- * - Organization: purple (#7c3aed) + building emoji
- * - Company: teal (#0d9488) + office emoji
+ * Matches the server-side proxy styling: invisible by default,
+ * underline on hover. Links should blend into the page text.
  */
 
-/* Base link style */
 .wikilink {
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  cursor: pointer;
-  transition: background-color 0.15s ease, text-decoration-color 0.15s ease;
-  border-radius: 2px;
-  padding: 0 1px;
+  font: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  text-decoration: none;
 }
 
 .wikilink:hover {
-  text-decoration-style: solid;
-  text-decoration-thickness: 2px;
-}
-
-.wikilink-icon {
-  margin-right: 2px;
-  font-size: 0.9em;
-}
-
-/* Person - Blue */
-.wikilink-person {
-  color: inherit;
-  text-decoration-color: #2563eb;
-}
-
-.wikilink-person:hover {
-  background-color: rgba(37, 99, 235, 0.1);
-}
-
-/* Country - Orange (colorblind-friendly, was green) */
-.wikilink-country {
-  color: inherit;
-  text-decoration-color: #d97706;
-}
-
-.wikilink-country:hover {
-  background-color: rgba(217, 119, 6, 0.1);
-}
-
-/* City - Orange (same as country - both places) */
-.wikilink-city {
-  color: inherit;
-  text-decoration-color: #d97706;
-}
-
-.wikilink-city:hover {
-  background-color: rgba(217, 119, 6, 0.1);
-}
-
-/* Organization - Purple */
-.wikilink-org {
-  color: inherit;
-  text-decoration-color: #7c3aed;
-}
-
-.wikilink-org:hover {
-  background-color: rgba(124, 58, 237, 0.1);
-}
-
-/* Company - Teal (colorblind-friendly, was orange) */
-.wikilink-company {
-  color: inherit;
-  text-decoration-color: #0d9488;
-}
-
-.wikilink-company:hover {
-  background-color: rgba(13, 148, 136, 0.1);
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .wikilink-person:hover {
-    background-color: rgba(37, 99, 235, 0.2);
-  }
-
-  .wikilink-country:hover,
-  .wikilink-city:hover {
-    background-color: rgba(217, 119, 6, 0.2);
-  }
-
-  .wikilink-org:hover {
-    background-color: rgba(124, 58, 237, 0.2);
-  }
-
-  .wikilink-company:hover {
-    background-color: rgba(13, 148, 136, 0.2);
-  }
+  text-decoration: underline;
 }
 
 /* Print styles - remove visual indicators */
 @media print {
   .wikilink {
     text-decoration: none !important;
-    background-color: transparent !important;
     color: inherit !important;
-  }
-
-  .wikilink-icon {
-    display: none;
   }
 }

@@ -44,6 +44,20 @@ describe('EntityMatcher', () => {
     assert.strictEqual(matches.length, 0);
   });
 
+  test('skips demonym adjectives', () => {
+    const demonymMatcher = new EntityMatcher(['British', 'American', 'Chinese', 'French']);
+    const matches = demonymMatcher.findMatches('the British and American delegates met.');
+    assert.strictEqual(matches.length, 0);
+  });
+
+  test('skips common English words that are Wikipedia titles', () => {
+    const wordMatcher = new EntityMatcher([
+      'Everything', 'Image', 'House', 'Police', 'Today', 'Freedom',
+    ]);
+    const matches = wordMatcher.findMatches('he said Everything is fine at the House today.');
+    assert.strictEqual(matches.length, 0);
+  });
+
   test('skips matches at sentence start', () => {
     const matches = matcher.findMatches('Google announced earnings. Barack Obama spoke.', true);
     assert.strictEqual(matches.length, 0);
@@ -117,11 +131,12 @@ describe('EntityMatcher', () => {
     assert.strictEqual(matches.length, 0);
   });
 
-  test('accepts short ALL CAPS words (>= 2 chars)', () => {
+  test('accepts ALL CAPS acronyms >= 3 chars, rejects 2-letter', () => {
     const acronymMatcher = new EntityMatcher(['UK', 'US', 'FBI', 'NATO']);
     const matches = acronymMatcher.findMatches('the UK and FBI worked with NATO.');
-    assert.ok(matches.some(m => m.text === 'UK'));
+    assert.ok(!matches.some(m => m.text === 'UK'), '2-letter acronyms should be skipped');
     assert.ok(matches.some(m => m.text === 'FBI'));
+    assert.ok(matches.some(m => m.text === 'NATO'));
   });
 
   test('accepts mixed-case single words >= 4 chars', () => {

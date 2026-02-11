@@ -44,11 +44,6 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 0;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .toggle-row:last-child {
-      border-bottom: none;
     }
 
     .toggle-label {
@@ -56,18 +51,6 @@
       align-items: center;
       gap: 8px;
     }
-
-    .toggle-label .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-
-    .dot-person { background-color: #2563eb; }
-    .dot-country { background-color: #d97706; }
-    .dot-city { background-color: #d97706; }
-    .dot-org { background-color: #7c3aed; }
-    .dot-company { background-color: #0d9488; }
 
     /* Toggle switch */
     .toggle {
@@ -113,16 +96,6 @@
 
     input:checked + .slider:before {
       transform: translateX(20px);
-    }
-
-    .section-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: #6b7280;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 16px;
-      margin-bottom: 8px;
     }
 
     .stats {
@@ -188,63 +161,6 @@
     <span class="toggle-label">Enable Wikilinker</span>
     <label class="toggle">
       <input type="checkbox" id="enabled" checked>
-      <span class="slider"></span>
-    </label>
-  </div>
-
-  <div class="section-title">Entity Types</div>
-
-  <div class="toggle-row">
-    <span class="toggle-label">
-      <span class="dot dot-person"></span>
-      People
-    </span>
-    <label class="toggle">
-      <input type="checkbox" id="showPersons" checked>
-      <span class="slider"></span>
-    </label>
-  </div>
-
-  <div class="toggle-row">
-    <span class="toggle-label">
-      <span class="dot dot-country"></span>
-      Countries
-    </span>
-    <label class="toggle">
-      <input type="checkbox" id="showCountries" checked>
-      <span class="slider"></span>
-    </label>
-  </div>
-
-  <div class="toggle-row">
-    <span class="toggle-label">
-      <span class="dot dot-city"></span>
-      Cities
-    </span>
-    <label class="toggle">
-      <input type="checkbox" id="showCities" checked>
-      <span class="slider"></span>
-    </label>
-  </div>
-
-  <div class="toggle-row">
-    <span class="toggle-label">
-      <span class="dot dot-org"></span>
-      Organizations
-    </span>
-    <label class="toggle">
-      <input type="checkbox" id="showOrgs" checked>
-      <span class="slider"></span>
-    </label>
-  </div>
-
-  <div class="toggle-row">
-    <span class="toggle-label">
-      <span class="dot dot-company"></span>
-      Companies
-    </span>
-    <label class="toggle">
-      <input type="checkbox" id="showCompanies" checked>
       <span class="slider"></span>
     </label>
   </div>

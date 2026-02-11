@@ -168,6 +168,7 @@
 
   // server/shared/matcher-core.js
   var SKIP_WORDS = /* @__PURE__ */ new Set([
+    // Pronouns and determiners
     "The",
     "This",
     "That",
@@ -192,6 +193,7 @@
     "You",
     "Your",
     "My",
+    // Days and months
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -210,11 +212,194 @@
     "September",
     "October",
     "November",
-    "December"
+    "December",
+    // Common English words that are also Wikipedia titles
+    "After",
+    "Again",
+    "Album",
+    "Also",
+    "Ammunition",
+    "Another",
+    "Assault",
+    "Before",
+    "Being",
+    "Both",
+    "But",
+    "Cash",
+    "Cast",
+    "Christmas",
+    "Copyright",
+    "Despite",
+    "Each",
+    "Email",
+    "Even",
+    "Every",
+    "Everything",
+    "Evidence",
+    "Expect",
+    "Family",
+    "Film",
+    "Fireworks",
+    "First",
+    "Following",
+    "Former",
+    "Freedom",
+    "From",
+    "Golden",
+    "Good",
+    "Great",
+    "Greatness",
+    "Here",
+    "Image",
+    "Indeed",
+    "Just",
+    "Keep",
+    "Last",
+    "Life",
+    "Link",
+    "Live",
+    "Machine",
+    "Many",
+    "Media",
+    "Meanwhile",
+    "Minutes",
+    "More",
+    "Most",
+    "Much",
+    "Never",
+    "New",
+    "Next",
+    "Nobody",
+    "None",
+    "Nothing",
+    "Number",
+    "Office",
+    "Often",
+    "Only",
+    "Other",
+    "Over",
+    "Page",
+    "People",
+    "Play",
+    "Please",
+    "Pointless",
+    "Police",
+    "Radio",
+    "Real",
+    "Same",
+    "Several",
+    "Since",
+    "Sniper",
+    "Some",
+    "South",
+    "Stalemate",
+    "State",
+    "Steam",
+    "Still",
+    "Success",
+    "Such",
+    "Sunrise",
+    "Time",
+    "Title",
+    "Today",
+    "Together",
+    "Very",
+    "Watch",
+    "Wedding",
+    "Well",
+    "While",
+    "White",
+    "Whole",
+    "Woman",
+    "Wood",
+    "World",
+    "Writer",
+    "Year",
+    "Zero",
+    // Compass/directional (match as part of multi-word like "South Korea")
+    "North",
+    "East",
+    "West",
+    // Demonym adjectives — link the country instead
+    "African",
+    "American",
+    "Arab",
+    "Asian",
+    "Australian",
+    "Brazilian",
+    "British",
+    "Canadian",
+    "Chinese",
+    "Dutch",
+    "Egyptian",
+    "English",
+    "European",
+    "French",
+    "German",
+    "Greek",
+    "Indian",
+    "Iranian",
+    "Iraqi",
+    "Irish",
+    "Islamic",
+    "Israeli",
+    "Italian",
+    "Japanese",
+    "Korean",
+    "Latin",
+    "Mexican",
+    "Palestinian",
+    "Polish",
+    "Russian",
+    "Scottish",
+    "Spanish",
+    "Swedish",
+    "Turkish",
+    "Ukrainian",
+    "Vietnamese",
+    "Welsh",
+    // Institutional/role words (too generic alone, valid in multi-word phrases)
+    "Academic",
+    "Athletes",
+    "Bureaucrat",
+    "Cabinet",
+    "Commons",
+    "Conservative",
+    "Constitution",
+    "Creativity",
+    "Customs",
+    "Democracy",
+    "Deputy",
+    "Environment",
+    "Geography",
+    "Health",
+    "History",
+    "House",
+    "Immigration",
+    "Justice",
+    "Liberal",
+    "Ministry",
+    "Opposition",
+    "Parliament",
+    "Partnership",
+    "Poetry",
+    "Prince",
+    "Princess",
+    "Producer",
+    "Professor",
+    "Republic",
+    "Secretary",
+    "Security",
+    "Transparency",
+    "Treasury",
+    // Stock photo attribution words
+    "Alamy",
+    "Getty",
+    "Shutterstock"
   ]);
   function meetsMinLength(phrase) {
     if (phrase.includes(" ")) return true;
-    if (/^[A-Z]+$/.test(phrase)) return phrase.length >= 2;
+    if (/^[A-Z]+$/.test(phrase)) return phrase.length >= 3;
     return phrase.length >= 4;
   }
   var FILLER_LEADING = /^(?:of|and|in|on|under|the|for)\s+/i;
@@ -376,11 +561,6 @@
       articleSelector: "article, #main-content, .article-body",
       homepageUrl: "https://www.independent.co.uk"
     },
-    "theatlantic.com": {
-      name: "The Atlantic",
-      articleSelector: ".article-body, [data-article-content]",
-      homepageUrl: "https://www.theatlantic.com"
-    },
     "newyorker.com": {
       name: "The New Yorker",
       articleSelector: ".body__inner-container, .article__body",
@@ -419,27 +599,7 @@
   };
 
   // extension/src/content.js
-  var TYPE_NAMES = {
-    1: "person",
-    2: "country",
-    3: "city",
-    4: "org",
-    5: "company"
-  };
-  var TYPE_ICONS = {
-    1: "\u{1F464}",
-    // person: bust silhouette
-    2: "\u{1F4CD}",
-    // country: pin
-    3: "\u{1F4CD}",
-    // city: pin
-    4: "\u{1F3DB}",
-    // org: classical building
-    5: "\u{1F3E2}"
-    // company: office building
-  };
   var ALLOW_INSIDE_ARTICLE = /* @__PURE__ */ new Set(["LI", "TH", "TD"]);
-  var entities = null;
   var entitySet = null;
   var settings = {};
   async function init() {
@@ -448,7 +608,6 @@
         chrome.runtime.sendMessage({ type: "getEntities" }),
         chrome.runtime.sendMessage({ type: "getSettings" })
       ]);
-      entities = entityResponse.entities;
       entitySet = new Set(entityResponse.set);
       settings = settingsResponse || {};
       if (settings.enabled === false) return;
@@ -550,45 +709,20 @@
     return count;
   }
   function createWikiLink(entityName) {
-    const entityInfo = entities[entityName];
-    const typeCode = entityInfo?.[0];
-    const typeName = TYPE_NAMES[typeCode] || "unknown";
-    const icon = TYPE_ICONS[typeCode] || "";
-    if (!shouldShowType(typeCode)) {
-      const span = document.createElement("span");
-      span.textContent = entityName;
-      return span;
-    }
     const link = document.createElement("a");
     link.href = toWikiUrl(entityName);
-    link.className = `wikilink wikilink-${typeName}`;
-    link.title = `${entityName} (${typeName}) \u2014 Wikipedia`;
+    link.className = "wikilink";
+    link.title = `${entityName} \u2014 Wikipedia`;
     link.target = "_blank";
     link.rel = "noopener";
-    if (icon) {
-      const iconSpan = document.createElement("span");
-      iconSpan.className = "wikilink-icon";
-      iconSpan.textContent = icon;
-      link.appendChild(iconSpan);
-    }
     link.appendChild(document.createTextNode(entityName));
     return link;
-  }
-  function shouldShowType(typeCode) {
-    const map = {
-      1: settings.showPersons,
-      2: settings.showCountries,
-      3: settings.showCities,
-      4: settings.showOrgs,
-      5: settings.showCompanies
-    };
-    return map[typeCode] !== false;
   }
   chrome.runtime.onMessage.addListener((message) => {
     if (message.type === "settingsChanged") {
       settings = message.settings;
       document.querySelectorAll(".wikilink").forEach((link) => {
-        const text = document.createTextNode(link.textContent.replace(/^./, ""));
+        const text = document.createTextNode(link.textContent);
         link.parentNode.replaceChild(text, link);
       });
       if (settings.enabled !== false) {

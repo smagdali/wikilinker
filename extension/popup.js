@@ -2,15 +2,7 @@
 //
 // Handles settings UI and persistence for the popup.
 
-// Setting IDs that map to storage keys
-const SETTINGS = [
-  'enabled',
-  'showPersons',
-  'showCountries',
-  'showCities',
-  'showOrgs',
-  'showCompanies',
-];
+const SETTINGS = ['enabled'];
 
 // Load current settings
 async function loadSettings() {

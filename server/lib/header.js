@@ -91,6 +91,7 @@ export function generateHeader(currentUrl, proxyPath, options = {}) {
         </form>
 
         <div class="wikilinker-links">
+          ${currentUrl ? `<a href="${escapeAttr(currentUrl)}" target="_blank" rel="noopener">Original</a>` : ''}
           <a href="${aboutUrl}">About</a>
         </div>
       </div>
