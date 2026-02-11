@@ -1,0 +1,30 @@
+Third-Party Licenses
+====================
+
+Wikilinker uses the following open-source libraries:
+
+
+@mozilla/readability
+  License: Apache-2.0
+  URL: https://github.com/mozilla/readability
+  Copyright: Mozilla Foundation
+
+DOMPurify
+  License: MPL-2.0 OR Apache-2.0
+  URL: https://github.com/cure53/DOMPurify
+  Copyright: Mario Heiderich
+
+Express
+  License: MIT
+  URL: https://github.com/expressjs/express
+  Copyright: TJ Holowaychuk, Douglas Christopher Wilson, and contributors
+
+jsdom
+  License: MIT
+  URL: https://github.com/jsdom/jsdom
+  Copyright: Domenic Denicola and contributors
+
+node-html-parser
+  License: MIT
+  URL: https://github.com/taoqf/node-html-parser
+  Copyright: taoqf

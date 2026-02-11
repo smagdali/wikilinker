@@ -4,6 +4,7 @@
   "description": "Web proxy demo for Wikilinker",
   "main": "server.js",
   "type": "module",
+  "license": "ISC",
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
