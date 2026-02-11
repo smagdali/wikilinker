@@ -1,28 +1,26 @@
 /**
  * Wikilinker Link Styles
  *
- * Matches the server-side proxy styling: invisible by default,
- * underline on hover. Links should blend into the page text.
+ * Green tint with Wikipedia-blue text, sans-serif.
  */
 
 .wikilink {
-  font: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  color: inherit;
-  text-decoration: none;
+  color: #0645ad;
+  text-decoration: underline;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: rgba(52, 168, 83, 0.12);
+  padding: 1px 3px;
+  border-radius: 2px;
 }
 
 .wikilink:hover {
-  text-decoration: underline;
+  background-color: rgba(52, 168, 83, 0.25);
 }
 
-/* Print styles - remove visual indicators */
+/* Print styles */
 @media print {
   .wikilink {
     text-decoration: none !important;
-    color: inherit !important;
+    background-color: transparent !important;
   }
 }

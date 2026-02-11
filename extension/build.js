@@ -15,7 +15,7 @@ await build({
   bundle: true,
   outdir: 'extension/dist',
   format: 'iife',
-  target: 'chrome120',
+  target: 'es2020',
   loader: { '.json': 'json' },
   logLevel: 'info',
 });

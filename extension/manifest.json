@@ -3,6 +3,12 @@
   "name": "Wikilinker",
   "version": "1.0.0",
   "description": "Auto-links proper nouns and entities to Wikipedia on news sites",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "wikilinker@whitelabel.org",
+      "strict_min_version": "109.0"
+    }
+  },
   "permissions": [
     "storage",
     "activeTab"
@@ -21,7 +27,12 @@
     "https://*.independent.co.uk/*",
     "https://*.theatlantic.com/*",
     "https://*.newyorker.com/*",
-    "https://*.vox.com/*"
+    "https://*.vox.com/*",
+    "https://*.theguardian.com/*",
+    "https://*.cnn.com/*",
+    "https://*.go.com/*",
+    "https://*.sky.com/*",
+    "https://*.unherd.com/*"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -37,7 +48,8 @@
     "128": "icons/icon128.png"
   },
   "background": {
-    "service_worker": "dist/background.js"
+    "service_worker": "dist/background.js",
+    "scripts": ["dist/background.js"]
   },
   "content_scripts": [
     {
@@ -55,7 +67,12 @@
         "https://*.independent.co.uk/*",
         "https://*.theatlantic.com/*",
         "https://*.newyorker.com/*",
-        "https://*.vox.com/*"
+        "https://*.vox.com/*",
+        "https://*.theguardian.com/*",
+        "https://*.cnn.com/*",
+        "https://*.go.com/*",
+        "https://*.sky.com/*",
+        "https://*.unherd.com/*"
       ],
       "js": ["dist/content.js"],
       "css": ["styles.css"],
