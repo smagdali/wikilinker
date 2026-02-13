@@ -5,7 +5,10 @@
 // in Wikipedia links using browser-native DOM APIs.
 
 import { shouldSkipElement } from '../../server/shared/skip-rules.js';
-import { findMatches, toWikiUrl } from '../../server/shared/matcher-core.js';
+import {
+  findMatches, extractCandidates, escapeRegExp,
+  isSentenceStart, isPartOfLargerPhrase, toWikiUrl,
+} from '../../server/shared/matcher-core.js';
 import sites from '../../server/shared/sites.json';
 
 // Tags allowed inside article containers (content, not nav)
@@ -17,6 +20,10 @@ let settings = {};
 // ── Initialisation ──────────────────────────────────────────
 
 async function init() {
+  // Guard against double-init when both static and dynamic content scripts fire
+  if (window.__wikilinkerInit) return;
+  window.__wikilinkerInit = true;
+
   try {
     const [entityResponse, settingsResponse] = await Promise.all([
       chrome.runtime.sendMessage({ type: 'getEntities' }),
@@ -35,6 +42,14 @@ async function init() {
 }
 
 // ── Article detection ───────────────────────────────────────
+
+function isSupportedSite() {
+  const hostname = location.hostname.replace(/^www\./, '');
+  return !!(sites[hostname] ||
+    Object.entries(sites).find(([domain]) =>
+      hostname === domain || hostname.endsWith('.' + domain)
+    )?.[1]);
+}
 
 function findArticleContainers() {
   // Try site-specific selectors from shared config
@@ -81,6 +96,87 @@ function processPage() {
   // Update badge
   if (linkCount > 0) {
     chrome.runtime.sendMessage({ type: 'setBadge', count: linkCount });
+  }
+
+  DEBUG: {
+    const allText = containers.map(c => c.textContent).join('\n');
+    const candidates = extractCandidates(allText);
+    const lines = [];
+
+    // Classify candidate type
+    const ruleOf = (c) => {
+      if (c.includes(' ')) return 'multi-word';
+      if (/^[A-Z]+$/.test(c)) return 'acronym';
+      return 'single-word';
+    };
+
+    // Get context: 10 chars either side with the candidate in brackets
+    const contextOf = (text, candidate) => {
+      const re = new RegExp(`\\b${escapeRegExp(candidate)}\\b`);
+      const m = re.exec(text);
+      if (!m) return `[${candidate}]`;
+      const start = Math.max(0, m.index - 10);
+      const end = Math.min(text.length, m.index + candidate.length + 10);
+      const before = text.slice(start, m.index).replace(/\n/g, ' ');
+      const after = text.slice(m.index + candidate.length, end).replace(/\n/g, ' ');
+      return `${start > 0 ? '...' : ''}${before}[${candidate}]${after}${end < text.length ? '...' : ''}`;
+    };
+
+    // Track used ranges for overlap detection (mirroring matcher logic)
+    const matched = [];
+    for (const c of candidates) {
+      if (entitySet.has(c)) matched.push(c);
+    }
+    matched.sort((a, b) => b.length - a.length);
+    const usedRanges = [];
+
+    for (const c of matched) {
+      const re = new RegExp(`\\b${escapeRegExp(c)}\\b`);
+      const found = re.exec(allText);
+      if (!found) continue;
+      const start = found.index;
+      const end = start + c.length;
+      const overlaps = usedRanges.some(([s, e]) =>
+        (start >= s && start < e) || (end > s && end <= e) || (start <= s && end >= e));
+      let status;
+      if (overlaps) {
+        status = 'overlapped';
+      } else if (isSentenceStart(allText, start)) {
+        status = 'sentence-start';
+      } else if (isPartOfLargerPhrase(allText, start, end)) {
+        status = 'part-of-larger';
+      } else if (linkedEntities.has(c)) {
+        status = 'linked';
+        usedRanges.push([start, end]);
+      } else {
+        status = 'matched';
+        usedRanges.push([start, end]);
+      }
+      lines.push(`${contextOf(allText, c)}\t${c}\t${ruleOf(c)}\t${status}`);
+    }
+
+    // Unmatched candidates
+    for (const c of [...candidates].filter(c => !entitySet.has(c)).sort()) {
+      lines.push(`${contextOf(allText, c)}\t${c}\t${ruleOf(c)}\tnot-in-db`);
+    }
+
+    const header = `context\tcandidate\trule\tstatus`;
+    const report = [
+      `# Wikilinker debug: ${location.href}`,
+      `# Containers: ${containers.length}, Text: ${allText.length} chars, Linked: ${linkCount}`,
+      header,
+      ...lines,
+    ].join('\n');
+
+    console.log(report);
+
+    const slug = location.hostname.replace(/\./g, '-');
+    const blob = new Blob([report], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `wikilinker-debug-${slug}.tsv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
   }
 }
 
@@ -186,7 +282,7 @@ chrome.runtime.onMessage.addListener((message) => {
       const text = document.createTextNode(link.textContent);
       link.parentNode.replaceChild(text, link);
     });
-    if (settings.enabled !== false) {
+    if (settings.enabled !== false && (isSupportedSite() || settings.allSites)) {
       processPage();
     }
   }

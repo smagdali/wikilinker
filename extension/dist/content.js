@@ -603,6 +603,8 @@
   var entitySet = null;
   var settings = {};
   async function init() {
+    if (window.__wikilinkerInit) return;
+    window.__wikilinkerInit = true;
     try {
       const [entityResponse, settingsResponse] = await Promise.all([
         chrome.runtime.sendMessage({ type: "getEntities" }),
@@ -615,6 +617,12 @@
     } catch (err) {
       console.error("Wikilinker: init failed", err);
     }
+  }
+  function isSupportedSite() {
+    const hostname = location.hostname.replace(/^www\./, "");
+    return !!(sites_default[hostname] || Object.entries(sites_default).find(
+      ([domain]) => hostname === domain || hostname.endsWith("." + domain)
+    )?.[1]);
   }
   function findArticleContainers() {
     const hostname = location.hostname.replace(/^www\./, "");
@@ -725,7 +733,7 @@
         const text = document.createTextNode(link.textContent);
         link.parentNode.replaceChild(text, link);
       });
-      if (settings.enabled !== false) {
+      if (settings.enabled !== false && (isSupportedSite() || settings.allSites)) {
         processPage();
       }
     }

@@ -148,6 +148,25 @@
     .main-toggle .toggle-label {
       font-weight: 600;
     }
+
+    .all-sites-toggle {
+      padding: 10px 0;
+    }
+
+    .all-sites-toggle .toggle-row {
+      padding: 0;
+    }
+
+    .all-sites-note {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .all-sites-toggle.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -163,6 +182,17 @@
       <input type="checkbox" id="enabled" checked>
       <span class="slider"></span>
     </label>
+  </div>
+
+  <div class="all-sites-toggle" id="allSitesSection">
+    <div class="toggle-row">
+      <span class="toggle-label">Run on all sites</span>
+      <label class="toggle">
+        <input type="checkbox" id="allSites">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="all-sites-note">Experimental — may not work on every site</div>
   </div>
 
   <div class="stats">

@@ -14,7 +14,11 @@
   },
   "permissions": [
     "storage",
-    "activeTab"
+    "activeTab",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
   ],
   "host_permissions": [
     "https://*.bbc.com/*",
@@ -51,8 +55,7 @@
     "128": "icons/icon128.png"
   },
   "background": {
-    "service_worker": "dist/background.js",
-    "scripts": ["dist/background.js"]
+    "service_worker": "dist/background.js"
   },
   "content_scripts": [
     {

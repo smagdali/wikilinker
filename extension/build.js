@@ -3,9 +3,11 @@
 // Bundles extension source files with shared modules into dist/.
 // Content scripts can't use ES module imports, so we bundle to IIFE.
 //
-// Usage: node extension/build.js
+// Usage: node extension/build.js [--debug]
 
 import { build } from 'esbuild';
+
+const debug = process.argv.includes('--debug');
 
 await build({
   entryPoints: [
@@ -17,5 +19,6 @@ await build({
   format: 'iife',
   target: 'es2020',
   loader: { '.json': 'json' },
+  dropLabels: debug ? [] : ['DEBUG'],
   logLevel: 'info',
 });
