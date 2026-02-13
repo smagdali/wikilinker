@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
   extractCandidates as _extractCandidates,
+  normaliseCurlyQuotes,
   findMatches as _findMatches,
   findMatchesInText as _findMatchesInText,
   isPartOfLargerPhrase,
@@ -37,7 +38,8 @@ export class EntityMatcher {
   }
 
   findMatches(text, debug = false) {
-    const candidates = _extractCandidates(text);
+    const normalised = normaliseCurlyQuotes(text);
+    const candidates = _extractCandidates(normalised);
     const matches = [];
 
     const debugData = debug ? {
@@ -65,7 +67,7 @@ export class EntityMatcher {
 
     for (const match of matches) {
       const regex = new RegExp(`\\b${escapeRegExp(match.text)}\\b`);
-      const found = regex.exec(text);
+      const found = regex.exec(normalised);
 
       if (found) {
         const start = found.index;
@@ -80,13 +82,13 @@ export class EntityMatcher {
             debugData.overlapped.push({ text: match.text });
           }
         } else {
-          const partOfLarger = isPartOfLargerPhrase(text, start, end);
+          const partOfLarger = isPartOfLargerPhrase(normalised, start, end);
 
           if (partOfLarger) {
             if (debugData) {
               debugData.partOfLarger.push({ text: match.text });
             }
-          } else if (isSentenceStart(text, start)) {
+          } else if (isSentenceStart(normalised, start)) {
             if (debugData) {
               debugData.sentenceStart.push({ text: match.text });
             }

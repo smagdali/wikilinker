@@ -101,6 +101,11 @@ export function trimFillers(phrase) {
   return result;
 }
 
+// Normalise curly quotes to straight so candidates match entity DB
+export function normaliseCurlyQuotes(text) {
+  return text.replace(/[\u2018\u2019]/g, "'");
+}
+
 // Extract capitalised phrase candidates from text
 export function extractCandidates(text) {
   const candidates = new Set();
@@ -175,7 +180,8 @@ export function escapeRegExp(string) {
 // entitySet: a Set of known entity names.
 // Returns array of { text, index } sorted by position.
 export function findMatches(text, entitySet) {
-  const candidates = extractCandidates(text);
+  const normalised = normaliseCurlyQuotes(text);
+  const candidates = extractCandidates(normalised);
   const matches = [];
 
   for (const candidate of candidates) {
@@ -191,7 +197,7 @@ export function findMatches(text, entitySet) {
 
   for (const match of matches) {
     const regex = new RegExp(`\\b${escapeRegExp(match.text)}\\b`);
-    const found = regex.exec(text);
+    const found = regex.exec(normalised);
 
     if (found) {
       const start = found.index;
@@ -201,7 +207,7 @@ export function findMatches(text, entitySet) {
         (start >= s && start < e) || (end > s && end <= e) || (start <= s && end >= e)
       );
 
-      if (!overlaps && !isPartOfLargerPhrase(text, start, end) && !isSentenceStart(text, start)) {
+      if (!overlaps && !isPartOfLargerPhrase(normalised, start, end) && !isSentenceStart(normalised, start)) {
         result.push({ text: match.text, index: start });
         usedRanges.push([start, end]);
       }
