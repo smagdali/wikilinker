@@ -16,7 +16,11 @@ Try it on these articles:
 
 Currently supported sites: BBC News, BBC News UK, AP News, NPR, Al Jazeera, NBC News, CBS News, Fox News, USA Today, Daily Mail, The Independent, The Atlantic, The New Yorker, Vox, The Guardian, CNN, ABC News, Sky News, and UnHerd.
 
-## How it works
+## Browser extension
+
+There is also a [Chrome and Firefox extension](https://github.com/smagdali/wikilinker) that does the same thing directly in your browser, with no proxy needed. It runs on the same 19 supported sites, with an experimental "all sites" mode that lets you try it on any website.
+
+## How the proxy works
 
 1. **Fetch** — The proxy fetches the original news page.
 2. **Detect** — Index pages and section fronts are detected and passed through without modification — wikilinks are only added to articles.

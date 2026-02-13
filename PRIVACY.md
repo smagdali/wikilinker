@@ -16,13 +16,15 @@ Wikilinker does not collect, transmit, or store any personal data. Specifically:
 
 ## Data storage
 
-The extension stores a single boolean preference (enabled/disabled) using your browser's local extension storage. This value never leaves your device.
+The extension stores two preferences (enabled/disabled and all-sites mode) using your browser's local extension storage. These values never leave your device.
 
 ## Permissions
 
 - **Host permissions** (19 news site domains): Required to inject Wikipedia links into article text on supported sites. The extension only activates on these specific domains.
-- **Storage**: Used to save the enabled/disabled preference.
+- **Optional host permissions** (`<all_urls>`): Requested only when you enable "all sites" mode. Allows the extension to run on any website. You can revoke this at any time by toggling the setting off.
+- **Storage**: Used to save preferences.
 - **Active tab**: Used to communicate with the content script on the current page.
+- **Scripting**: Used to inject the content script into pages when "all sites" mode is enabled.
 
 ## Changes
 
