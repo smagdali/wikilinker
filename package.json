@@ -1,6 +1,6 @@
 {
   "name": "wikilinker",
-  "version": "1.0.0",
+  "version": "0.5.0",
   "description": "Auto-links people, places, and organizations to Wikipedia in news articles.",
   "main": "index.js",
   "scripts": {
