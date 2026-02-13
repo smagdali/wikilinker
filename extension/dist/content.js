@@ -214,12 +214,14 @@
     "November",
     "December",
     // Common English words that are also Wikipedia titles
+    "About",
     "After",
     "Again",
     "Album",
     "Also",
     "Ammunition",
     "Another",
+    "Archive",
     "Assault",
     "Before",
     "Being",
@@ -227,11 +229,17 @@
     "But",
     "Cash",
     "Cast",
+    "Category",
     "Christmas",
+    "Code",
+    "Contact",
+    "Control",
     "Copyright",
     "Despite",
+    "Download",
     "Each",
     "Email",
+    "Error",
     "Even",
     "Every",
     "Everything",
@@ -243,20 +251,26 @@
     "First",
     "Following",
     "Former",
+    "Free",
     "Freedom",
     "From",
+    "General",
     "Golden",
     "Good",
     "Great",
     "Greatness",
+    "Greed",
     "Here",
     "Image",
     "Indeed",
     "Just",
     "Keep",
+    "Language",
     "Last",
     "Life",
+    "Like",
     "Link",
+    "List",
     "Live",
     "Machine",
     "Many",
@@ -266,9 +280,13 @@
     "More",
     "Most",
     "Much",
+    "Name",
+    "Nation",
     "Never",
     "New",
+    "News",
     "Next",
+    "Night",
     "Nobody",
     "None",
     "Nothing",
@@ -284,14 +302,21 @@
     "Please",
     "Pointless",
     "Police",
+    "Power",
+    "Productivity",
+    "Public",
+    "Question",
     "Radio",
     "Real",
     "Same",
+    "Service",
     "Several",
+    "Sign",
     "Since",
     "Sniper",
     "Some",
     "South",
+    "Special",
     "Stalemate",
     "State",
     "Steam",
@@ -305,7 +330,9 @@
     "Together",
     "Very",
     "Watch",
+    "Website",
     "Wedding",
+    "Welcome",
     "Well",
     "While",
     "White",
@@ -414,6 +441,9 @@
     }
     return result;
   }
+  function normaliseCurlyQuotes(text) {
+    return text.replace(/[\u2018\u2019]/g, "'");
+  }
   function extractCandidates(text) {
     const candidates = /* @__PURE__ */ new Set();
     const capsWord = "[A-Z][a-zA-Z'\\-]+";
@@ -472,7 +502,8 @@
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
   function findMatches(text, entitySet2) {
-    const candidates = extractCandidates(text);
+    const normalised = normaliseCurlyQuotes(text);
+    const candidates = extractCandidates(normalised);
     const matches = [];
     for (const candidate of candidates) {
       if (entitySet2.has(candidate)) {
@@ -484,14 +515,14 @@
     const usedRanges = [];
     for (const match of matches) {
       const regex = new RegExp(`\\b${escapeRegExp(match.text)}\\b`);
-      const found = regex.exec(text);
+      const found = regex.exec(normalised);
       if (found) {
         const start = found.index;
         const end = start + match.text.length;
         const overlaps = usedRanges.some(
           ([s, e]) => start >= s && start < e || end > s && end <= e || start <= s && end >= e
         );
-        if (!overlaps && !isPartOfLargerPhrase(text, start, end) && !isSentenceStart(text, start)) {
+        if (!overlaps && !isPartOfLargerPhrase(normalised, start, end) && !isSentenceStart(normalised, start)) {
           result.push({ text: match.text, index: start });
           usedRanges.push([start, end]);
         }
@@ -613,10 +644,16 @@
       entitySet = new Set(entityResponse.set);
       settings = settingsResponse || {};
       if (settings.enabled === false) return;
+      if (isBlockedSite()) return;
       processPage();
     } catch (err) {
       console.error("Wikilinker: init failed", err);
     }
+  }
+  var BLOCKED_SITES = ["wikipedia.org", "wikimedia.org", "wiktionary.org"];
+  function isBlockedSite() {
+    const hostname = location.hostname.replace(/^www\./, "");
+    return BLOCKED_SITES.some((d) => hostname === d || hostname.endsWith("." + d));
   }
   function isSupportedSite() {
     const hostname = location.hostname.replace(/^www\./, "");
@@ -733,7 +770,7 @@
         const text = document.createTextNode(link.textContent);
         link.parentNode.replaceChild(text, link);
       });
-      if (settings.enabled !== false && (isSupportedSite() || settings.allSites)) {
+      if (settings.enabled !== false && !isBlockedSite() && (isSupportedSite() || settings.allSites)) {
         processPage();
       }
     }

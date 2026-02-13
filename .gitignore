@@ -7,6 +7,9 @@ node_modules/
 # Build artifacts
 *.zip
 
+# Debug logs
+wikilinker-debug-*.tsv
+
 # Local development
 .env
 

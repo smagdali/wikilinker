@@ -34,6 +34,7 @@ async function init() {
     settings = settingsResponse || {};
 
     if (settings.enabled === false) return;
+    if (isBlockedSite()) return;
 
     processPage();
   } catch (err) {
@@ -42,6 +43,14 @@ async function init() {
 }
 
 // ── Article detection ───────────────────────────────────────
+
+// Sites that should never be wikilinked (even in all-sites mode)
+const BLOCKED_SITES = ['wikipedia.org', 'wikimedia.org', 'wiktionary.org'];
+
+function isBlockedSite() {
+  const hostname = location.hostname.replace(/^www\./, '');
+  return BLOCKED_SITES.some(d => hostname === d || hostname.endsWith('.' + d));
+}
 
 function isSupportedSite() {
   const hostname = location.hostname.replace(/^www\./, '');
@@ -282,7 +291,7 @@ chrome.runtime.onMessage.addListener((message) => {
       const text = document.createTextNode(link.textContent);
       link.parentNode.replaceChild(text, link);
     });
-    if (settings.enabled !== false && (isSupportedSite() || settings.allSites)) {
+    if (settings.enabled !== false && !isBlockedSite() && (isSupportedSite() || settings.allSites)) {
       processPage();
     }
   }
