@@ -6,7 +6,7 @@ Auto-links the most popular 500,000 people, places, organizations, and other mat
 
 The best way to use Wikilinker is with the browser extension for **Chrome** and **Firefox**. It runs directly in your browser with no proxy needed, on 19 supported news sites. There's also an experimental "all sites" mode that lets you try it on any website.
 
-The extension isn't in the Chrome Web Store or Firefox Add-ons yet — for now you can [download the latest release](https://github.com/smagdali/wikilinker/releases/latest) and install it manually. In Chrome, unzip and load it via `chrome://extensions` with Developer Mode enabled. In Firefox, use `about:debugging` to load it as a temporary add-on.
+The extension isn't in the Chrome Web Store or Firefox Add-ons yet — for now you can [download the latest release](https://github.com/smagdali/wikilinker/releases/tag/v0.5.1) and install it manually. In Chrome, unzip and load it via `chrome://extensions` with Developer Mode enabled. In Firefox, use `about:debugging` to load it as a temporary add-on.
 
 [Source code on GitHub](https://github.com/smagdali/wikilinker)
 
