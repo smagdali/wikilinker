@@ -7,31 +7,10 @@ import entities from '../../server/shared/entities.json';
 
 console.log(`Wikilinker: ${entities.length} entities bundled`);
 
-// Tint the toolbar icon green when allSites is active
-async function updateIcon(allSites) {
-  if (!allSites) {
-    // Reset to default icons
-    chrome.action.setIcon({ path: { 16: 'icons/icon16.png', 48: 'icons/icon48.png', 128: 'icons/icon128.png' } });
-    return;
-  }
-  // Tint each icon size green
-  for (const size of [16, 48]) {
-    try {
-      const resp = await fetch(chrome.runtime.getURL(`icons/icon${size}.png`));
-      const bitmap = await createImageBitmap(await resp.blob());
-      const canvas = new OffscreenCanvas(size, size);
-      const ctx = canvas.getContext('2d');
-      ctx.drawImage(bitmap, 0, 0);
-      // Green overlay with multiply blend
-      ctx.globalCompositeOperation = 'source-atop';
-      ctx.fillStyle = 'rgba(52, 168, 83, 0.45)';
-      ctx.fillRect(0, 0, size, size);
-      const imageData = ctx.getImageData(0, 0, size, size);
-      chrome.action.setIcon({ imageData: { [size]: imageData } });
-    } catch (e) {
-      // Fallback: just use default icon
-    }
-  }
+// Show "all" badge when allSites is active
+function updateIcon(allSites) {
+  chrome.action.setBadgeText({ text: allSites ? 'all' : '' });
+  chrome.action.setBadgeBackgroundColor({ color: allSites ? '#34a853' : '#6366f1' });
 }
 
 // Watch for settings changes to update icon

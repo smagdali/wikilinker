@@ -1,12 +1,18 @@
 # Wikilinker
 
-Auto-links the most popular 500,000 people, places, organizations, and other matchable entities to their [Wikipedia](https://en.wikipedia.org/) pages in news articles. [Try it here](https://whitelabel.org/wikilinker).
+Auto-links the most popular 500,000 people, places, organizations, and other matchable entities to their [Wikipedia](https://en.wikipedia.org/) pages in news articles.
 
-## What it does
+## Browser extension
 
-Wikilinker is a web proxy that takes news articles from any of its supported sites and automatically adds Wikipedia links to the people, places, organizations, and other notable entities mentioned in the text. Each entity is linked only on its first occurrence, keeping the reading experience clean.
+The best way to use Wikilinker is with the browser extension for **Chrome** and **Firefox**. It runs directly in your browser with no proxy needed, on 19 supported news sites. There's also an experimental "all sites" mode that lets you try it on any website.
 
-Try it on these articles:
+The extension isn't in the Chrome Web Store or Firefox Add-ons yet — for now you can [download the latest release](https://github.com/smagdali/wikilinker/releases/latest) and install it manually. In Chrome, unzip and load it via `chrome://extensions` with Developer Mode enabled. In Firefox, use `about:debugging` to load it as a temporary add-on.
+
+[Source code on GitHub](https://github.com/smagdali/wikilinker)
+
+## Web proxy demo
+
+You can also try Wikilinker as a web proxy here — paste a URL or try one of these articles:
 
 - [US allies looking to China for deals as Trump threatens them with tariffs](https://whitelabel.org/wikilinker?url=https://www.npr.org/2026/01/28/nx-s1-5688905/longtime-u-s-allies-are-shifting-trade-to-asia-due-to-trumps-tariffs-and-rhetoric) (NPR)
 - [Trump's 'maximalist demands' for Iran put talks in Oman on uncertain ground](https://whitelabel.org/wikilinker?url=https://www.aljazeera.com/news/2026/2/6/trumps-maximalist-demands-for-iran-put-talks-in-oman-on-uncertain-ground) (Al Jazeera)
@@ -16,18 +22,13 @@ Try it on these articles:
 
 Currently supported sites: BBC News, BBC News UK, AP News, NPR, Al Jazeera, NBC News, CBS News, Fox News, USA Today, Daily Mail, The Independent, The Atlantic, The New Yorker, Vox, The Guardian, CNN, ABC News, Sky News, and UnHerd.
 
-## Browser extension
+## How it works
 
-There is also a [Chrome and Firefox extension](https://github.com/smagdali/wikilinker) that does the same thing directly in your browser, with no proxy needed. It runs on the same 19 supported sites, with an experimental "all sites" mode that lets you try it on any website.
+Both the extension and the proxy use the same matching pipeline:
 
-## How the proxy works
-
-1. **Fetch** — The proxy fetches the original news page.
-2. **Detect** — Index pages and section fronts are detected and passed through without modification — wikilinks are only added to articles.
-3. **Extract** — For articles, Mozilla's [Readability](https://github.com/mozilla/readability) library extracts the main text (like Firefox Reader View), which is then scanned for entity candidates: capitalised phrases, multi-word proper nouns, and known acronyms (e.g. "European Union", "FBI"). Short words are filtered — mixed-case words need at least 4 characters, ALL CAPS acronyms at least 3 — to avoid false positives on words like "In" or "US".
-4. **Match** — Each candidate is checked against a local index of the most popular (by pageviews) 500,000 Wikipedia article titles. Only exact matches become links — no fuzzy matching, no API calls. There are sometimes false positives, although it does try to link to disambiguation pages where appropriate.
-5. **Inject** — The discovered entities are linked in the original page HTML (not the Readability extract), using site-specific CSS selectors to target article body containers. Headlines, navigation, captions, and other non-body text are skipped.
-6. **Rewrite** — All links in the page are rewritten to route back through the proxy, so you can keep browsing with wikilinks enabled.
+1. **Extract** — The article text is extracted from the page (the extension walks the DOM; the proxy uses Mozilla's [Readability](https://github.com/mozilla/readability) library). The text is scanned for entity candidates: capitalised phrases, multi-word proper nouns, and known acronyms (e.g. "European Union", "FBI"). Short words are filtered — mixed-case words need at least 4 characters, ALL CAPS acronyms at least 3 — to avoid false positives on words like "In" or "US".
+2. **Match** — Each candidate is checked against a local index of the most popular (by pageviews) 500,000 Wikipedia article titles. Only exact matches become links — no fuzzy matching, no API calls. There are sometimes false positives, although it does try to link to disambiguation pages where appropriate.
+3. **Inject** — Matched entities are linked in the original page, using site-specific CSS selectors to target article body containers. Headlines, navigation, captions, and other non-body text are skipped. Each entity is linked only on its first occurrence, keeping the reading experience clean.
 
 ## History
 
@@ -49,5 +50,3 @@ This is a non-commercial technology demo. All news content displayed through thi
 
 Stefan Magdalinski
 February 2026
-
-[Source code on GitHub](https://github.com/smagdali/wikilinker)
