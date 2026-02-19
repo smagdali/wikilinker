@@ -9,12 +9,13 @@ import {
   findMatches, extractCandidates, escapeRegExp,
   isSentenceStart, isPartOfLargerPhrase, toWikiUrl,
 } from '../../server/shared/matcher-core.js';
+import { BloomFilter } from '../../server/shared/bloom.js';
 import sites from '../../server/shared/sites.json';
 
 // Tags allowed inside article containers (content, not nav)
 const ALLOW_INSIDE_ARTICLE = new Set(['LI', 'TH', 'TD']);
 
-let entitySet = null;   // Set of entity names
+let entitySet = null;   // Set or BloomFilter — both implement .has()
 let settings = {};
 
 // ── Initialisation ──────────────────────────────────────────
@@ -30,7 +31,11 @@ async function init() {
       chrome.runtime.sendMessage({ type: 'getSettings' }),
     ]);
 
-    entitySet = new Set(entityResponse.set);
+    if (entityResponse.bloom) {
+      entitySet = BloomFilter.deserialize(new Uint8Array(entityResponse.bloom));
+    } else {
+      entitySet = new Set(entityResponse.set);
+    }
     settings = settingsResponse || {};
 
     if (settings.enabled === false) return;
