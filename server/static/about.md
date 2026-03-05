@@ -1,6 +1,6 @@
 # Wikilinker
 
-Auto-links the most popular 1,000,000 people, places, organizations, and other matchable entities to their [Wikipedia](https://en.wikipedia.org/) pages on any webpage, using a [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) for compact entity lookup.
+Auto-links the most popular 1,000,000 people, places, organizations, and other matchable names to their [Wikipedia](https://en.wikipedia.org/) pages on any webpage, using a [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) for compact name lookup.
 
 ## Browser extension
 
@@ -28,9 +28,9 @@ You can also try Wikilinker as a web proxy here — paste a URL or try one of th
 
 Both the extension and the proxy use the same matching pipeline:
 
-1. **Extract** — The article text is extracted from the page (the extension walks the DOM; the proxy uses Mozilla's [Readability](https://github.com/mozilla/readability) library). The text is scanned for entity candidates: capitalised phrases, multi-word proper nouns, and known acronyms (e.g. "European Union", "FBI"). Short words are filtered — mixed-case words need at least 4 characters, ALL CAPS acronyms at least 3 — to avoid false positives on words like "In" or "US".
+1. **Extract** — The article text is extracted from the page (the extension walks the DOM; the proxy uses Mozilla's [Readability](https://github.com/mozilla/readability) library). The text is scanned for name candidates: capitalised phrases, multi-word proper nouns, and known acronyms (e.g. "European Union", "FBI"). Short words are filtered — mixed-case words need at least 4 characters, ALL CAPS acronyms at least 3 — to avoid false positives on words like "In" or "US".
 2. **Match** — Each candidate is checked against a local index of the most popular (by [pageviews](https://dumps.wikimedia.org/other/pageview_complete/)) 1,000,000 [Wikipedia article titles](https://dumps.wikimedia.org/enwiki/latest/). Only exact matches become links — no fuzzy matching, no API calls. The extension uses a [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter), which means there's roughly a 1 in 10,000 chance a link points to a page that doesn't actually exist. If you spot one, [I'd love to hear about it](https://github.com/smagdali/wikilinker/issues/new).
-3. **Inject** — Matched entities are linked in the original page, using site-specific CSS selectors to target article body containers. Headlines, navigation, captions, and other non-body text are skipped. Each entity is linked only on its first occurrence, keeping the reading experience clean.
+3. **Inject** — Matched names are linked in the original page, using site-specific CSS selectors to target article body containers. Headlines, navigation, captions, and other non-body text are skipped. Each name is linked only on its first occurrence, keeping the reading experience clean.
 
 ## History
 
@@ -40,7 +40,7 @@ I was pleasantly surprised to find [Cory Doctorow](https://pluralistic.net/) men
 
 You can read the original write-up here: [Don't get me wrong, I really like BBC News Online](https://whitelabel.org/2004/10/04/dont-get-me-wrong-i-really-like-bbc-news-online/) (2004). The [original PHP source](https://whitelabel.org/assets/archive/wp/wikiproxy.php.txt) is also still online.
 
-Twenty-two years later, the idea is the same — news articles should connect you to background knowledge — but the implementation has moved from a PHP script to a Node.js proxy with a proper entity matching pipeline. I'm still tweaking it, feedback is welcome.
+Twenty-two years later, the idea is the same — news articles should connect you to background knowledge — but the implementation has moved from a PHP script to a Node.js proxy with a proper name-matching pipeline. I'm still tweaking it, feedback is welcome.
 
 ## Disclaimer
 

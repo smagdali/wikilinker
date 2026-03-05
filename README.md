@@ -1,10 +1,10 @@
 # Wikilinker
 
-Auto-links 1,000,000 people, places and other entities to Wikipedia on any webpage, using a [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) for compact entity lookup, based on string matches against the [wikipedia titles](https://dumps.wikimedia.org/enwiki/latest/). The articles chosen were the most popular 1m (by [pageviews](https://dumps.wikimedia.org/other/pageview_complete/)) on wikipedia during Feb 2026.
+Auto-links 1,000,000 people, places and other names to Wikipedia on any webpage, using a [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) for compact name lookup, based on string matches against the [wikipedia titles](https://dumps.wikimedia.org/enwiki/latest/). The articles chosen were the most popular 1m (by [pageviews](https://dumps.wikimedia.org/other/pageview_complete/)) on wikipedia during Feb 2026.
 
 There are two versions:
 
-- **[Browser extension](extension/)** — a Chrome, Firefox, and Safari extension that links entities to Wikipedia directly in your browser, on any website. Completely self-contained — all matching happens locally using a bloom filter over the top 1M Wikipedia titles (under 2MB), with no API calls, no external requests, and no logging.
+- **[Browser extension](extension/)** — a Chrome, Firefox, and Safari extension that links names to Wikipedia directly in your browser, on any website. Completely self-contained — all matching happens locally using a bloom filter over the top 1M Wikipedia titles (under 2MB), with no API calls, no external requests, and no logging.
 - **[Server proxy](server/)** — a Node.js web proxy at [whitelabel.org/wikilinker](https://whitelabel.org/wikilinker) that fetches news pages and injects Wikipedia links into the article text. Really a demo of what the plugin can do.
 
 Both share matching logic (`server/shared/matcher-core.js`) and [skip rules](server/shared/skip-rules.js) that determine which parts of a page to leave alone (navigation, headings, captions, etc.).
@@ -49,7 +49,7 @@ The extension runs on any website by default. It has been optimised on 19 news s
 node extension/build.js --debug
 ```
 
-Debug builds include match logging that downloads a TSV report for each page, showing every candidate entity, its match rule, context, and status (linked, overlapped, not-in-db, etc.). Debug code is completely stripped from normal builds via esbuild's `dropLabels`.
+Debug builds include match logging that downloads a TSV report for each page, showing every candidate name, its match rule, context, and status (linked, overlapped, not-in-db, etc.). Debug code is completely stripped from normal builds via esbuild's `dropLabels`.
 
 ## Server
 

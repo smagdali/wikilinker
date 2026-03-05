@@ -12,7 +12,7 @@ Wikilinker does not collect, transmit, or store any personal data. Specifically:
 - **No analytics or tracking.** There are no telemetry, usage metrics, or crash reports.
 - **No user accounts.** There is no sign-up, login, or authentication of any kind.
 - **No cookies** are set by the extension.
-- **No third-party services** are contacted. Entity matching uses a bundled database of Wikipedia article titles — no network requests are made by the extension.
+- **No third-party services** are contacted. Name matching uses a bundled database of Wikipedia article titles — no network requests are made by the extension.
 
 ## Data storage
 

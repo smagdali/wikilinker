@@ -2,8 +2,8 @@
 <svg width="440" height="280" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e"/>
-      <stop offset="100%" style="stop-color:#16213e"/>
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#eef2f7"/>
     </linearGradient>
   </defs>
 
@@ -11,7 +11,7 @@
   <rect width="440" height="280" fill="url(#bg)"/>
 
   <!-- Subtle grid of link-like lines in background -->
-  <g opacity="0.06" stroke="#a5b4fc" stroke-width="1">
+  <g opacity="0.08" stroke="#0645ad" stroke-width="1">
     <line x1="20" y1="60" x2="160" y2="60"/>
     <line x1="20" y1="80" x2="120" y2="80"/>
     <line x1="20" y1="100" x2="180" y2="100"/>
@@ -23,7 +23,7 @@
   </g>
 
   <!-- Icon — white rounded square with green tint + blue W + underline -->
-  <rect x="152" y="50" width="56" height="56" rx="10" fill="#ffffff"/>
+  <rect x="152" y="50" width="56" height="56" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
   <rect x="160" y="56" width="40" height="38" rx="4" fill="rgba(52, 168, 83, 0.12)"/>
   <text x="180" y="85" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="bold" fill="#0645ad">W</text>
   <rect x="162" y="92" width="36" height="3" rx="1" fill="#0645ad"/>
@@ -35,25 +35,25 @@
   </text>
 
   <!-- Tagline -->
-  <text x="220" y="138" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#a5b4fc">Auto-links news articles to Wikipedia</text>
+  <text x="220" y="138" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#4b5563">Auto-links names to Wikipedia</text>
 
   <!-- Example text block with highlighted entities -->
   <g transform="translate(60, 170)">
-    <rect x="0" y="0" width="320" height="72" rx="6" fill="#12121f" stroke="#2a2a4a" stroke-width="1"/>
+    <rect x="0" y="0" width="320" height="72" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
 
-    <text x="16" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#888">
+    <text x="16" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#374151">
       The president met with
-      <tspan fill="#6ea8fe" text-decoration="underline">NATO</tspan>
+      <tspan fill="#0645ad" text-decoration="underline">NATO</tspan>
       leaders in
     </text>
-    <text x="16" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#888">
-      <tspan fill="#6ea8fe" text-decoration="underline">Brussels</tspan>
+    <text x="16" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#374151">
+      <tspan fill="#0645ad" text-decoration="underline">Brussels</tspan>
       to discuss the
-      <tspan fill="#6ea8fe" text-decoration="underline">European Union</tspan>
+      <tspan fill="#0645ad" text-decoration="underline">European Union</tspan>
     </text>
-    <text x="16" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#888">
+    <text x="16" y="64" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#374151">
       trade agreement with the
-      <tspan fill="#6ea8fe" text-decoration="underline">United Kingdom</tspan>.
+      <tspan fill="#0645ad" text-decoration="underline">United Kingdom</tspan>.
     </text>
 
     <!-- Green tint highlights behind linked entities -->
@@ -64,5 +64,5 @@
   </g>
 
   <!-- Bottom tagline -->
-  <text x="220" y="268" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#4a4a6a">500,000 entities · 19 news sites · all local, no tracking</text>
+  <text x="220" y="268" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" fill="#9ca3af">1,000,000 names · any website · all local, no tracking</text>
 </svg>

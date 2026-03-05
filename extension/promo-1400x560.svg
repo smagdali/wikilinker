@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="560" viewBox="0 0 1400 560" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8fafc"/>
+      <stop offset="100%" style="stop-color:#eef2f7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="560" fill="url(#bg)"/>
+
+  <!-- Subtle grid of link-like lines in background -->
+  <g opacity="0.06" stroke="#0645ad" stroke-width="1">
+    <line x1="40" y1="80" x2="260" y2="80"/>
+    <line x1="40" y1="110" x2="200" y2="110"/>
+    <line x1="40" y1="140" x2="300" y2="140"/>
+    <line x1="40" y1="170" x2="220" y2="170"/>
+    <line x1="40" y1="200" x2="280" y2="200"/>
+    <line x1="1100" y1="360" x2="1360" y2="360"/>
+    <line x1="1100" y1="390" x2="1300" y2="390"/>
+    <line x1="1100" y1="420" x2="1360" y2="420"/>
+    <line x1="1100" y1="450" x2="1260" y2="450"/>
+    <line x1="1100" y1="480" x2="1340" y2="480"/>
+  </g>
+
+  <!-- Icon — white rounded square with green tint + blue W + underline -->
+  <rect x="520" y="80" width="90" height="90" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="532" y="90" width="66" height="62" rx="6" fill="rgba(52, 168, 83, 0.12)"/>
+  <text x="565" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="58" font-weight="bold" fill="#0645ad">W</text>
+  <rect x="534" y="148" width="62" height="4" rx="2" fill="#0645ad"/>
+
+  <!-- Title with brand style -->
+  <rect x="626" y="92" width="254" height="56" rx="4" fill="rgba(52, 168, 83, 0.12)" pointer-events="none"/>
+  <text x="634" y="134" text-anchor="start" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="46" font-weight="bold" fill="#0645ad" text-decoration="underline">Wikilinker</text>
+
+  <!-- Tagline -->
+  <text x="700" y="220" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="24" fill="#4b5563">Auto-links people, places, and organizations to Wikipedia</text>
+
+  <!-- Example text block with highlighted entities -->
+  <g transform="translate(240, 280)">
+    <rect x="0" y="0" width="920" height="160" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <text x="32" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#374151">
+      The president met with
+      <tspan fill="#0645ad" text-decoration="underline">NATO</tspan>
+      leaders in
+      <tspan fill="#0645ad" text-decoration="underline">Brussels</tspan>
+      to discuss the
+    </text>
+    <text x="32" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#374151">
+      <tspan fill="#0645ad" text-decoration="underline">European Union</tspan>
+      trade agreement with the
+      <tspan fill="#0645ad" text-decoration="underline">United Kingdom</tspan>.
+      The
+    </text>
+    <text x="32" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#374151">
+      <tspan fill="#0645ad" text-decoration="underline">World Trade Organization</tspan>
+      called for renewed cooperation between
+    </text>
+    <text x="32" y="144" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#374151">
+      <tspan fill="#0645ad" text-decoration="underline">Washington, D.C.</tspan>
+      and
+      <tspan fill="#0645ad" text-decoration="underline">Beijing</tspan>
+      on tariff reform.
+    </text>
+
+    <!-- Green tint highlights behind linked entities -->
+    <rect x="282" y="26" width="64" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
+    <rect x="436" y="26" width="96" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
+    <rect x="32" y="60" width="168" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
+    <rect x="446" y="60" width="166" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
+    <rect x="32" y="94" width="248" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
+    <rect x="32" y="128" width="166" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
+    <rect x="246" y="128" width="72" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
+  </g>
+
+  <!-- Bottom tagline -->
+  <text x="700" y="500" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" fill="#9ca3af">1,000,000 names · works on any website · all local, no tracking</text>
+</svg>
