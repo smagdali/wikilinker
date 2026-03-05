@@ -15,7 +15,7 @@ const bgEntry = bloom
   ? 'extension/src/background-bloom.js'
   : 'extension/src/background.js';
 
-const entities = JSON.parse(readFileSync('server/shared/entities.json'));
+const entityCount = bloom ? 1_000_000 : JSON.parse(readFileSync('server/shared/entities.json')).length;
 
 await build({
   entryPoints: {
@@ -27,7 +27,7 @@ await build({
   format: 'iife',
   target: 'es2020',
   loader: { '.json': 'json', '.bin': 'binary' },
-  define: { ENTITY_COUNT: String(entities.length) },
+  define: { ENTITY_COUNT: String(entityCount) },
   dropLabels: debug ? [] : ['DEBUG'],
   logLevel: 'info',
 });

@@ -94,7 +94,7 @@
 
   // extension/src/background-bloom.js
   var bloom = BloomFilter.deserialize(entities_bloom_default);
-  var entityCount = 5e5;
+  var entityCount = 1e6;
   console.log(`Wikilinker: bloom filter loaded (${(entities_bloom_default.length / 1024 / 1024).toFixed(1)}MB, ${entityCount.toLocaleString()} entities)`);
   chrome.storage.local.get("settings", (data) => {
     if (data.settings?.allSites !== false && data.settings?.enabled !== false) {
