@@ -65,14 +65,6 @@
       on tariff reform.
     </text>
 
-    <!-- Green tint highlights behind linked entities -->
-    <rect x="282" y="26" width="64" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
-    <rect x="436" y="26" width="96" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
-    <rect x="32" y="60" width="168" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
-    <rect x="446" y="60" width="166" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
-    <rect x="32" y="94" width="248" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
-    <rect x="32" y="128" width="166" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
-    <rect x="246" y="128" width="72" height="22" rx="3" fill="rgba(52, 168, 83, 0.15)"/>
   </g>
 
   <!-- Bottom tagline -->
