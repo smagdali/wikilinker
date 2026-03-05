@@ -12,7 +12,7 @@ async function loadSettings() {
   const settings = data.settings || {};
 
   enabledCheckbox().checked = settings.enabled !== false;
-  allSitesCheckbox().checked = settings.allSites === true;
+  allSitesCheckbox().checked = settings.allSites !== false;
 
   updateAllSitesState();
 }
@@ -39,9 +39,6 @@ function readSettings() {
 async function saveSettings() {
   const settings = readSettings();
   await chrome.storage.local.set({ settings });
-
-  const allSites = settings.allSites && settings.enabled;
-  chrome.runtime.sendMessage({ type: 'updateIcon', allSites });
 
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -113,7 +110,7 @@ async function handleEnabledToggle() {
 async function loadStats() {
   try {
     const response = await chrome.runtime.sendMessage({ type: 'getEntities' });
-    const count = response.set?.length || 0;
+    const count = response.set?.length || response.entityCount || 0;
     document.getElementById('entityCount').textContent = count.toLocaleString();
   } catch (e) {
     document.getElementById('entityCount').textContent = 'Error';
@@ -124,7 +121,8 @@ async function loadStats() {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (tab?.id) {
       const badgeText = await chrome.action.getBadgeText({ tabId: tab.id });
-      document.getElementById('pageLinks').textContent = badgeText || '0';
+      const linkCount = /^\d+$/.test(badgeText) ? badgeText : '0';
+      document.getElementById('pageLinks').textContent = linkCount;
     }
   } catch (e) {
     document.getElementById('pageLinks').textContent = '-';

@@ -7,22 +7,9 @@ import entities from '../../server/shared/entities.json';
 
 console.log(`Wikilinker: ${entities.length} entities bundled`);
 
-// Show "all" badge when allSites is active
-function updateIcon(allSites) {
-  chrome.action.setBadgeText({ text: allSites ? 'all' : '' });
-  chrome.action.setBadgeBackgroundColor({ color: allSites ? '#34a853' : '#6366f1' });
-}
-
-// Watch for settings changes to update icon
-chrome.storage.onChanged.addListener((changes) => {
-  if (changes.settings) {
-    updateIcon(changes.settings.newValue?.allSites && changes.settings.newValue?.enabled !== false);
-  }
-});
-
 // Re-register dynamic content script if allSites was enabled before reload
 chrome.storage.local.get('settings', (data) => {
-  if (data.settings?.allSites && data.settings?.enabled !== false) {
+  if (data.settings?.allSites !== false && data.settings?.enabled !== false) {
     chrome.scripting.registerContentScripts([{
       id: 'wikilinker-all-sites',
       matches: ['<all_urls>'],
@@ -31,7 +18,6 @@ chrome.storage.local.get('settings', (data) => {
       runAt: 'document_idle',
     }]).catch(() => {}); // already registered
   }
-  updateIcon(data.settings?.allSites && data.settings?.enabled !== false);
 });
 
 // Serve data to content scripts
@@ -46,11 +32,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       sendResponse(data.settings || {});
     });
     return true; // async response
-  }
-
-  if (message.type === 'updateIcon') {
-    updateIcon(message.allSites);
-    return false;
   }
 
   if (message.type === 'registerAllSites') {
@@ -86,13 +67,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       text: count > 0 ? String(count) : '',
       tabId,
     });
-    // Green badge when allSites is on, indigo for supported sites only
-    chrome.storage.local.get('settings', (data) => {
-      chrome.action.setBadgeBackgroundColor({
-        color: data.settings?.allSites ? '#34a853' : '#6366f1',
-        tabId,
-      });
-    });
+    chrome.action.setBadgeBackgroundColor({ color: '#6366f1', tabId });
     return false;
   }
 });

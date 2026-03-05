@@ -6,6 +6,7 @@
 // Usage: node extension/build.js [--debug] [--bloom]
 
 import { build } from 'esbuild';
+import { readFileSync } from 'fs';
 
 const debug = process.argv.includes('--debug');
 const bloom = process.argv.includes('--bloom');
@@ -13,6 +14,8 @@ const bloom = process.argv.includes('--bloom');
 const bgEntry = bloom
   ? 'extension/src/background-bloom.js'
   : 'extension/src/background.js';
+
+const entities = JSON.parse(readFileSync('server/shared/entities.json'));
 
 await build({
   entryPoints: {
@@ -24,6 +27,7 @@ await build({
   format: 'iife',
   target: 'es2020',
   loader: { '.json': 'json', '.bin': 'binary' },
+  define: { ENTITY_COUNT: String(entities.length) },
   dropLabels: debug ? [] : ['DEBUG'],
   logLevel: 'info',
 });

@@ -8,25 +8,12 @@ import bloomBin from '../../server/shared/entities-bloom.bin';
 import { BloomFilter } from '../../server/shared/bloom.js';
 
 const bloom = BloomFilter.deserialize(bloomBin);
-const entityCount = (bloom.m / 19.17).toFixed(0); // approximate from m/n ratio
-console.log(`Wikilinker: bloom filter loaded (${(bloomBin.length / 1024 / 1024).toFixed(1)}MB, ~${Number(entityCount).toLocaleString()} entities)`);
-
-// Show "all" badge when allSites is active
-function updateIcon(allSites) {
-  chrome.action.setBadgeText({ text: allSites ? 'all' : '' });
-  chrome.action.setBadgeBackgroundColor({ color: allSites ? '#34a853' : '#6366f1' });
-}
-
-// Watch for settings changes to update icon
-chrome.storage.onChanged.addListener((changes) => {
-  if (changes.settings) {
-    updateIcon(changes.settings.newValue?.allSites && changes.settings.newValue?.enabled !== false);
-  }
-});
+const entityCount = ENTITY_COUNT;
+console.log(`Wikilinker: bloom filter loaded (${(bloomBin.length / 1024 / 1024).toFixed(1)}MB, ${entityCount.toLocaleString()} entities)`);
 
 // Re-register dynamic content script if allSites was enabled before reload
 chrome.storage.local.get('settings', (data) => {
-  if (data.settings?.allSites && data.settings?.enabled !== false) {
+  if (data.settings?.allSites !== false && data.settings?.enabled !== false) {
     chrome.scripting.registerContentScripts([{
       id: 'wikilinker-all-sites',
       matches: ['<all_urls>'],
@@ -35,14 +22,13 @@ chrome.storage.local.get('settings', (data) => {
       runAt: 'document_idle',
     }]).catch(() => {}); // already registered
   }
-  updateIcon(data.settings?.allSites && data.settings?.enabled !== false);
 });
 
 // Serve data to content scripts
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === 'getEntities') {
     // Send the raw bloom filter binary — content script reconstructs it
-    sendResponse({ bloom: Array.from(bloomBin) });
+    sendResponse({ bloom: Array.from(bloomBin), entityCount: Number(entityCount) });
     return false;
   }
 
@@ -51,11 +37,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       sendResponse(data.settings || {});
     });
     return true; // async response
-  }
-
-  if (message.type === 'updateIcon') {
-    updateIcon(message.allSites);
-    return false;
   }
 
   if (message.type === 'registerAllSites') {
@@ -90,12 +71,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       text: count > 0 ? String(count) : '',
       tabId,
     });
-    chrome.storage.local.get('settings', (data) => {
-      chrome.action.setBadgeBackgroundColor({
-        color: data.settings?.allSites ? '#34a853' : '#6366f1',
-        tabId,
-      });
-    });
+    chrome.action.setBadgeBackgroundColor({ color: '#6366f1', tabId });
     return false;
   }
 });

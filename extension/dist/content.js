@@ -901,7 +901,6 @@
     link.href = toWikiUrl(entityName);
     link.className = "wikilink";
     link.title = `${entityName} \u2014 Wikipedia`;
-    link.target = "_blank";
     link.rel = "noopener";
     link.appendChild(document.createTextNode(entityName));
     return link;
@@ -913,7 +912,7 @@
         const text = document.createTextNode(link.textContent);
         link.parentNode.replaceChild(text, link);
       });
-      if (settings.enabled !== false && !isBlockedSite() && (isSupportedSite() || settings.allSites)) {
+      if (settings.enabled !== false && !isBlockedSite() && (isSupportedSite() || settings.allSites !== false)) {
         processPage();
       }
     }
