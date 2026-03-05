@@ -1,17 +1,33 @@
 # Wikilinker
 
-Auto-links 500,000 people, places and other entities, to Wikipedia in news articles.
+Auto-links 1,000,000 people, places and other entities to Wikipedia on any webpage, using a [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) for compact entity lookup, based on string matches against the [wikipedia titles](https://dumps.wikimedia.org/enwiki/latest/). The articles chosen were the most popular 1m (by [pageviews](https://dumps.wikimedia.org/other/pageview_complete/)) on wikipedia during Feb 2026.
 
 There are two versions:
 
-- **[Browser extension](extension/)** — a Chrome and Firefox extension that links entities to Wikipedia directly in your browser, on 19 supported news sites (with an experimental "all sites" mode).
-- **[Server proxy](server/)** — a Node.js web proxy at [whitelabel.org/wikilinker](https://whitelabel.org/wikilinker) that fetches news pages and injects Wikipedia links into the article text.
+- **[Browser extension](extension/)** — a Chrome, Firefox, and Safari extension that links entities to Wikipedia directly in your browser, on any website. Completely self-contained — all matching happens locally using a bloom filter over the top 1M Wikipedia titles (under 2MB), with no API calls, no external requests, and no logging.
+- **[Server proxy](server/)** — a Node.js web proxy at [whitelabel.org/wikilinker](https://whitelabel.org/wikilinker) that fetches news pages and injects Wikipedia links into the article text. Really a demo of what the plugin can do.
 
 Both share matching logic (`server/shared/matcher-core.js`) and [skip rules](server/shared/skip-rules.js) that determine which parts of a page to leave alone (navigation, headings, captions, etc.).
 
-## Extension
 
-Build the extension (requires Node.js):
+## History
+
+Wikilinker is an updated version of the [Wikiproxy](https://whitelabel.org/2004/10/04/dont-get-me-wrong-i-really-like-bbc-news-online/), a hack I originally built in October 2004 that proxied BBC News Online, automatically hyperlinking capitalised phrases and acronyms to Wikipedia.
+
+## Install
+
+The extension will be available in the Chrome Web Store, Firefox Add-ons, and the Safari Extensions Gallery soon. In the meantime, you can install it manually:
+
+1. Download the [latest release](https://github.com/smagdali/wikilinker/releases/latest)
+2. **Chrome**: Go to `chrome://extensions`, enable Developer Mode, and drag in the ZIP (or click "Load unpacked" and select the `extension/` folder)
+3. **Firefox**: Go to `about:addons` → gear icon → "Install Add-on From File" and select the ZIP
+4. **Safari**: Open `safari/Wikilinker/Wikilinker.xcodeproj` in Xcode, build and run, then enable in Safari → Settings → Extensions
+
+## Development
+
+### Building the extension
+
+Requires Node.js:
 
 ```bash
 npm install
@@ -19,17 +35,13 @@ node extension/build.js            # production build
 node extension/build.js --debug    # includes match logging (downloads a TSV per page)
 ```
 
-Then load `extension/` as an unpacked extension in Chrome (`chrome://extensions`) or Firefox (`about:debugging`).
+Then load `extension/` as an unpacked extension in Chrome (`chrome://extensions`) or Firefox (`about:debugging`). For Safari, open `safari/Wikilinker/Wikilinker.xcodeproj` in Xcode.
 
-A single build produces a package that works in both Chrome and Firefox.
+A single build produces a package that works in Chrome, Firefox, and Safari.
 
 ### Supported sites
 
-The extension runs automatically on 19 news sites including BBC, NPR, CNN, The Guardian, Al Jazeera, and others (see `extension/manifest.json` for the full list).
-
-### All sites mode
-
-Toggle "Run on all sites" in the popup to enable wikilinking on any website. This is experimental — the extension uses fallback selectors (`article`, `main`, etc.) to find article content, which may not work perfectly on every site. The toolbar icon tints green when this mode is active.
+The extension runs on any website by default. It has been optimised on 19 news sites including BBC, NPR, CNN, The Guardian, Al Jazeera, and others (see `extension/manifest.json` for the full list), and uses fallback selectors (`article`, `main`, etc.) to find article content on other sites.
 
 ### Debug builds
 
@@ -91,6 +103,3 @@ To add support for a new news site:
 
 More info: [About Wikilinker](https://whitelabel.org/wikilinker/about)
 
-## History
-
-Wikilinker is an updated version of the [Wikiproxy](https://whitelabel.org/2004/10/04/dont-get-me-wrong-i-really-like-bbc-news-online/), a hack originally built in October 2004 that proxied BBC News Online, automatically hyperlinking capitalised phrases and acronyms to Wikipedia.
