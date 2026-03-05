@@ -1,0 +1,46 @@
+/**
+ * Wikilinker Link Styles
+ *
+ * Green tint with Wikipedia-blue text, sans-serif.
+ */
+
+.wikilink {
+  color: #0645ad;
+  text-decoration: underline;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: rgba(52, 168, 83, 0.12);
+  padding: 1px 3px;
+  border-radius: 2px;
+}
+
+.wikilink:visited {
+  color: #0b0080;
+}
+
+.wikilink:hover {
+  color: #3366bb;
+  background-color: rgba(52, 168, 83, 0.25);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .wikilink {
+    color: #6ea8fe;
+    background-color: rgba(52, 168, 83, 0.18);
+  }
+  .wikilink:visited {
+    color: #9f8fef;
+  }
+  .wikilink:hover {
+    color: #8cb4ff;
+    background-color: rgba(52, 168, 83, 0.32);
+  }
+}
+
+/* Print styles */
+@media print {
+  .wikilink {
+    text-decoration: none !important;
+    background-color: transparent !important;
+  }
+}

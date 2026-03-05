@@ -10,6 +10,7 @@ node_modules/
 # Debug logs
 wikilinker-debug-*.tsv
 debug-screenshots/
+analysis/
 
 # Local development
 .env

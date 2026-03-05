@@ -1,12 +1,16 @@
 # Wikilinker
 
-Auto-links the most popular 500,000 people, places, organizations, and other matchable entities to their [Wikipedia](https://en.wikipedia.org/) pages in news articles.
+Auto-links the most popular 1,000,000 people, places, organizations, and other matchable entities to their [Wikipedia](https://en.wikipedia.org/) pages on any webpage, using a [bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) for compact entity lookup.
 
 ## Browser extension
 
-The best way to use Wikilinker is with the browser extension for **Chrome** and **Firefox**. It runs directly in your browser with no proxy needed, on 19 supported news sites. There's also an experimental "all sites" mode that lets you try it on any website.
+The best way to use Wikilinker is with the browser extension for **Chrome**, **Firefox**, and **Safari**. It works on any website, runs entirely in your browser, and makes no API calls, no external requests, and no logging. The extension bundles a bloom filter of the top 1M Wikipedia titles (ranked by [pageviews](https://dumps.wikimedia.org/other/pageview_complete/)) in under 2MB.
 
-The extension isn't in the Chrome Web Store or Firefox Add-ons yet — for now you can [download the latest release](https://github.com/smagdali/wikilinker/releases/tag/v0.5.3) and install it manually. In Chrome, unzip and load it via `chrome://extensions` with Developer Mode enabled. In Firefox, use `about:debugging` to load it as a temporary add-on.
+The extension will be available in the Chrome Web Store, Firefox Add-ons, and the Safari Extensions Gallery soon. In the meantime, you can [download the latest release](https://github.com/smagdali/wikilinker/releases/latest) and install it manually:
+
+- **Chrome**: Go to `chrome://extensions`, enable Developer Mode, and drag in the ZIP (or click "Load unpacked" and select the `extension/` folder)
+- **Firefox**: Go to `about:addons` → gear icon → "Install Add-on From File" and select the ZIP
+- **Safari**: Open the Xcode project in `safari/Wikilinker/`, build and run, then enable in Safari → Settings → Extensions
 
 [Source code on GitHub](https://github.com/smagdali/wikilinker)
 
@@ -20,14 +24,12 @@ You can also try Wikilinker as a web proxy here — paste a URL or try one of th
 - [Prince and Princess of Wales 'deeply concerned' by Epstein revelations about Andrew](https://whitelabel.org/wikilinker?url=https://www.theguardian.com/uk-news/2026/feb/09/prince-princess-wales-deeply-concerned-epstein-revelations-andrew) (The Guardian)
 - [US will exit 66 international organizations](https://whitelabel.org/wikilinker?url=https://www.nbcnews.com/world/north-america/us-will-exit-66-international-organizations-retreats-global-cooperatio-rcna252914) (NBC News)
 
-Currently supported sites: BBC News, BBC News UK, AP News, NPR, Al Jazeera, NBC News, CBS News, Fox News, USA Today, Daily Mail, The Independent, The Atlantic, The New Yorker, Vox, The Guardian, CNN, ABC News, Sky News, and UnHerd.
-
 ## How it works
 
 Both the extension and the proxy use the same matching pipeline:
 
 1. **Extract** — The article text is extracted from the page (the extension walks the DOM; the proxy uses Mozilla's [Readability](https://github.com/mozilla/readability) library). The text is scanned for entity candidates: capitalised phrases, multi-word proper nouns, and known acronyms (e.g. "European Union", "FBI"). Short words are filtered — mixed-case words need at least 4 characters, ALL CAPS acronyms at least 3 — to avoid false positives on words like "In" or "US".
-2. **Match** — Each candidate is checked against a local index of the most popular (by pageviews) 500,000 Wikipedia article titles. Only exact matches become links — no fuzzy matching, no API calls. There are sometimes false positives, although it does try to link to disambiguation pages where appropriate.
+2. **Match** — Each candidate is checked against a local index of the most popular (by [pageviews](https://dumps.wikimedia.org/other/pageview_complete/)) 1,000,000 [Wikipedia article titles](https://dumps.wikimedia.org/enwiki/latest/). Only exact matches become links — no fuzzy matching, no API calls. There are sometimes false positives, although it does try to link to disambiguation pages where appropriate.
 3. **Inject** — Matched entities are linked in the original page, using site-specific CSS selectors to target article body containers. Headlines, navigation, captions, and other non-body text are skipped. Each entity is linked only on its first occurrence, keeping the reading experience clean.
 
 ## History

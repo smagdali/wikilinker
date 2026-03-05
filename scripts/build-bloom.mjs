@@ -6,7 +6,8 @@
 //
 // Outputs: server/shared/entities-bloom.bin
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { createReadStream, writeFileSync } from 'node:fs';
+import { createInterface } from 'node:readline';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BloomFilter } from '../server/shared/bloom.js';
@@ -25,12 +26,15 @@ const fpRate = parseFloat(getArg('--fp', '0.0001'));
 const titlesPath = join(__dirname, '..', '..', 'whitelabel.org', 'wikiproxy-data', 'titles-ranked.tsv');
 const outPath = join(__dirname, '..', 'server', 'shared', 'entities-bloom.bin');
 
-console.log(`Reading titles from: ${titlesPath}`);
-const lines = readFileSync(titlesPath, 'utf8').split('\n').filter(l => l.length > 0);
-console.log(`Total ranked titles: ${lines.length.toLocaleString()}`);
-
-const titles = lines.slice(0, count).map(line => line.split('\t')[0]);
-console.log(`Using top ${titles.length.toLocaleString()} titles`);
+console.log(`Reading top ${count.toLocaleString()} titles from: ${titlesPath}`);
+const titles = [];
+const rl = createInterface({ input: createReadStream(titlesPath, 'utf8'), crlfDelay: Infinity });
+for await (const line of rl) {
+  if (titles.length >= count) break;
+  if (line.length === 0) continue;
+  titles.push(line.split('\t')[0]);
+}
+console.log(`Loaded ${titles.length.toLocaleString()} titles`);
 
 console.log(`Creating bloom filter (FP rate: ${fpRate * 100}%)...`);
 const bloom = BloomFilter.create(titles.length, fpRate);

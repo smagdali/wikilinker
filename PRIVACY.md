@@ -2,7 +2,7 @@
 
 ## What Wikilinker does
 
-Wikilinker is a browser extension that automatically adds Wikipedia links to news articles on supported sites. All processing happens locally in your browser.
+Wikilinker is a browser extension that automatically adds Wikipedia links to any webpage. All processing happens locally in your browser.
 
 ## Data collection
 
@@ -20,11 +20,10 @@ The extension stores two preferences (enabled/disabled and all-sites mode) using
 
 ## Permissions
 
-- **Host permissions** (19 news site domains): Required to inject Wikipedia links into article text on supported sites. The extension only activates on these specific domains.
-- **Optional host permissions** (`<all_urls>`): Requested only when you enable "all sites" mode. Allows the extension to run on any website. You can revoke this at any time by toggling the setting off.
+- **Host permissions** (`<all_urls>`): Required to inject Wikipedia links into article text on any website. You can disable the extension at any time from the toolbar popup.
 - **Storage**: Used to save preferences.
 - **Active tab**: Used to communicate with the content script on the current page.
-- **Scripting**: Used to inject the content script into pages when "all sites" mode is enabled.
+- **Scripting**: Used to inject the content script into pages.
 
 ## Changes
 
@@ -34,4 +33,4 @@ If this policy changes, the updated version will be published here and in the ex
 
 Stefan Magdalinski — [whitelabel.org](https://whitelabel.org)
 
-Last updated: February 2026
+Last updated: March 2026

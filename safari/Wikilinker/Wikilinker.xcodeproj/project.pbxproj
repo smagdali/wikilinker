@@ -1,0 +1,1077 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F8159C922F47000E00800D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8159C912F47000E00800D38 /* AppDelegate.swift */; };
+		F8159C942F47000E00800D38 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8159C932F47000E00800D38 /* SceneDelegate.swift */; };
+		F8159C972F47000E00800D38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8159C952F47000E00800D38 /* LaunchScreen.storyboard */; };
+		F8159C9A2F47000E00800D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8159C982F47000E00800D38 /* Main.storyboard */; };
+		F8159CA32F47000E00800D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8159CA22F47000E00800D38 /* AppDelegate.swift */; };
+		F8159CA62F47000E00800D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8159CA42F47000E00800D38 /* Main.storyboard */; };
+		F8159CAD2F47000E00800D38 /* Wikilinker Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F8159CAC2F47000E00800D38 /* Wikilinker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F8159CB72F47000E00800D38 /* Wikilinker Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F8159CB62F47000E00800D38 /* Wikilinker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F8159CBC2F47000E00800D38 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = F8159C812F47000D00800D38 /* Main.html */; };
+		F8159CBD2F47000E00800D38 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = F8159C812F47000D00800D38 /* Main.html */; };
+		F8159CBE2F47000E00800D38 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8159C832F47000D00800D38 /* Icon.png */; };
+		F8159CBF2F47000E00800D38 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F8159C832F47000D00800D38 /* Icon.png */; };
+		F8159CC02F47000E00800D38 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = F8159C842F47000D00800D38 /* Style.css */; };
+		F8159CC12F47000E00800D38 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = F8159C842F47000D00800D38 /* Style.css */; };
+		F8159CC22F47000E00800D38 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159C852F47000D00800D38 /* Script.js */; };
+		F8159CC32F47000E00800D38 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159C852F47000D00800D38 /* Script.js */; };
+		F8159CC42F47000E00800D38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8159C862F47000D00800D38 /* ViewController.swift */; };
+		F8159CC52F47000E00800D38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8159C862F47000D00800D38 /* ViewController.swift */; };
+		F8159CC62F47000E00800D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8159C872F47000D00800D38 /* Assets.xcassets */; };
+		F8159CC72F47000E00800D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8159C872F47000D00800D38 /* Assets.xcassets */; };
+		F8159CC82F47000E00800D38 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8159C892F47000D00800D38 /* SafariWebExtensionHandler.swift */; };
+		F8159CC92F47000E00800D38 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8159C892F47000D00800D38 /* SafariWebExtensionHandler.swift */; };
+		F8159CE92F47000E00800D38 /* promo-440x280.png in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDB2F47000E00800D38 /* promo-440x280.png */; };
+		F8159CEA2F47000E00800D38 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDC2F47000E00800D38 /* popup.js */; };
+		F8159CEB2F47000E00800D38 /* screenshots in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDD2F47000E00800D38 /* screenshots */; };
+		F8159CEC2F47000E00800D38 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDE2F47000E00800D38 /* styles.css */; };
+		F8159CED2F47000E00800D38 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDF2F47000E00800D38 /* dist */; };
+		F8159CEE2F47000E00800D38 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE02F47000E00800D38 /* popup.html */; };
+		F8159CEF2F47000E00800D38 /* build.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE12F47000E00800D38 /* build.js */; };
+		F8159CF02F47000E00800D38 /* promo-440x280.svg in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE22F47000E00800D38 /* promo-440x280.svg */; };
+		F8159CF12F47000E00800D38 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE32F47000E00800D38 /* README.md */; };
+		F8159CF22F47000E00800D38 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE42F47000E00800D38 /* icons */; };
+		F8159CF32F47000E00800D38 /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE52F47000E00800D38 /* scripts */; };
+		F8159CF42F47000E00800D38 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE62F47000E00800D38 /* manifest.json */; };
+		F8159CF52F47000E00800D38 /* store-listing.md in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE72F47000E00800D38 /* store-listing.md */; };
+		F8159CF62F47000E00800D38 /* src in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE82F47000E00800D38 /* src */; };
+		F8159CF72F47000E00800D38 /* promo-440x280.png in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDB2F47000E00800D38 /* promo-440x280.png */; };
+		F8159CF82F47000E00800D38 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDC2F47000E00800D38 /* popup.js */; };
+		F8159CF92F47000E00800D38 /* screenshots in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDD2F47000E00800D38 /* screenshots */; };
+		F8159CFA2F47000E00800D38 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDE2F47000E00800D38 /* styles.css */; };
+		F8159CFB2F47000E00800D38 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDF2F47000E00800D38 /* dist */; };
+		F8159CFC2F47000E00800D38 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE02F47000E00800D38 /* popup.html */; };
+		F8159CFD2F47000E00800D38 /* build.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE12F47000E00800D38 /* build.js */; };
+		F8159CFE2F47000E00800D38 /* promo-440x280.svg in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE22F47000E00800D38 /* promo-440x280.svg */; };
+		F8159CFF2F47000E00800D38 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE32F47000E00800D38 /* README.md */; };
+		F8159D002F47000E00800D38 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE42F47000E00800D38 /* icons */; };
+		F8159D012F47000E00800D38 /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE52F47000E00800D38 /* scripts */; };
+		F8159D022F47000E00800D38 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE62F47000E00800D38 /* manifest.json */; };
+		F8159D032F47000E00800D38 /* store-listing.md in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE72F47000E00800D38 /* store-listing.md */; };
+		F8159D042F47000E00800D38 /* src in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE82F47000E00800D38 /* src */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F8159CAE2F47000E00800D38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8159C7B2F47000D00800D38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8159CAB2F47000E00800D38;
+			remoteInfo = "Wikilinker Extension (iOS)";
+		};
+		F8159CB82F47000E00800D38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8159C7B2F47000D00800D38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F8159CB52F47000E00800D38;
+			remoteInfo = "Wikilinker Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F8159CCF2F47000E00800D38 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F8159CAD2F47000E00800D38 /* Wikilinker Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159CD62F47000E00800D38 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F8159CB72F47000E00800D38 /* Wikilinker Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F8159C822F47000D00800D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		F8159C832F47000D00800D38 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		F8159C842F47000D00800D38 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		F8159C852F47000D00800D38 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		F8159C862F47000D00800D38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8159C872F47000D00800D38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8159C892F47000D00800D38 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		F8159C8E2F47000E00800D38 /* Wikilinker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wikilinker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8159C912F47000E00800D38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8159C932F47000E00800D38 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F8159C962F47000E00800D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F8159C992F47000E00800D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F8159C9B2F47000E00800D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8159CA02F47000E00800D38 /* Wikilinker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wikilinker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8159CA22F47000E00800D38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8159CA52F47000E00800D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F8159CA72F47000E00800D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8159CAC2F47000E00800D38 /* Wikilinker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wikilinker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8159CB12F47000E00800D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8159CB62F47000E00800D38 /* Wikilinker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wikilinker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8159CBB2F47000E00800D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8159CDB2F47000E00800D38 /* promo-440x280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "promo-440x280.png"; path = "Resources/promo-440x280.png"; sourceTree = "<group>"; };
+		F8159CDC2F47000E00800D38 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = popup.js; path = Resources/popup.js; sourceTree = "<group>"; };
+		F8159CDD2F47000E00800D38 /* screenshots */ = {isa = PBXFileReference; lastKnownFileType = folder; name = screenshots; path = Resources/screenshots; sourceTree = "<group>"; };
+		F8159CDE2F47000E00800D38 /* styles.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = styles.css; path = Resources/styles.css; sourceTree = "<group>"; };
+		F8159CDF2F47000E00800D38 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = Resources/dist; sourceTree = "<group>"; };
+		F8159CE02F47000E00800D38 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = Resources/popup.html; sourceTree = "<group>"; };
+		F8159CE12F47000E00800D38 /* build.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = build.js; path = Resources/build.js; sourceTree = "<group>"; };
+		F8159CE22F47000E00800D38 /* promo-440x280.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "promo-440x280.svg"; path = "Resources/promo-440x280.svg"; sourceTree = "<group>"; };
+		F8159CE32F47000E00800D38 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = Resources/README.md; sourceTree = "<group>"; };
+		F8159CE42F47000E00800D38 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = Resources/icons; sourceTree = "<group>"; };
+		F8159CE52F47000E00800D38 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = Resources/scripts; sourceTree = "<group>"; };
+		F8159CE62F47000E00800D38 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
+		F8159CE72F47000E00800D38 /* store-listing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = "store-listing.md"; path = "Resources/store-listing.md"; sourceTree = "<group>"; };
+		F8159CE82F47000E00800D38 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = Resources/src; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F8159C8B2F47000D00800D38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159C9D2F47000E00800D38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159CA92F47000E00800D38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159CB32F47000E00800D38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F8159C7A2F47000D00800D38 = {
+			isa = PBXGroup;
+			children = (
+				F8159C7F2F47000D00800D38 /* Shared (App) */,
+				F8159C882F47000D00800D38 /* Shared (Extension) */,
+				F8159C902F47000E00800D38 /* iOS (App) */,
+				F8159CA12F47000E00800D38 /* macOS (App) */,
+				F8159CB02F47000E00800D38 /* iOS (Extension) */,
+				F8159CBA2F47000E00800D38 /* macOS (Extension) */,
+				F8159C8F2F47000E00800D38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F8159C7F2F47000D00800D38 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				F8159C862F47000D00800D38 /* ViewController.swift */,
+				F8159C872F47000D00800D38 /* Assets.xcassets */,
+				F8159C802F47000D00800D38 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		F8159C802F47000D00800D38 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8159C812F47000D00800D38 /* Main.html */,
+				F8159C832F47000D00800D38 /* Icon.png */,
+				F8159C842F47000D00800D38 /* Style.css */,
+				F8159C852F47000D00800D38 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8159C882F47000D00800D38 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				F8159CDA2F47000E00800D38 /* Resources */,
+				F8159C892F47000D00800D38 /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		F8159C8F2F47000E00800D38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F8159C8E2F47000E00800D38 /* Wikilinker.app */,
+				F8159CA02F47000E00800D38 /* Wikilinker.app */,
+				F8159CAC2F47000E00800D38 /* Wikilinker Extension.appex */,
+				F8159CB62F47000E00800D38 /* Wikilinker Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F8159C902F47000E00800D38 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				F8159C912F47000E00800D38 /* AppDelegate.swift */,
+				F8159C932F47000E00800D38 /* SceneDelegate.swift */,
+				F8159C952F47000E00800D38 /* LaunchScreen.storyboard */,
+				F8159C982F47000E00800D38 /* Main.storyboard */,
+				F8159C9B2F47000E00800D38 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		F8159CA12F47000E00800D38 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				F8159CA22F47000E00800D38 /* AppDelegate.swift */,
+				F8159CA42F47000E00800D38 /* Main.storyboard */,
+				F8159CA72F47000E00800D38 /* Info.plist */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		F8159CB02F47000E00800D38 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				F8159CB12F47000E00800D38 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		F8159CBA2F47000E00800D38 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				F8159CBB2F47000E00800D38 /* Info.plist */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		F8159CDA2F47000E00800D38 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F8159CDB2F47000E00800D38 /* promo-440x280.png */,
+				F8159CDC2F47000E00800D38 /* popup.js */,
+				F8159CDD2F47000E00800D38 /* screenshots */,
+				F8159CDE2F47000E00800D38 /* styles.css */,
+				F8159CDF2F47000E00800D38 /* dist */,
+				F8159CE02F47000E00800D38 /* popup.html */,
+				F8159CE12F47000E00800D38 /* build.js */,
+				F8159CE22F47000E00800D38 /* promo-440x280.svg */,
+				F8159CE32F47000E00800D38 /* README.md */,
+				F8159CE42F47000E00800D38 /* icons */,
+				F8159CE52F47000E00800D38 /* scripts */,
+				F8159CE62F47000E00800D38 /* manifest.json */,
+				F8159CE72F47000E00800D38 /* store-listing.md */,
+				F8159CE82F47000E00800D38 /* src */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F8159C8D2F47000D00800D38 /* Wikilinker (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8159CD02F47000E00800D38 /* Build configuration list for PBXNativeTarget "Wikilinker (iOS)" */;
+			buildPhases = (
+				F8159C8A2F47000D00800D38 /* Sources */,
+				F8159C8B2F47000D00800D38 /* Frameworks */,
+				F8159C8C2F47000D00800D38 /* Resources */,
+				F8159CCF2F47000E00800D38 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8159CAF2F47000E00800D38 /* PBXTargetDependency */,
+			);
+			name = "Wikilinker (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "Wikilinker (iOS)";
+			productReference = F8159C8E2F47000E00800D38 /* Wikilinker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8159C9F2F47000E00800D38 /* Wikilinker (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8159CD72F47000E00800D38 /* Build configuration list for PBXNativeTarget "Wikilinker (macOS)" */;
+			buildPhases = (
+				F8159C9C2F47000E00800D38 /* Sources */,
+				F8159C9D2F47000E00800D38 /* Frameworks */,
+				F8159C9E2F47000E00800D38 /* Resources */,
+				F8159CD62F47000E00800D38 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8159CB92F47000E00800D38 /* PBXTargetDependency */,
+			);
+			name = "Wikilinker (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "Wikilinker (macOS)";
+			productReference = F8159CA02F47000E00800D38 /* Wikilinker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F8159CAB2F47000E00800D38 /* Wikilinker Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8159CCC2F47000E00800D38 /* Build configuration list for PBXNativeTarget "Wikilinker Extension (iOS)" */;
+			buildPhases = (
+				F8159CA82F47000E00800D38 /* Sources */,
+				F8159CA92F47000E00800D38 /* Frameworks */,
+				F8159CAA2F47000E00800D38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wikilinker Extension (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "Wikilinker Extension (iOS)";
+			productReference = F8159CAC2F47000E00800D38 /* Wikilinker Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F8159CB52F47000E00800D38 /* Wikilinker Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8159CD32F47000E00800D38 /* Build configuration list for PBXNativeTarget "Wikilinker Extension (macOS)" */;
+			buildPhases = (
+				F8159CB22F47000E00800D38 /* Sources */,
+				F8159CB32F47000E00800D38 /* Frameworks */,
+				F8159CB42F47000E00800D38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Wikilinker Extension (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "Wikilinker Extension (macOS)";
+			productReference = F8159CB62F47000E00800D38 /* Wikilinker Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F8159C7B2F47000D00800D38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+					F8159C8D2F47000D00800D38 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					F8159C9F2F47000E00800D38 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					F8159CAB2F47000E00800D38 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					F8159CB52F47000E00800D38 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = F8159C7E2F47000D00800D38 /* Build configuration list for PBXProject "Wikilinker" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F8159C7A2F47000D00800D38;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F8159C8F2F47000E00800D38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8159C8D2F47000D00800D38 /* Wikilinker (iOS) */,
+				F8159C9F2F47000E00800D38 /* Wikilinker (macOS) */,
+				F8159CAB2F47000E00800D38 /* Wikilinker Extension (iOS) */,
+				F8159CB52F47000E00800D38 /* Wikilinker Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F8159C8C2F47000D00800D38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8159CBE2F47000E00800D38 /* Icon.png in Resources */,
+				F8159C972F47000E00800D38 /* LaunchScreen.storyboard in Resources */,
+				F8159CBC2F47000E00800D38 /* Main.html in Resources */,
+				F8159CC22F47000E00800D38 /* Script.js in Resources */,
+				F8159CC62F47000E00800D38 /* Assets.xcassets in Resources */,
+				F8159C9A2F47000E00800D38 /* Main.storyboard in Resources */,
+				F8159CC02F47000E00800D38 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159C9E2F47000E00800D38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8159CBF2F47000E00800D38 /* Icon.png in Resources */,
+				F8159CC12F47000E00800D38 /* Style.css in Resources */,
+				F8159CA62F47000E00800D38 /* Main.storyboard in Resources */,
+				F8159CC32F47000E00800D38 /* Script.js in Resources */,
+				F8159CC72F47000E00800D38 /* Assets.xcassets in Resources */,
+				F8159CBD2F47000E00800D38 /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159CAA2F47000E00800D38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8159CF72F47000E00800D38 /* promo-440x280.png in Resources */,
+				F8159D012F47000E00800D38 /* scripts in Resources */,
+				F8159CFD2F47000E00800D38 /* build.js in Resources */,
+				F8159CFC2F47000E00800D38 /* popup.html in Resources */,
+				F8159D022F47000E00800D38 /* manifest.json in Resources */,
+				F8159D042F47000E00800D38 /* src in Resources */,
+				F8159D002F47000E00800D38 /* icons in Resources */,
+				F8159CFE2F47000E00800D38 /* promo-440x280.svg in Resources */,
+				F8159CFA2F47000E00800D38 /* styles.css in Resources */,
+				F8159CFB2F47000E00800D38 /* dist in Resources */,
+				F8159CFF2F47000E00800D38 /* README.md in Resources */,
+				F8159CF92F47000E00800D38 /* screenshots in Resources */,
+				F8159CF82F47000E00800D38 /* popup.js in Resources */,
+				F8159D032F47000E00800D38 /* store-listing.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159CB42F47000E00800D38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8159CE92F47000E00800D38 /* promo-440x280.png in Resources */,
+				F8159CF32F47000E00800D38 /* scripts in Resources */,
+				F8159CEF2F47000E00800D38 /* build.js in Resources */,
+				F8159CEE2F47000E00800D38 /* popup.html in Resources */,
+				F8159CF42F47000E00800D38 /* manifest.json in Resources */,
+				F8159CF62F47000E00800D38 /* src in Resources */,
+				F8159CF22F47000E00800D38 /* icons in Resources */,
+				F8159CF02F47000E00800D38 /* promo-440x280.svg in Resources */,
+				F8159CEC2F47000E00800D38 /* styles.css in Resources */,
+				F8159CED2F47000E00800D38 /* dist in Resources */,
+				F8159CF12F47000E00800D38 /* README.md in Resources */,
+				F8159CEB2F47000E00800D38 /* screenshots in Resources */,
+				F8159CEA2F47000E00800D38 /* popup.js in Resources */,
+				F8159CF52F47000E00800D38 /* store-listing.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F8159C8A2F47000D00800D38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8159CC42F47000E00800D38 /* ViewController.swift in Sources */,
+				F8159C922F47000E00800D38 /* AppDelegate.swift in Sources */,
+				F8159C942F47000E00800D38 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159C9C2F47000E00800D38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8159CC52F47000E00800D38 /* ViewController.swift in Sources */,
+				F8159CA32F47000E00800D38 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159CA82F47000E00800D38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8159CC82F47000E00800D38 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8159CB22F47000E00800D38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8159CC92F47000E00800D38 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F8159CAF2F47000E00800D38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8159CAB2F47000E00800D38 /* Wikilinker Extension (iOS) */;
+			targetProxy = F8159CAE2F47000E00800D38 /* PBXContainerItemProxy */;
+		};
+		F8159CB92F47000E00800D38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F8159CB52F47000E00800D38 /* Wikilinker Extension (macOS) */;
+			targetProxy = F8159CB82F47000E00800D38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F8159C812F47000D00800D38 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8159C822F47000D00800D38 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		F8159C952F47000E00800D38 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8159C962F47000E00800D38 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F8159C982F47000E00800D38 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8159C992F47000E00800D38 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F8159CA42F47000E00800D38 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F8159CA52F47000E00800D38 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F8159CCA2F47000E00800D38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F8159CCB2F47000E00800D38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				TARGETED_DEVICE_FAMILY = "";
+			};
+			name = Release;
+		};
+		F8159CCD2F47000E00800D38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 86H54WCPYP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wikilinker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker.Extension;
+				PRODUCT_NAME = "Wikilinker Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8159CCE2F47000E00800D38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 86H54WCPYP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wikilinker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker.Extension;
+				PRODUCT_NAME = "Wikilinker Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8159CD12F47000E00800D38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 86H54WCPYP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Wikilinker;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker;
+				PRODUCT_NAME = Wikilinker;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F8159CD22F47000E00800D38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 86H54WCPYP;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Wikilinker;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker;
+				PRODUCT_NAME = Wikilinker;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F8159CD42F47000E00800D38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = S6CP7XDA23;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wikilinker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker.Extension;
+				PRODUCT_NAME = "Wikilinker Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F8159CD52F47000E00800D38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = S6CP7XDA23;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wikilinker Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker.Extension;
+				PRODUCT_NAME = "Wikilinker Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F8159CD82F47000E00800D38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 86H54WCPYP;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Wikilinker;
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker;
+				PRODUCT_NAME = Wikilinker;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F8159CD92F47000E00800D38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 86H54WCPYP;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Wikilinker;
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker;
+				PRODUCT_NAME = Wikilinker;
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F8159C7E2F47000D00800D38 /* Build configuration list for PBXProject "Wikilinker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8159CCA2F47000E00800D38 /* Debug */,
+				F8159CCB2F47000E00800D38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8159CCC2F47000E00800D38 /* Build configuration list for PBXNativeTarget "Wikilinker Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8159CCD2F47000E00800D38 /* Debug */,
+				F8159CCE2F47000E00800D38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8159CD02F47000E00800D38 /* Build configuration list for PBXNativeTarget "Wikilinker (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8159CD12F47000E00800D38 /* Debug */,
+				F8159CD22F47000E00800D38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8159CD32F47000E00800D38 /* Build configuration list for PBXNativeTarget "Wikilinker Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8159CD42F47000E00800D38 /* Debug */,
+				F8159CD52F47000E00800D38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8159CD72F47000E00800D38 /* Build configuration list for PBXNativeTarget "Wikilinker (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8159CD82F47000E00800D38 /* Debug */,
+				F8159CD92F47000E00800D38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F8159C7B2F47000D00800D38 /* Project object */;
+}

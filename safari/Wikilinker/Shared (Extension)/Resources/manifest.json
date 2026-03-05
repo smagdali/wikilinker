@@ -1,0 +1,90 @@
+{
+  "manifest_version": 3,
+  "name": "Wikilinker",
+  "version": "0.5.4",
+  "description": "Auto-links proper nouns and entities to Wikipedia on news sites",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "wikilinker@whitelabel.org",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "collects_personal_data": false
+      }
+    }
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ],
+  "host_permissions": [
+    "https://*.bbc.com/*",
+    "https://*.bbc.co.uk/*",
+    "https://*.apnews.com/*",
+    "https://*.npr.org/*",
+    "https://*.aljazeera.com/*",
+    "https://*.nbcnews.com/*",
+    "https://*.cbsnews.com/*",
+    "https://*.foxnews.com/*",
+    "https://*.usatoday.com/*",
+    "https://*.dailymail.co.uk/*",
+    "https://*.independent.co.uk/*",
+    "https://*.theatlantic.com/*",
+    "https://*.newyorker.com/*",
+    "https://*.vox.com/*",
+    "https://*.theguardian.com/*",
+    "https://*.cnn.com/*",
+    "https://*.go.com/*",
+    "https://*.sky.com/*",
+    "https://*.unherd.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "dist/background.js",
+    "scripts": ["dist/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.bbc.com/*",
+        "https://*.bbc.co.uk/*",
+        "https://*.apnews.com/*",
+        "https://*.npr.org/*",
+        "https://*.aljazeera.com/*",
+        "https://*.nbcnews.com/*",
+        "https://*.cbsnews.com/*",
+        "https://*.foxnews.com/*",
+        "https://*.usatoday.com/*",
+        "https://*.dailymail.co.uk/*",
+        "https://*.independent.co.uk/*",
+        "https://*.theatlantic.com/*",
+        "https://*.newyorker.com/*",
+        "https://*.vox.com/*",
+        "https://*.theguardian.com/*",
+        "https://*.cnn.com/*",
+        "https://*.go.com/*",
+        "https://*.sky.com/*",
+        "https://*.unherd.com/*"
+      ],
+      "js": ["dist/content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": []
+}
