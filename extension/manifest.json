@@ -8,7 +8,7 @@
       "id": "wikilinker@whitelabel.org",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
-        "collects_personal_data": false
+        "required": ["none"]
       }
     }
   },
