@@ -16,7 +16,12 @@ Wikilinker is an updated version of the [Wikiproxy](https://whitelabel.org/2004/
 
 ## Install
 
-The extension will be available in the Chrome Web Store, Firefox Add-ons, and the Safari Extensions Gallery soon. In the meantime, you can install it manually:
+Install from the stores (pending approval as of 6 March 2026):
+
+- [Chrome Web Store](https://chromewebstore.google.com/detail/wikilinker/niflckgdjlcciahgcankljebehnmlpii)
+- [Firefox Add-ons](https://addons.mozilla.org/en-GB/firefox/addon/wikilinker/)
+
+Or install manually:
 
 1. Download the [latest release](https://github.com/smagdali/wikilinker/releases/latest)
 2. **Chrome**: Go to `chrome://extensions`, enable Developer Mode, and drag in the ZIP (or click "Load unpacked" and select the `extension/` folder)
