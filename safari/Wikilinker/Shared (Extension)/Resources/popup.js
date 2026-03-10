@@ -50,59 +50,16 @@ async function saveSettings() {
   }
 }
 
-// Handle the "all sites" toggle — request permission, register/unregister
+// Handle the "all sites" toggle — just save the setting
+// Content script runs on all URLs via manifest; this setting controls
+// whether it processes non-supported sites
 async function handleAllSitesToggle() {
-  const checkbox = allSitesCheckbox();
-
-  if (checkbox.checked) {
-    // Request broad host permission (requires user gesture — we have it from the click)
-    let granted = false;
-    try {
-      granted = await chrome.permissions.request({ origins: ['<all_urls>'] });
-    } catch (e) {
-      granted = false;
-    }
-
-    if (!granted) {
-      checkbox.checked = false;
-      return;
-    }
-
-    // Register dynamic content script for all URLs
-    await chrome.runtime.sendMessage({ type: 'registerAllSites' });
-    await saveSettings();
-
-    // Inject into the current tab immediately for instant feedback
-    try {
-      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      if (tab?.id) {
-        await chrome.scripting.insertCSS({ target: { tabId: tab.id }, files: ['styles.css'] });
-        await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['dist/content.js'] });
-      }
-    } catch (e) {
-      // May fail on chrome:// pages etc — that's fine
-    }
-  } else {
-    // Unregister dynamic content script
-    await chrome.runtime.sendMessage({ type: 'unregisterAllSites' });
-    await saveSettings();
-  }
+  await saveSettings();
 }
 
 // Handle the main enable toggle
 async function handleEnabledToggle() {
   updateAllSitesState();
-
-  // If disabling and allSites is on, also unregister the dynamic script
-  if (!enabledCheckbox().checked && allSitesCheckbox().checked) {
-    await chrome.runtime.sendMessage({ type: 'unregisterAllSites' });
-  }
-
-  // If re-enabling and allSites is on, re-register
-  if (enabledCheckbox().checked && allSitesCheckbox().checked) {
-    await chrome.runtime.sendMessage({ type: 'registerAllSites' });
-  }
-
   await saveSettings();
 }
 

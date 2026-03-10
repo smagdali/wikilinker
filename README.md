@@ -16,7 +16,7 @@ Wikilinker is an updated version of the [Wikiproxy](https://whitelabel.org/2004/
 
 ## Install
 
-Install from the stores (pending approval as of 6 March 2026):
+Install from the stores:
 
 - [Chrome Web Store](https://chromewebstore.google.com/detail/wikilinker/niflckgdjlcciahgcankljebehnmlpii)
 - [Firefox Add-ons](https://addons.mozilla.org/en-GB/firefox/addon/wikilinker/)

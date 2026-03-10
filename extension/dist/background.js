@@ -96,18 +96,6 @@
   var bloom = BloomFilter.deserialize(entities_bloom_default);
   var entityCount = 1e6;
   console.log(`Wikilinker: bloom filter loaded (${(entities_bloom_default.length / 1024 / 1024).toFixed(1)}MB, ${entityCount.toLocaleString()} entities)`);
-  chrome.storage.local.get("settings", (data) => {
-    if (data.settings?.allSites !== false && data.settings?.enabled !== false) {
-      chrome.scripting.registerContentScripts([{
-        id: "wikilinker-all-sites",
-        matches: ["<all_urls>"],
-        js: ["dist/content.js"],
-        css: ["styles.css"],
-        runAt: "document_idle"
-      }]).catch(() => {
-      });
-    }
-  });
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "getEntities") {
       sendResponse({ bloom: Array.from(entities_bloom_default), entityCount: Number(entityCount) });
@@ -117,26 +105,6 @@
       chrome.storage.local.get("settings", (data) => {
         sendResponse(data.settings || {});
       });
-      return true;
-    }
-    if (message.type === "registerAllSites") {
-      chrome.scripting.registerContentScripts([{
-        id: "wikilinker-all-sites",
-        matches: ["<all_urls>"],
-        js: ["dist/content.js"],
-        css: ["styles.css"],
-        runAt: "document_idle"
-      }]).then(() => sendResponse({ ok: true })).catch((err) => {
-        if (err.message?.includes("already registered")) {
-          sendResponse({ ok: true });
-        } else {
-          sendResponse({ error: err.message });
-        }
-      });
-      return true;
-    }
-    if (message.type === "unregisterAllSites") {
-      chrome.scripting.unregisterContentScripts({ ids: ["wikilinker-all-sites"] }).then(() => sendResponse({ ok: true })).catch(() => sendResponse({ ok: true }));
       return true;
     }
     if (message.type === "setBadge") {

@@ -1,14 +1,14 @@
 {
   "manifest_version": 3,
   "name": "Wikilinker",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Auto-links names to Wikipedia — people, places, and organizations on any webpage",
   "browser_specific_settings": {
     "gecko": {
       "id": "wikilinker@whitelabel.org",
       "strict_min_version": "109.0",
       "data_collection_permissions": {
-        "collects_personal_data": false
+        "required": ["none"]
       }
     }
   },
@@ -17,29 +17,8 @@
     "activeTab",
     "scripting"
   ],
-  "optional_host_permissions": [
-    "<all_urls>"
-  ],
   "host_permissions": [
-    "https://*.bbc.com/*",
-    "https://*.bbc.co.uk/*",
-    "https://*.apnews.com/*",
-    "https://*.npr.org/*",
-    "https://*.aljazeera.com/*",
-    "https://*.nbcnews.com/*",
-    "https://*.cbsnews.com/*",
-    "https://*.foxnews.com/*",
-    "https://*.usatoday.com/*",
-    "https://*.dailymail.co.uk/*",
-    "https://*.independent.co.uk/*",
-    "https://*.theatlantic.com/*",
-    "https://*.newyorker.com/*",
-    "https://*.vox.com/*",
-    "https://*.theguardian.com/*",
-    "https://*.cnn.com/*",
-    "https://*.go.com/*",
-    "https://*.sky.com/*",
-    "https://*.unherd.com/*"
+    "<all_urls>"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -60,27 +39,7 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://*.bbc.com/*",
-        "https://*.bbc.co.uk/*",
-        "https://*.apnews.com/*",
-        "https://*.npr.org/*",
-        "https://*.aljazeera.com/*",
-        "https://*.nbcnews.com/*",
-        "https://*.cbsnews.com/*",
-        "https://*.foxnews.com/*",
-        "https://*.usatoday.com/*",
-        "https://*.dailymail.co.uk/*",
-        "https://*.independent.co.uk/*",
-        "https://*.theatlantic.com/*",
-        "https://*.newyorker.com/*",
-        "https://*.vox.com/*",
-        "https://*.theguardian.com/*",
-        "https://*.cnn.com/*",
-        "https://*.go.com/*",
-        "https://*.sky.com/*",
-        "https://*.unherd.com/*"
-      ],
+      "matches": ["<all_urls>"],
       "js": ["dist/content.js"],
       "css": ["styles.css"],
       "run_at": "document_idle"

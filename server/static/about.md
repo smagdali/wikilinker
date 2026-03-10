@@ -6,7 +6,7 @@ Auto-links the most popular 1,000,000 people, places, organizations, and other m
 
 The best way to use Wikilinker is with the browser extension for **Chrome**, **Firefox**, and **Safari**. It works on any website, runs entirely in your browser, and makes no API calls, no external requests, and no logging. The extension bundles a bloom filter of the top 1M Wikipedia titles (ranked by [pageviews](https://dumps.wikimedia.org/other/pageview_complete/)) in under 2MB.
 
-Install from the stores (pending approval as of 6 March 2026):
+Install from the stores:
 
 - [Chrome Web Store](https://chromewebstore.google.com/detail/wikilinker/niflckgdjlcciahgcankljebehnmlpii)
 - [Firefox Add-ons](https://addons.mozilla.org/en-GB/firefox/addon/wikilinker/)

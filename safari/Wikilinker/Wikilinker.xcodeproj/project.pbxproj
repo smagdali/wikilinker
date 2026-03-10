@@ -29,34 +29,18 @@
 		F8159CC72F47000E00800D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8159C872F47000D00800D38 /* Assets.xcassets */; };
 		F8159CC82F47000E00800D38 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8159C892F47000D00800D38 /* SafariWebExtensionHandler.swift */; };
 		F8159CC92F47000E00800D38 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8159C892F47000D00800D38 /* SafariWebExtensionHandler.swift */; };
-		F8159CE92F47000E00800D38 /* promo-440x280.png in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDB2F47000E00800D38 /* promo-440x280.png */; };
 		F8159CEA2F47000E00800D38 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDC2F47000E00800D38 /* popup.js */; };
-		F8159CEB2F47000E00800D38 /* screenshots in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDD2F47000E00800D38 /* screenshots */; };
 		F8159CEC2F47000E00800D38 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDE2F47000E00800D38 /* styles.css */; };
 		F8159CED2F47000E00800D38 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDF2F47000E00800D38 /* dist */; };
 		F8159CEE2F47000E00800D38 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE02F47000E00800D38 /* popup.html */; };
-		F8159CEF2F47000E00800D38 /* build.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE12F47000E00800D38 /* build.js */; };
-		F8159CF02F47000E00800D38 /* promo-440x280.svg in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE22F47000E00800D38 /* promo-440x280.svg */; };
-		F8159CF12F47000E00800D38 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE32F47000E00800D38 /* README.md */; };
 		F8159CF22F47000E00800D38 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE42F47000E00800D38 /* icons */; };
-		F8159CF32F47000E00800D38 /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE52F47000E00800D38 /* scripts */; };
 		F8159CF42F47000E00800D38 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE62F47000E00800D38 /* manifest.json */; };
-		F8159CF52F47000E00800D38 /* store-listing.md in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE72F47000E00800D38 /* store-listing.md */; };
-		F8159CF62F47000E00800D38 /* src in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE82F47000E00800D38 /* src */; };
-		F8159CF72F47000E00800D38 /* promo-440x280.png in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDB2F47000E00800D38 /* promo-440x280.png */; };
 		F8159CF82F47000E00800D38 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDC2F47000E00800D38 /* popup.js */; };
-		F8159CF92F47000E00800D38 /* screenshots in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDD2F47000E00800D38 /* screenshots */; };
 		F8159CFA2F47000E00800D38 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDE2F47000E00800D38 /* styles.css */; };
 		F8159CFB2F47000E00800D38 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = F8159CDF2F47000E00800D38 /* dist */; };
 		F8159CFC2F47000E00800D38 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE02F47000E00800D38 /* popup.html */; };
-		F8159CFD2F47000E00800D38 /* build.js in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE12F47000E00800D38 /* build.js */; };
-		F8159CFE2F47000E00800D38 /* promo-440x280.svg in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE22F47000E00800D38 /* promo-440x280.svg */; };
-		F8159CFF2F47000E00800D38 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE32F47000E00800D38 /* README.md */; };
 		F8159D002F47000E00800D38 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE42F47000E00800D38 /* icons */; };
-		F8159D012F47000E00800D38 /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE52F47000E00800D38 /* scripts */; };
 		F8159D022F47000E00800D38 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE62F47000E00800D38 /* manifest.json */; };
-		F8159D032F47000E00800D38 /* store-listing.md in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE72F47000E00800D38 /* store-listing.md */; };
-		F8159D042F47000E00800D38 /* src in Resources */ = {isa = PBXBuildFile; fileRef = F8159CE82F47000E00800D38 /* src */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,20 +107,12 @@
 		F8159CB12F47000E00800D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8159CB62F47000E00800D38 /* Wikilinker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wikilinker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8159CBB2F47000E00800D38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8159CDB2F47000E00800D38 /* promo-440x280.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "promo-440x280.png"; path = "Resources/promo-440x280.png"; sourceTree = "<group>"; };
 		F8159CDC2F47000E00800D38 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = popup.js; path = Resources/popup.js; sourceTree = "<group>"; };
-		F8159CDD2F47000E00800D38 /* screenshots */ = {isa = PBXFileReference; lastKnownFileType = folder; name = screenshots; path = Resources/screenshots; sourceTree = "<group>"; };
 		F8159CDE2F47000E00800D38 /* styles.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = styles.css; path = Resources/styles.css; sourceTree = "<group>"; };
 		F8159CDF2F47000E00800D38 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = Resources/dist; sourceTree = "<group>"; };
 		F8159CE02F47000E00800D38 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = popup.html; path = Resources/popup.html; sourceTree = "<group>"; };
-		F8159CE12F47000E00800D38 /* build.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = build.js; path = Resources/build.js; sourceTree = "<group>"; };
-		F8159CE22F47000E00800D38 /* promo-440x280.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "promo-440x280.svg"; path = "Resources/promo-440x280.svg"; sourceTree = "<group>"; };
-		F8159CE32F47000E00800D38 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = Resources/README.md; sourceTree = "<group>"; };
 		F8159CE42F47000E00800D38 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = Resources/icons; sourceTree = "<group>"; };
-		F8159CE52F47000E00800D38 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = Resources/scripts; sourceTree = "<group>"; };
 		F8159CE62F47000E00800D38 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
-		F8159CE72F47000E00800D38 /* store-listing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = "store-listing.md"; path = "Resources/store-listing.md"; sourceTree = "<group>"; };
-		F8159CE82F47000E00800D38 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = Resources/src; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,20 +242,12 @@
 		F8159CDA2F47000E00800D38 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F8159CDB2F47000E00800D38 /* promo-440x280.png */,
 				F8159CDC2F47000E00800D38 /* popup.js */,
-				F8159CDD2F47000E00800D38 /* screenshots */,
 				F8159CDE2F47000E00800D38 /* styles.css */,
 				F8159CDF2F47000E00800D38 /* dist */,
 				F8159CE02F47000E00800D38 /* popup.html */,
-				F8159CE12F47000E00800D38 /* build.js */,
-				F8159CE22F47000E00800D38 /* promo-440x280.svg */,
-				F8159CE32F47000E00800D38 /* README.md */,
 				F8159CE42F47000E00800D38 /* icons */,
-				F8159CE52F47000E00800D38 /* scripts */,
 				F8159CE62F47000E00800D38 /* manifest.json */,
-				F8159CE72F47000E00800D38 /* store-listing.md */,
-				F8159CE82F47000E00800D38 /* src */,
 			);
 			name = Resources;
 			path = "Shared (Extension)";
@@ -446,20 +414,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8159CF72F47000E00800D38 /* promo-440x280.png in Resources */,
-				F8159D012F47000E00800D38 /* scripts in Resources */,
-				F8159CFD2F47000E00800D38 /* build.js in Resources */,
 				F8159CFC2F47000E00800D38 /* popup.html in Resources */,
 				F8159D022F47000E00800D38 /* manifest.json in Resources */,
-				F8159D042F47000E00800D38 /* src in Resources */,
 				F8159D002F47000E00800D38 /* icons in Resources */,
-				F8159CFE2F47000E00800D38 /* promo-440x280.svg in Resources */,
 				F8159CFA2F47000E00800D38 /* styles.css in Resources */,
 				F8159CFB2F47000E00800D38 /* dist in Resources */,
-				F8159CFF2F47000E00800D38 /* README.md in Resources */,
-				F8159CF92F47000E00800D38 /* screenshots in Resources */,
 				F8159CF82F47000E00800D38 /* popup.js in Resources */,
-				F8159D032F47000E00800D38 /* store-listing.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,20 +427,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8159CE92F47000E00800D38 /* promo-440x280.png in Resources */,
-				F8159CF32F47000E00800D38 /* scripts in Resources */,
-				F8159CEF2F47000E00800D38 /* build.js in Resources */,
 				F8159CEE2F47000E00800D38 /* popup.html in Resources */,
 				F8159CF42F47000E00800D38 /* manifest.json in Resources */,
-				F8159CF62F47000E00800D38 /* src in Resources */,
 				F8159CF22F47000E00800D38 /* icons in Resources */,
-				F8159CF02F47000E00800D38 /* promo-440x280.svg in Resources */,
 				F8159CEC2F47000E00800D38 /* styles.css in Resources */,
 				F8159CED2F47000E00800D38 /* dist in Resources */,
-				F8159CF12F47000E00800D38 /* README.md in Resources */,
-				F8159CEB2F47000E00800D38 /* screenshots in Resources */,
 				F8159CEA2F47000E00800D38 /* popup.js in Resources */,
-				F8159CF52F47000E00800D38 /* store-listing.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,12 +661,12 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.6.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari.Extension";
 				PRODUCT_NAME = "Wikilinker Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -743,12 +695,12 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.6.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari.Extension";
 				PRODUCT_NAME = "Wikilinker Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -773,6 +725,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Wikilinker;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -783,14 +736,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.6.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari";
 				PRODUCT_NAME = Wikilinker;
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -814,6 +767,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Wikilinker;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -824,14 +778,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.6.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari";
 				PRODUCT_NAME = Wikilinker;
 				SDKROOT = iphoneos;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -851,7 +805,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = S6CP7XDA23;
+				DEVELOPMENT_TEAM = 86H54WCPYP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -865,12 +819,12 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.6.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari.Extension";
 				PRODUCT_NAME = "Wikilinker Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -888,7 +842,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = S6CP7XDA23;
+				DEVELOPMENT_TEAM = 86H54WCPYP;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -902,12 +856,12 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.6.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari.Extension";
 				PRODUCT_NAME = "Wikilinker Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -944,6 +898,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Wikilinker;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -951,14 +906,14 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.6.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari";
 				PRODUCT_NAME = Wikilinker;
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
@@ -996,6 +951,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Wikilinker;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1003,14 +959,14 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.6.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.whitelabel.wikilinker;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari";
 				PRODUCT_NAME = Wikilinker;
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
