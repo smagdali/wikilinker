@@ -187,10 +187,15 @@ export function escapeRegExp(string) {
 
 // Find entity matches in text using full candidate extraction.
 // entitySet: a Set of known entity names.
+// options.multiWordOnly: if true, skip single-word and acronym matches.
 // Returns array of { text, index } sorted by position.
-export function findMatches(text, entitySet) {
+export function findMatches(text, entitySet, options = {}) {
   const normalised = normaliseCurlyQuotes(text);
-  const candidates = extractCandidates(normalised);
+  let candidates = extractCandidates(normalised);
+
+  if (options.multiWordOnly) {
+    candidates = new Set([...candidates].filter(c => c.includes(' ') || /^[A-Z]+$/.test(c)));
+  }
   const matches = [];
 
   for (const candidate of candidates) {

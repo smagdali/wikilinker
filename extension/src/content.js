@@ -31,11 +31,7 @@ async function init() {
       chrome.runtime.sendMessage({ type: 'getSettings' }),
     ]);
 
-    if (entityResponse.bloom) {
-      entitySet = BloomFilter.deserialize(new Uint8Array(entityResponse.bloom));
-    } else {
-      entitySet = new Set(entityResponse.set);
-    }
+    entitySet = BloomFilter.deserialize(new Uint8Array(entityResponse.bloom));
     settings = settingsResponse || {};
 
     if (settings.enabled === false) return;
@@ -229,7 +225,7 @@ function walkAndProcess(element, linkedEntities, insideLink = false, isRoot = fa
       const text = node.textContent;
       if (text.trim().length < 3) continue;
 
-      const matches = findMatches(text, entitySet);
+      const matches = findMatches(text, entitySet, { multiWordOnly: settings.multiWordOnly });
       if (matches.length === 0) continue;
 
       count += replaceTextNode(node, text, matches, linkedEntities);

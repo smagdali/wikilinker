@@ -566,9 +566,12 @@
   function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
-  function findMatches(text, entitySet2) {
+  function findMatches(text, entitySet2, options = {}) {
     const normalised = normaliseCurlyQuotes(text);
-    const candidates = extractCandidates(normalised);
+    let candidates = extractCandidates(normalised);
+    if (options.multiWordOnly) {
+      candidates = new Set([...candidates].filter((c) => c.includes(" ") || /^[A-Z]+$/.test(c)));
+    }
     const matches = [];
     for (const candidate of candidates) {
       if (entitySet2.has(candidate)) {
@@ -780,11 +783,7 @@
         chrome.runtime.sendMessage({ type: "getEntities" }),
         chrome.runtime.sendMessage({ type: "getSettings" })
       ]);
-      if (entityResponse.bloom) {
-        entitySet = BloomFilter.deserialize(new Uint8Array(entityResponse.bloom));
-      } else {
-        entitySet = new Set(entityResponse.set);
-      }
+      entitySet = BloomFilter.deserialize(new Uint8Array(entityResponse.bloom));
       settings = settingsResponse || {};
       if (settings.enabled === false) return;
       if (isBlockedSite()) return;
@@ -866,7 +865,7 @@
         if (nowInsideLink) continue;
         const text = node.textContent;
         if (text.trim().length < 3) continue;
-        const matches = findMatches(text, entitySet);
+        const matches = findMatches(text, entitySet, { multiWordOnly: settings.multiWordOnly });
         if (matches.length === 0) continue;
         count += replaceTextNode(node, text, matches, linkedEntities);
       } else if (node.nodeType === Node.ELEMENT_NODE) {

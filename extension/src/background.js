@@ -1,16 +1,21 @@
-// extension/src/background.js
+// extension/src/background-bloom.js
 //
-// Background service worker. Entity data is bundled at build time
-// via esbuild JSON import. Serves it to content scripts on demand.
+// Background service worker (bloom filter variant).
+// Loads a compact bloom filter instead of the full entity array.
+// The filter is sent to content scripts which do their own .has() lookups.
 
-import entities from '../../server/shared/entities.json';
+import bloomBin from '../../server/shared/entities-bloom.bin';
+import { BloomFilter } from '../../server/shared/bloom.js';
 
-console.log(`Wikilinker: ${entities.length} entities bundled`);
+const bloom = BloomFilter.deserialize(bloomBin);
+const entityCount = ENTITY_COUNT;
+console.log(`Wikilinker: bloom filter loaded (${(bloomBin.length / 1024 / 1024).toFixed(1)}MB, ${entityCount.toLocaleString()} entities)`);
 
 // Serve data to content scripts
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === 'getEntities') {
-    sendResponse({ set: entities });
+    // Send the raw bloom filter binary — content script reconstructs it
+    sendResponse({ bloom: Array.from(bloomBin), entityCount: Number(entityCount) });
     return false;
   }
 

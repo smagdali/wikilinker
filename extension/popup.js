@@ -5,6 +5,8 @@
 const enabledCheckbox = () => document.getElementById('enabled');
 const allSitesCheckbox = () => document.getElementById('allSites');
 const allSitesSection = () => document.getElementById('allSitesSection');
+const multiWordOnlyCheckbox = () => document.getElementById('multiWordOnly');
+const multiWordSection = () => document.getElementById('multiWordSection');
 
 // Load current settings
 async function loadSettings() {
@@ -13,17 +15,20 @@ async function loadSettings() {
 
   enabledCheckbox().checked = settings.enabled !== false;
   allSitesCheckbox().checked = settings.allSites !== false;
+  multiWordOnlyCheckbox().checked = settings.multiWordOnly === true;
 
   updateAllSitesState();
 }
 
 // Update allSites section enabled/disabled based on main toggle
 function updateAllSitesState() {
-  const section = allSitesSection();
-  if (enabledCheckbox().checked) {
-    section.classList.remove('disabled');
-  } else {
-    section.classList.add('disabled');
+  const enabled = enabledCheckbox().checked;
+  for (const section of [allSitesSection(), multiWordSection()]) {
+    if (enabled) {
+      section.classList.remove('disabled');
+    } else {
+      section.classList.add('disabled');
+    }
   }
 }
 
@@ -32,6 +37,7 @@ function readSettings() {
   return {
     enabled: enabledCheckbox().checked,
     allSites: allSitesCheckbox().checked,
+    multiWordOnly: multiWordOnlyCheckbox().checked,
   };
 }
 
@@ -93,4 +99,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   enabledCheckbox().addEventListener('change', handleEnabledToggle);
   allSitesCheckbox().addEventListener('change', handleAllSitesToggle);
+  multiWordOnlyCheckbox().addEventListener('change', saveSettings);
 });
