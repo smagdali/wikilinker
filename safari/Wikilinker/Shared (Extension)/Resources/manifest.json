@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Wikilinker",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Auto-links names to Wikipedia — people, places, and organizations on any webpage",
   "browser_specific_settings": {
     "gecko": {
@@ -13,9 +13,7 @@
     }
   },
   "permissions": [
-    "storage",
-    "activeTab",
-    "scripting"
+    "storage"
   ],
   "host_permissions": [
     "<all_urls>"
@@ -44,6 +42,5 @@
       "css": ["styles.css"],
       "run_at": "document_idle"
     }
-  ],
-  "web_accessible_resources": []
+  ]
 }
