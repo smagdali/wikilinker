@@ -11,7 +11,6 @@ import { extractWithReadability } from './lib/readability.js';
 import { EntityMatcher } from './lib/matcher.js';
 import { logMatches } from './lib/logger.js';
 import { parse } from 'node-html-parser';
-import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
@@ -348,130 +347,6 @@ ${siteOptions}
   `;
 }
 
-function getAboutPage() {
-  const md = readFileSync(join(__dirname, 'static', 'about.md'), 'utf-8');
-  const html = renderMarkdown(md)
-    .replace(/Wikilinker/g, '<span class="brand">Wikilinker</span>');
-  return `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>About - Wikilinker</title>
-      <style>
-        body {
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-          max-width: 640px;
-          margin: 60px auto;
-          padding: 20px;
-          line-height: 1.6;
-          color: #1a1a1a;
-        }
-        h1 { margin-bottom: 6px; }
-        h1 + p { color: #666; margin-top: 0; margin-bottom: 30px; }
-        h2 { margin-top: 32px; font-size: 20px; }
-        p { margin-bottom: 16px; }
-        a { color: #6366f1; }
-        a:hover { text-decoration: none; }
-        ol { padding-left: 20px; }
-        li { margin-bottom: 8px; }
-        .brand {
-          text-decoration: underline;
-          background-color: rgba(52, 168, 83, 0.12);
-          padding: 2px 6px;
-          border-radius: 3px;
-        }
-        .back {
-          display: inline-block;
-          margin-top: 30px;
-          padding: 10px 20px;
-          background: #6366f1;
-          color: white;
-          text-decoration: none;
-          border-radius: 6px;
-        }
-        .back:hover { background: #4f46e5; }
-      </style>
-    </head>
-    <body>
-      ${html}
-      <a class="back" href="${PROXY_PATH}">Try <span class="brand">Wikilinker</span></a>
-    </body>
-    </html>
-  `;
-}
-
-/**
- * Minimal markdown to HTML renderer — handles the subset used in about.md.
- */
-function renderMarkdown(md) {
-  const lines = md.split('\n');
-  let html = '';
-  let inOl = false;
-  let inUl = false;
-
-  for (let i = 0; i < lines.length; i++) {
-    let line = lines[i];
-
-    // Headings
-    if (line.startsWith('## ')) {
-      if (inOl) { html += '</ol>\n'; inOl = false; }
-      if (inUl) { html += '</ul>\n'; inUl = false; }
-      html += `<h2>${inlineMarkdown(line.slice(3))}</h2>\n`;
-      continue;
-    }
-    if (line.startsWith('# ')) {
-      if (inOl) { html += '</ol>\n'; inOl = false; }
-      if (inUl) { html += '</ul>\n'; inUl = false; }
-      html += `<h1>${inlineMarkdown(line.slice(2))}</h1>\n`;
-      continue;
-    }
-
-    // Ordered list items
-    const olMatch = line.match(/^\d+\.\s+(.*)/);
-    if (olMatch) {
-      if (inUl) { html += '</ul>\n'; inUl = false; }
-      if (!inOl) { html += '<ol>\n'; inOl = true; }
-      html += `  <li>${inlineMarkdown(olMatch[1])}</li>\n`;
-      continue;
-    }
-
-    // Unordered list items
-    const ulMatch = line.match(/^- (.*)/);
-    if (ulMatch) {
-      if (inOl) { html += '</ol>\n'; inOl = false; }
-      if (!inUl) { html += '<ul>\n'; inUl = true; }
-      html += `  <li>${inlineMarkdown(ulMatch[1])}</li>\n`;
-      continue;
-    }
-
-    // Close lists if we hit a non-list line
-    if (inOl) { html += '</ol>\n'; inOl = false; }
-    if (inUl) { html += '</ul>\n'; inUl = false; }
-
-    // Blank lines
-    if (line.trim() === '') continue;
-
-    // Paragraph
-    html += `<p>${inlineMarkdown(line)}</p>\n`;
-  }
-
-  if (inOl) html += '</ol>\n';
-  if (inUl) html += '</ul>\n';
-  return html;
-}
-
-function inlineMarkdown(text) {
-  // Bold
-  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  // Links
-  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-  // Em dashes
-  text = text.replace(/ — /g, ' &mdash; ');
-  return text;
-}
-
 function getErrorPage(title, message, url) {
   return `
     <!DOCTYPE html>
@@ -521,7 +396,7 @@ function getErrorPage(title, message, url) {
 
 // About page
 app.get(`${PROXY_PATH}/about`, (req, res) => {
-  res.send(getAboutPage());
+  res.redirect(301, 'https://whitelabel.org/wikilinker/');
 });
 
 // Start server
