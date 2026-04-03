@@ -390,10 +390,10 @@
 				F8159CBE2F47000E00800D38 /* Icon.png in Resources */,
 				F8159C972F47000E00800D38 /* LaunchScreen.storyboard in Resources */,
 				F8159CBC2F47000E00800D38 /* Main.html in Resources */,
-				F8159CC22F47000E00800D38 /* Script.js in Resources */,
 				F8159CC62F47000E00800D38 /* Assets.xcassets in Resources */,
 				F8159C9A2F47000E00800D38 /* Main.storyboard in Resources */,
 				F8159CC02F47000E00800D38 /* Style.css in Resources */,
+				F8159CC22F47000E00800D38 /* Script.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,8 +403,8 @@
 			files = (
 				F8159CBF2F47000E00800D38 /* Icon.png in Resources */,
 				F8159CC12F47000E00800D38 /* Style.css in Resources */,
-				F8159CA62F47000E00800D38 /* Main.storyboard in Resources */,
 				F8159CC32F47000E00800D38 /* Script.js in Resources */,
+				F8159CA62F47000E00800D38 /* Main.storyboard in Resources */,
 				F8159CC72F47000E00800D38 /* Assets.xcassets in Resources */,
 				F8159CBD2F47000E00800D38 /* Main.html in Resources */,
 			);
@@ -661,7 +661,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.6.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -695,7 +695,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.6.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -736,7 +736,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.6.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -778,7 +778,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.6.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -819,7 +819,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.6.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -856,7 +856,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.6.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -906,12 +906,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.6.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
-					"-framework",
-					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari";
 				PRODUCT_NAME = Wikilinker;
@@ -959,12 +957,10 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.6.3;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
-					"-framework",
-					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari";
 				PRODUCT_NAME = Wikilinker;

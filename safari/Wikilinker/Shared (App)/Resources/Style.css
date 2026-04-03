@@ -6,8 +6,6 @@
 
 :root {
     color-scheme: light dark;
-
-    --spacing: 20px;
 }
 
 html {
@@ -20,15 +18,38 @@ body {
     justify-content: center;
     flex-direction: column;
 
-    gap: var(--spacing);
-    margin: 0 calc(var(--spacing) * 2);
+    gap: 10px;
+    margin: 0 40px;
     height: 100%;
 
     font: -apple-system-short-body;
     text-align: center;
 }
 
-body:not(.platform-mac, .platform-ios) :is(.platform-mac, .platform-ios) {
+img {
+    margin-bottom: 2px;
+}
+
+h1 {
+    font-size: 1.4em;
+    margin: 0;
+}
+
+.tagline {
+    color: #6b7280;
+    margin: 0;
+}
+
+.description {
+    line-height: 1.5;
+    margin: 4px 0;
+}
+
+.platform-ios {
+    display: none;
+}
+
+.state-on, .state-off {
     display: none;
 }
 
@@ -36,26 +57,28 @@ body.platform-ios .platform-mac {
     display: none;
 }
 
-body.platform-mac .platform-ios {
+body.platform-ios .platform-ios {
+    display: block;
+}
+
+body.state-on .state-unknown {
     display: none;
 }
 
-body.platform-ios .platform-mac {
+body.state-on .state-on {
+    display: block;
+}
+
+body.state-off .state-unknown {
     display: none;
 }
 
-body:not(.state-on, .state-off) :is(.state-on, .state-off) {
-    display: none;
-}
-
-body.state-on :is(.state-off, .state-unknown) {
-    display: none;
-}
-
-body.state-off :is(.state-on, .state-unknown) {
-    display: none;
+body.state-off .state-off {
+    display: block;
 }
 
 button {
     font-size: 1em;
+    padding: 6px 16px;
+    margin-top: 4px;
 }
