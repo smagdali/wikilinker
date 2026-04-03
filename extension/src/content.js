@@ -53,14 +53,6 @@ function isBlockedSite() {
   return BLOCKED_SITES.some(d => hostname === d || hostname.endsWith('.' + d));
 }
 
-function isSupportedSite() {
-  const hostname = location.hostname.replace(/^www\./, '');
-  return !!(sites[hostname] ||
-    Object.entries(sites).find(([domain]) =>
-      hostname === domain || hostname.endsWith('.' + domain)
-    )?.[1]);
-}
-
 function findArticleContainers() {
   // Try site-specific selectors from shared config
   const hostname = location.hostname.replace(/^www\./, '');
@@ -291,7 +283,7 @@ chrome.runtime.onMessage.addListener((message) => {
       const text = document.createTextNode(link.textContent);
       link.parentNode.replaceChild(text, link);
     });
-    if (settings.enabled !== false && !isBlockedSite() && (isSupportedSite() || settings.allSites !== false)) {
+    if (settings.enabled !== false && !isBlockedSite()) {
       processPage();
     }
   }

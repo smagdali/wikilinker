@@ -3,8 +3,6 @@
 // Handles settings UI and persistence for the popup.
 
 const enabledCheckbox = () => document.getElementById('enabled');
-const allSitesCheckbox = () => document.getElementById('allSites');
-const allSitesSection = () => document.getElementById('allSitesSection');
 const multiWordOnlyCheckbox = () => document.getElementById('multiWordOnly');
 const multiWordSection = () => document.getElementById('multiWordSection');
 
@@ -14,21 +12,19 @@ async function loadSettings() {
   const settings = data.settings || {};
 
   enabledCheckbox().checked = settings.enabled !== false;
-  allSitesCheckbox().checked = settings.allSites !== false;
   multiWordOnlyCheckbox().checked = settings.multiWordOnly === true;
 
-  updateAllSitesState();
+  updateToggleStates();
 }
 
-// Update allSites section enabled/disabled based on main toggle
-function updateAllSitesState() {
+// Disable options when main toggle is off
+function updateToggleStates() {
   const enabled = enabledCheckbox().checked;
-  for (const section of [allSitesSection(), multiWordSection()]) {
-    if (enabled) {
-      section.classList.remove('disabled');
-    } else {
-      section.classList.add('disabled');
-    }
+  const section = multiWordSection();
+  if (enabled) {
+    section.classList.remove('disabled');
+  } else {
+    section.classList.add('disabled');
   }
 }
 
@@ -36,7 +32,6 @@ function updateAllSitesState() {
 function readSettings() {
   return {
     enabled: enabledCheckbox().checked,
-    allSites: allSitesCheckbox().checked,
     multiWordOnly: multiWordOnlyCheckbox().checked,
   };
 }
@@ -56,16 +51,9 @@ async function saveSettings() {
   }
 }
 
-// Handle the "all sites" toggle — just save the setting
-// Content script runs on all URLs via manifest; this setting controls
-// whether it processes non-supported sites
-async function handleAllSitesToggle() {
-  await saveSettings();
-}
-
 // Handle the main enable toggle
 async function handleEnabledToggle() {
-  updateAllSitesState();
+  updateToggleStates();
   await saveSettings();
 }
 
@@ -98,6 +86,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadStats();
 
   enabledCheckbox().addEventListener('change', handleEnabledToggle);
-  allSitesCheckbox().addEventListener('change', handleAllSitesToggle);
   multiWordOnlyCheckbox().addEventListener('change', saveSettings);
 });

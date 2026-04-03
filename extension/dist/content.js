@@ -797,12 +797,6 @@
     const hostname = location.hostname.replace(/^www\./, "");
     return BLOCKED_SITES.some((d) => hostname === d || hostname.endsWith("." + d));
   }
-  function isSupportedSite() {
-    const hostname = location.hostname.replace(/^www\./, "");
-    return !!(sites_default[hostname] || Object.entries(sites_default).find(
-      ([domain]) => hostname === domain || hostname.endsWith("." + domain)
-    )?.[1]);
-  }
   function findArticleContainers() {
     const hostname = location.hostname.replace(/^www\./, "");
     const siteConfig = sites_default[hostname] || Object.entries(sites_default).find(
@@ -911,7 +905,7 @@
         const text = document.createTextNode(link.textContent);
         link.parentNode.replaceChild(text, link);
       });
-      if (settings.enabled !== false && !isBlockedSite() && (isSupportedSite() || settings.allSites !== false)) {
+      if (settings.enabled !== false && !isBlockedSite()) {
         processPage();
       }
     }
