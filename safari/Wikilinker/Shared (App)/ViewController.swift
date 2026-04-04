@@ -7,25 +7,66 @@
 
 #if os(iOS)
 import UIKit
-import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
-
-    @IBOutlet var webView: WKWebView!
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.webView.navigationDelegate = self
-        self.webView.scrollView.isScrollEnabled = false
-        self.webView.configuration.userContentController.add(self, name: "controller")
-        self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
+
+        view.backgroundColor = .systemBackground
+
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.spacing = 10
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stack)
+
+        NSLayoutConstraint.activate([
+            stack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stack.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 40),
+            stack.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -40),
+        ])
+
+        // Icon
+        let icon = UIImageView(image: UIImage(named: "LargeIcon"))
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.widthAnchor.constraint(equalToConstant: 128).isActive = true
+        icon.heightAnchor.constraint(equalToConstant: 128).isActive = true
+        stack.addArrangedSubview(icon)
+
+        // Title
+        let title = makeLabel("Wikilinker", size: 22, bold: true)
+        stack.addArrangedSubview(title)
+
+        // Tagline
+        let tagline = makeLabel("Auto-links names to Wikipedia as you browse", size: 13)
+        tagline.textColor = .secondaryLabel
+        stack.addArrangedSubview(tagline)
+        stack.setCustomSpacing(20, after: tagline)
+
+        // Description
+        let desc = makeLabel("Wikilinker finds people, places, and organizations on any webpage and links them to their Wikipedia articles.", size: 15)
+        desc.widthAnchor.constraint(lessThanOrEqualToConstant: 340).isActive = true
+        stack.addArrangedSubview(desc)
+        stack.setCustomSpacing(20, after: desc)
+
+        // Instructions
+        let instructions = makeLabel("You can turn on Wikilinker's Safari extension in Settings.", size: 15)
+        instructions.textColor = .secondaryLabel
+        instructions.widthAnchor.constraint(lessThanOrEqualToConstant: 340).isActive = true
+        stack.addArrangedSubview(instructions)
     }
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        webView.evaluateJavaScript("show('ios')")
-    }
-
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    private func makeLabel(_ text: String, size: CGFloat, bold: Bool = false) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = bold ? UIFont.boldSystemFont(ofSize: size) : UIFont.systemFont(ofSize: size)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }
 }
 

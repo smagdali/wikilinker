@@ -740,8 +740,6 @@
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
-					"-framework",
-					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari";
 				PRODUCT_NAME = Wikilinker;
@@ -782,8 +780,6 @@
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
-					"-framework",
-					WebKit,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.whitelabel.Wikilinker-safari";
 				PRODUCT_NAME = Wikilinker;
