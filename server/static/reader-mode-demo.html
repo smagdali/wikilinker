@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wikilinker — Reader mode variants</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, Georgia, serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    color: #222;
+  }
+  h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+  h2 { font-size: 1.1rem; margin: 2rem 0 0.5rem; color: #555; }
+  .pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 8px 0 28px;
+  }
+  .pair > div {
+    padding: 14px 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fafafa;
+  }
+  .pair > div.reader { background: #fff; border-color: #ccc; }
+  .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #999;
+    margin-bottom: 8px;
+  }
+
+  /* Styled wikilink — current look */
+  a.wikilink {
+    color: #0645ad;
+    text-decoration: underline;
+    background-color: rgba(52, 168, 83, 0.12);
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+  a.wikilink:hover {
+    background-color: rgba(52, 168, 83, 0.25);
+  }
+
+  /* Reader mode preview — strips wikilink styling, keeps basic link colour */
+  .reader a.wikilink {
+    color: #0645ad;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    text-decoration: underline;
+  }
+
+  /* Glyph styles (work in both styled and reader modes) */
+  .wikilink .glyph-sup {
+    font-size: 0.7em;
+    vertical-align: super;
+    line-height: 0;
+    margin-left: 1px;
+  }
+  .wikilink .glyph-inline {
+    font-size: 0.85em;
+    margin-left: 1px;
+  }
+</style>
+</head>
+<body>
+<h1>Wikilinker — Reader mode variants</h1>
+<p>Left column shows the current styled look; right column simulates Firefox Reader mode (no green tint). Each row is a different glyph variant.</p>
+
+<h2>A. No glyph (current)</h2>
+<div class="pair">
+  <div><div class="label">Styled</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi</a>, who coined the term in the 1960s.
+  </div>
+  <div class="reader"><div class="label">Reader mode</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi</a>, who coined the term in the 1960s.
+  </div>
+</div>
+
+<h2>B. Circled ⓦ (superscript)</h2>
+<div class="pair">
+  <div><div class="label">Styled</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">ⓦ</span></a>, who coined the term in the 1960s.
+  </div>
+  <div class="reader"><div class="label">Reader mode</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">ⓦ</span></a>, who coined the term in the 1960s.
+  </div>
+</div>
+
+<h2>C. Circled ⓦ (inline, not superscript)</h2>
+<div class="pair">
+  <div><div class="label">Styled</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-inline"> ⓦ</span></a>, who coined the term in the 1960s.
+  </div>
+  <div class="reader"><div class="label">Reader mode</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-inline"> ⓦ</span></a>, who coined the term in the 1960s.
+  </div>
+</div>
+
+<h2>D. Superscript W (plain letter)</h2>
+<div class="pair">
+  <div><div class="label">Styled</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">W</span></a>, who coined the term in the 1960s.
+  </div>
+  <div class="reader"><div class="label">Reader mode</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">W</span></a>, who coined the term in the 1960s.
+  </div>
+</div>
+
+<h2>E. ʷ (modifier letter small w, true superscript)</h2>
+<div class="pair">
+  <div><div class="label">Styled</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyiʷ</a>, who coined the term in the 1960s.
+  </div>
+  <div class="reader"><div class="label">Reader mode</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyiʷ</a>, who coined the term in the 1960s.
+  </div>
+</div>
+
+<h2>F. Open book 📖</h2>
+<div class="pair">
+  <div><div class="label">Styled</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-inline">📖</span></a>, who coined the term in the 1960s.
+  </div>
+  <div class="reader"><div class="label">Reader mode</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-inline">📖</span></a>, who coined the term in the 1960s.
+  </div>
+</div>
+
+<h2>G. Globe 🌐</h2>
+<div class="pair">
+  <div><div class="label">Styled</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-inline">🌐</span></a>, who coined the term in the 1960s.
+  </div>
+  <div class="reader"><div class="label">Reader mode</div>
+    This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-inline">🌐</span></a>, who coined the term in the 1960s.
+  </div>
+</div>
+
+<h2>H. Double-dagger-ish ‡ / § alternatives</h2>
+<div class="pair">
+  <div><div class="label">Styled</div>
+    <p><a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">†</span></a> — dagger</p>
+    <p><a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">°</span></a> — degree</p>
+    <p><a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">*</span></a> — asterisk</p>
+  </div>
+  <div class="reader"><div class="label">Reader mode</div>
+    <p><a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">†</span></a> — dagger</p>
+    <p><a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">°</span></a> — degree</p>
+    <p><a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">*</span></a> — asterisk</p>
+  </div>
+</div>
+
+<h2>Full paragraph test (variant B — superscript ⓦ)</h2>
+<div class="pair">
+  <div><div class="label">Styled</div>
+    Creative work takes me away from my pain — both physical and emotional — because creative work takes me into a "flow" state. This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">ⓦ</span></a>, who coined the term in the <a class="wikilink" href="#">1960s<span class="glyph-sup">ⓦ</span></a> while he was investigating a seeming paradox: how was it that we modern people had mastered so many of the useful <a class="wikilink" href="#">arts and sciences<span class="glyph-sup">ⓦ</span></a>, and yet we seemed no happier than the ancients?
+  </div>
+  <div class="reader"><div class="label">Reader mode</div>
+    Creative work takes me away from my pain — both physical and emotional — because creative work takes me into a "flow" state. This useful word comes to us from <a class="wikilink" href="#">Mihaly Csikszentmihalyi<span class="glyph-sup">ⓦ</span></a>, who coined the term in the <a class="wikilink" href="#">1960s<span class="glyph-sup">ⓦ</span></a> while he was investigating a seeming paradox: how was it that we modern people had mastered so many of the useful <a class="wikilink" href="#">arts and sciences<span class="glyph-sup">ⓦ</span></a>, and yet we seemed no happier than the ancients?
+  </div>
+</div>
+
+</body>
+</html>

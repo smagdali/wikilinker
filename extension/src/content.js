@@ -270,6 +270,11 @@ function createWikiLink(entityName) {
   link.title = `${entityName} — Wikipedia`;
   link.rel = 'noopener';
   link.appendChild(document.createTextNode(entityName));
+  const glyph = document.createElement('span');
+  glyph.className = 'wikilink-glyph';
+  glyph.setAttribute('aria-hidden', 'true');
+  glyph.textContent = 'ⓦ';
+  link.appendChild(glyph);
   return link;
 }
 

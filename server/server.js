@@ -399,6 +399,8 @@ app.get(`${PROXY_PATH}/about`, (req, res) => {
   res.redirect(301, 'https://whitelabel.org/wikilinker/');
 });
 
+app.use(`${PROXY_PATH}/demos`, express.static(join(__dirname, 'static')));
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Wikilinker server running on port ${PORT}`);

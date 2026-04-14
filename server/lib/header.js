@@ -304,6 +304,13 @@ export function getHeaderStyles() {
         background-color: rgba(52, 168, 83, 0.25) !important;
       }
 
+      .wikilink-glyph {
+        font-size: 0.7em !important;
+        vertical-align: super !important;
+        line-height: 0 !important;
+        margin-left: 1px !important;
+      }
+
       /* Dark mode wikilink styles — via OS preference or detected dark background */
       @media (prefers-color-scheme: dark) {
         .wikilink {

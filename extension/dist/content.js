@@ -896,6 +896,11 @@
     link.title = `${entityName} \u2014 Wikipedia`;
     link.rel = "noopener";
     link.appendChild(document.createTextNode(entityName));
+    const glyph = document.createElement("span");
+    glyph.className = "wikilink-glyph";
+    glyph.setAttribute("aria-hidden", "true");
+    glyph.textContent = "\u24E6";
+    link.appendChild(glyph);
     return link;
   }
   chrome.runtime.onMessage.addListener((message) => {

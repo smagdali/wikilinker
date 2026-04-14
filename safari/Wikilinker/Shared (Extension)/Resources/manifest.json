@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Wikilinker",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "Auto-links names to Wikipedia — people, places, and organizations on any webpage",
   "browser_specific_settings": {
     "gecko": {

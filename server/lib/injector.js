@@ -179,7 +179,7 @@ function processElement(element, matcher, insideLink = false, linkedEntities = n
 
         // Add the wikilink
         const wikiUrl = toWikiUrl(match.text);
-        newHtml += `<a href="${wikiUrl}" class="wikilink" title="${match.text}">${escapeHtml(match.text)}</a>`;
+        newHtml += `<a href="${wikiUrl}" class="wikilink" title="${match.text}">${escapeHtml(match.text)}<span class="wikilink-glyph" aria-hidden="true">ⓦ</span></a>`;
 
         lastIndex = match.index + match.text.length;
 
