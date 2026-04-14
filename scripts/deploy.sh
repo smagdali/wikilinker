@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-REMOTE="pi@whitelabel.org"
+REMOTE="deploy@100.86.144.59"
 DEPLOY_ROOT="/opt/wikilinker"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
