@@ -1,5 +1,8 @@
 # Wikilinker i18n Implementation Plan
 
+> **SUPERSEDED 2026-04-14.** See [2026-04-14-i18n-implementation.md](2026-04-14-i18n-implementation.md) for the current plan.
+
+
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
 **Goal:** Publish Wikilinker in 20 Wikipedia languages across Chrome, Firefox, and Safari stores.
