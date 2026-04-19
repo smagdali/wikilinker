@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 //
-// Build a bloom filter from the top N ranked Wikipedia titles.
+// Build a bloom filter from the top N ranked Wikipedia titles for a language.
 //
-// Usage: node scripts/build-bloom.mjs [--count 1000000] [--fp 0.0001]
+// Usage: node scripts/build-bloom.mjs [--lang en] [--count 1000000] [--fp 0.0001]
 //
-// Outputs: server/shared/entities-bloom.bin
+// Inputs:  i18n/{lang}/titles-ranked.tsv
+// Outputs: i18n/{lang}/entities-bloom.bin
 
 import { createReadStream, writeFileSync } from 'node:fs';
 import { createInterface } from 'node:readline';
@@ -13,6 +14,7 @@ import { fileURLToPath } from 'node:url';
 import { BloomFilter } from '../server/shared/bloom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const rootDir = join(__dirname, '..');
 
 // Parse args
 const args = process.argv.slice(2);
@@ -21,11 +23,13 @@ const getArg = (name, def) => {
   return i >= 0 ? args[i + 1] : def;
 };
 
+const lang = getArg('--lang', 'en');
 const count = parseInt(getArg('--count', '1000000'), 10);
 const fpRate = parseFloat(getArg('--fp', '0.0001'));
-const titlesPath = join(__dirname, '..', '..', 'whitelabel.org', 'wikiproxy-data', 'titles-ranked.tsv');
-const outPath = join(__dirname, '..', 'server', 'shared', 'entities-bloom.bin');
+const titlesPath = join(rootDir, 'i18n', lang, 'titles-ranked.tsv');
+const outPath = join(rootDir, 'i18n', lang, 'entities-bloom.bin');
 
+console.log(`Language: ${lang}`);
 console.log(`Reading top ${count.toLocaleString()} titles from: ${titlesPath}`);
 const titles = [];
 const rl = createInterface({ input: createReadStream(titlesPath, 'utf8'), crlfDelay: Infinity });

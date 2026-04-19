@@ -4,7 +4,7 @@
 // Loads a compact bloom filter instead of the full entity array.
 // The filter is sent to content scripts which do their own .has() lookups.
 
-import bloomBin from '../../server/shared/entities-bloom.bin';
+import bloomBin from '../../i18n/en/entities-bloom.bin';
 import { BloomFilter } from '../../server/shared/bloom.js';
 
 const bloom = BloomFilter.deserialize(bloomBin);
