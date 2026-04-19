@@ -6,6 +6,11 @@ node_modules/
 
 # Build artifacts
 *.zip
+build/
+
+# Xcode user state
+**/xcuserdata/
+**/*.xcuserstate
 
 # Debug logs
 wikilinker-debug-*.tsv
