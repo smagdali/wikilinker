@@ -2,12 +2,15 @@
 //
 // Pure-function entity matching logic shared between the server and
 // browser extension. No I/O, no DOM — just string processing.
+//
+// Unicode-aware: uses \p{Lu} (uppercase letter) and \p{L} (any letter)
+// with the /u flag, so non-Latin scripts (Cyrillic, Greek, Devanagari,
+// Arabic, Hebrew) work out of the box.
 
 import skipWordsEn from '../../i18n/en/skip-words.json' with { type: 'json' };
 
-// Common words to skip — these are words that happen to have Wikipedia
-// articles but are almost never useful entity links in news text.
-// Loaded from i18n/{lang}/skip-words.json; default to English here.
+// Default English skip words — used when no explicit list is provided.
+// Extension builds inject the correct per-language list via options.skipWords.
 export const SKIP_WORDS = new Set(skipWordsEn);
 
 // Minimum length rules for single-word candidates:
@@ -16,11 +19,12 @@ export const SKIP_WORDS = new Set(skipWordsEn);
 // Multi-word phrases bypass this check entirely.
 export function meetsMinLength(phrase) {
   if (phrase.includes(' ')) return true;
-  if (/^[A-Z]+$/.test(phrase)) return phrase.length >= 3;
+  if (/^\p{Lu}+$/u.test(phrase)) return phrase.length >= 3;
   return phrase.length >= 4;
 }
 
-// Trim leading/trailing filler words from greedy-matched phrases
+// Trim leading/trailing filler words from greedy-matched phrases.
+// These are English fillers; per-language fillers can be added in a future task.
 const FILLER_LEADING = /^(?:of|and|in|on|under|the|for)\s+/i;
 const FILLER_TRAILING = /\s+(?:of|and|in|on|under|the|for)$/i;
 
@@ -40,32 +44,43 @@ export function normaliseCurlyQuotes(text) {
   return text.replace(/[\u2018\u2019]/g, "'");
 }
 
-// Extract capitalised phrase candidates from text
-export function extractCandidates(text) {
+// Extract capitalised phrase candidates from text.
+// options.skipWords: Set of words to reject (defaults to English SKIP_WORDS)
+//
+// Note: \b is ASCII-only in JavaScript regex — it doesn't recognise letters
+// outside [A-Za-z0-9_] as word characters. For Unicode support we use
+// Unicode-aware lookarounds: (?<![\p{L}\p{N}]) before and (?![\p{L}\p{N}]) after.
+export function extractCandidates(text, options = {}) {
+  const skipWords = options.skipWords || SKIP_WORDS;
   const candidates = new Set();
 
-  const capsWord = "[A-Z][a-zA-Z'\\-]+";
+  const capsWord = "\\p{Lu}[\\p{L}'\\-]+";
   const filler = "(?:of|and|in|on|under|the|for)";
+  const boundaryBefore = "(?<![\\p{L}\\p{N}])";
+  const boundaryAfter = "(?![\\p{L}\\p{N}])";
 
-  const greedyRe = new RegExp(`\\b(${capsWord}(?:\\s+(?:${filler}|${capsWord}))*\\s+${capsWord})\\b`, 'g');
+  const greedyRe = new RegExp(
+    `${boundaryBefore}(${capsWord}(?:\\s+(?:${filler}|${capsWord}))*\\s+${capsWord})${boundaryAfter}`,
+    'gu',
+  );
 
   const patterns = [
     greedyRe,
-    new RegExp(`\\b(${capsWord}(?:\\s+${capsWord})+)\\b`, 'g'),
-    new RegExp(`\\b(${capsWord})\\b`, 'g'),
-    /\b([A-Z]{2,6})\b/g,
+    new RegExp(`${boundaryBefore}(${capsWord}(?:\\s+${capsWord})+)${boundaryAfter}`, 'gu'),
+    new RegExp(`${boundaryBefore}(${capsWord})${boundaryAfter}`, 'gu'),
+    new RegExp(`${boundaryBefore}(\\p{Lu}{2,6})${boundaryAfter}`, 'gu'),
   ];
 
   for (const pattern of patterns) {
     const matches = text.matchAll(pattern);
     for (const match of matches) {
       const phrase = match[1].trim();
-      if (meetsMinLength(phrase) && !SKIP_WORDS.has(phrase)) {
+      if (meetsMinLength(phrase) && !skipWords.has(phrase)) {
         candidates.add(phrase);
 
         if (pattern === greedyRe) {
           const trimmed = trimFillers(phrase);
-          if (trimmed !== phrase && meetsMinLength(trimmed) && !SKIP_WORDS.has(trimmed)) {
+          if (trimmed !== phrase && meetsMinLength(trimmed) && !skipWords.has(trimmed)) {
             candidates.add(trimmed);
           }
         }
@@ -91,7 +106,7 @@ export function isPartOfLargerPhrase(text, start, end) {
     const charBefore = text[start - 1];
     if (charBefore === ' ') {
       const textBefore = text.slice(0, start - 1);
-      const lastWord = textBefore.match(/[A-Z][a-zA-Z''\-]*$/);
+      const lastWord = textBefore.match(/\p{Lu}[\p{L}'\-]*$/u);
       if (lastWord) return true;
     }
   }
@@ -99,7 +114,7 @@ export function isPartOfLargerPhrase(text, start, end) {
     const charAfter = text[end];
     if (charAfter === ' ') {
       const textAfter = text.slice(end + 1);
-      const nextWord = textAfter.match(/^[A-Z][a-zA-Z''\-]*/);
+      const nextWord = textAfter.match(/^\p{Lu}[\p{L}'\-]*/u);
       if (nextWord) return true;
     }
   }
@@ -113,13 +128,14 @@ export function escapeRegExp(string) {
 // Find entity matches in text using full candidate extraction.
 // entitySet: a Set of known entity names.
 // options.multiWordOnly: if true, skip single-word and acronym matches.
+// options.skipWords: Set of words to reject (defaults to English SKIP_WORDS)
 // Returns array of { text, index } sorted by position.
 export function findMatches(text, entitySet, options = {}) {
   const normalised = normaliseCurlyQuotes(text);
-  let candidates = extractCandidates(normalised);
+  let candidates = extractCandidates(normalised, options);
 
   if (options.multiWordOnly) {
-    candidates = new Set([...candidates].filter(c => c.includes(' ') || /^[A-Z]+$/.test(c)));
+    candidates = new Set([...candidates].filter(c => c.includes(' ') || /^\p{Lu}+$/u.test(c)));
   }
   const matches = [];
 
@@ -135,7 +151,10 @@ export function findMatches(text, entitySet, options = {}) {
   const usedRanges = [];
 
   for (const match of matches) {
-    const regex = new RegExp(`\\b${escapeRegExp(match.text)}\\b`);
+    const regex = new RegExp(
+      `(?<![\\p{L}\\p{N}])${escapeRegExp(match.text)}(?![\\p{L}\\p{N}])`,
+      'u',
+    );
     const found = regex.exec(normalised);
 
     if (found) {
@@ -164,7 +183,10 @@ export function findMatchesInText(text, knownEntities) {
   const matches = [];
 
   for (const [name] of knownEntities) {
-    const regex = new RegExp(`\\b${escapeRegExp(name)}\\b`, 'g');
+    const regex = new RegExp(
+      `(?<![\\p{L}\\p{N}])${escapeRegExp(name)}(?![\\p{L}\\p{N}])`,
+      'gu',
+    );
     let found;
     while ((found = regex.exec(text)) !== null) {
       matches.push({ text: name, index: found.index });
@@ -194,9 +216,10 @@ export function findMatchesInText(text, knownEntities) {
   return result;
 }
 
-// Generate Wikipedia URL from entity name
-export function toWikiUrl(entityName) {
-  return `https://en.wikipedia.org/wiki/${encodeURIComponent(entityName.replace(/ /g, '_'))}`;
+// Generate Wikipedia URL from entity name.
+// lang: two-letter language code (defaults to 'en')
+export function toWikiUrl(entityName, lang = 'en') {
+  return `https://${lang}.wikipedia.org/wiki/${encodeURIComponent(entityName.replace(/ /g, '_'))}`;
 }
 
 // Extract context around a match — 3 words either side
