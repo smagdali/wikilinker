@@ -159,10 +159,11 @@ else
   NOTES="Initial release"
 fi
 
-run gh release create "v$VERSION" \
-  --title "v$VERSION" \
-  --notes "$NOTES" \
-  "${ASSETS[@]}"
+if [[ ${#ASSETS[@]} -gt 0 ]]; then
+  run gh release create "v$VERSION" --title "v$VERSION" --notes "$NOTES" "${ASSETS[@]}"
+else
+  run gh release create "v$VERSION" --title "v$VERSION" --notes "$NOTES"
+fi
 
 echo ""
 echo "Release v$VERSION complete."
