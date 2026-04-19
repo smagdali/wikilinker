@@ -265,7 +265,7 @@ function replaceTextNode(textNode, text, matches, linkedEntities) {
 
 function createWikiLink(entityName) {
   const link = document.createElement('a');
-  link.href = toWikiUrl(entityName);
+  link.href = toWikiUrl(entityName, WIKI_LANG);
   link.className = 'wikilink';
   link.title = `${entityName} — Wikipedia`;
   link.rel = 'noopener';

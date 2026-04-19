@@ -487,7 +487,7 @@
   var SKIP_WORDS = new Set(skip_words_default);
   function meetsMinLength(phrase) {
     if (phrase.includes(" ")) return true;
-    if (/^[A-Z]+$/.test(phrase)) return phrase.length >= 3;
+    if (/^\p{Lu}+$/u.test(phrase)) return phrase.length >= 3;
     return phrase.length >= 4;
   }
   var FILLER_LEADING = /^(?:of|and|in|on|under|the|for)\s+/i;
@@ -505,26 +505,32 @@
   function normaliseCurlyQuotes(text) {
     return text.replace(/[\u2018\u2019]/g, "'");
   }
-  function extractCandidates(text) {
+  function extractCandidates(text, options = {}) {
+    const skipWords = options.skipWords || SKIP_WORDS;
     const candidates = /* @__PURE__ */ new Set();
-    const capsWord = "[A-Z][a-zA-Z'\\-]+";
+    const capsWord = "\\p{Lu}[\\p{L}'\\-]+";
     const filler = "(?:of|and|in|on|under|the|for)";
-    const greedyRe = new RegExp(`\\b(${capsWord}(?:\\s+(?:${filler}|${capsWord}))*\\s+${capsWord})\\b`, "g");
+    const boundaryBefore = "(?<![\\p{L}\\p{N}])";
+    const boundaryAfter = "(?![\\p{L}\\p{N}])";
+    const greedyRe = new RegExp(
+      `${boundaryBefore}(${capsWord}(?:\\s+(?:${filler}|${capsWord}))*\\s+${capsWord})${boundaryAfter}`,
+      "gu"
+    );
     const patterns = [
       greedyRe,
-      new RegExp(`\\b(${capsWord}(?:\\s+${capsWord})+)\\b`, "g"),
-      new RegExp(`\\b(${capsWord})\\b`, "g"),
-      /\b([A-Z]{2,6})\b/g
+      new RegExp(`${boundaryBefore}(${capsWord}(?:\\s+${capsWord})+)${boundaryAfter}`, "gu"),
+      new RegExp(`${boundaryBefore}(${capsWord})${boundaryAfter}`, "gu"),
+      new RegExp(`${boundaryBefore}(\\p{Lu}{2,6})${boundaryAfter}`, "gu")
     ];
     for (const pattern of patterns) {
       const matches = text.matchAll(pattern);
       for (const match of matches) {
         const phrase = match[1].trim();
-        if (meetsMinLength(phrase) && !SKIP_WORDS.has(phrase)) {
+        if (meetsMinLength(phrase) && !skipWords.has(phrase)) {
           candidates.add(phrase);
           if (pattern === greedyRe) {
             const trimmed = trimFillers(phrase);
-            if (trimmed !== phrase && meetsMinLength(trimmed) && !SKIP_WORDS.has(trimmed)) {
+            if (trimmed !== phrase && meetsMinLength(trimmed) && !skipWords.has(trimmed)) {
               candidates.add(trimmed);
             }
           }
@@ -545,7 +551,7 @@
       const charBefore = text[start - 1];
       if (charBefore === " ") {
         const textBefore = text.slice(0, start - 1);
-        const lastWord = textBefore.match(/[A-Z][a-zA-Z''\-]*$/);
+        const lastWord = textBefore.match(/\p{Lu}[\p{L}'\-]*$/u);
         if (lastWord) return true;
       }
     }
@@ -553,7 +559,7 @@
       const charAfter = text[end];
       if (charAfter === " ") {
         const textAfter = text.slice(end + 1);
-        const nextWord = textAfter.match(/^[A-Z][a-zA-Z''\-]*/);
+        const nextWord = textAfter.match(/^\p{Lu}[\p{L}'\-]*/u);
         if (nextWord) return true;
       }
     }
@@ -564,9 +570,9 @@
   }
   function findMatches(text, entitySet2, options = {}) {
     const normalised = normaliseCurlyQuotes(text);
-    let candidates = extractCandidates(normalised);
+    let candidates = extractCandidates(normalised, options);
     if (options.multiWordOnly) {
-      candidates = new Set([...candidates].filter((c) => c.includes(" ") || /^[A-Z]+$/.test(c)));
+      candidates = new Set([...candidates].filter((c) => c.includes(" ") || /^\p{Lu}+$/u.test(c)));
     }
     const matches = [];
     for (const candidate of candidates) {
@@ -578,7 +584,10 @@
     const result = [];
     const usedRanges = [];
     for (const match of matches) {
-      const regex = new RegExp(`\\b${escapeRegExp(match.text)}\\b`);
+      const regex = new RegExp(
+        `(?<![\\p{L}\\p{N}])${escapeRegExp(match.text)}(?![\\p{L}\\p{N}])`,
+        "u"
+      );
       const found = regex.exec(normalised);
       if (found) {
         const start = found.index;
@@ -595,8 +604,8 @@
     result.sort((a, b) => a.index - b.index);
     return result;
   }
-  function toWikiUrl(entityName) {
-    return `https://en.wikipedia.org/wiki/${encodeURIComponent(entityName.replace(/ /g, "_"))}`;
+  function toWikiUrl(entityName, lang = "en") {
+    return `https://${lang}.wikipedia.org/wiki/${encodeURIComponent(entityName.replace(/ /g, "_"))}`;
   }
 
   // server/shared/bloom.js
@@ -887,7 +896,7 @@
   }
   function createWikiLink(entityName) {
     const link = document.createElement("a");
-    link.href = toWikiUrl(entityName);
+    link.href = toWikiUrl(entityName, "en");
     link.className = "wikilink";
     link.title = `${entityName} \u2014 Wikipedia`;
     link.rel = "noopener";
