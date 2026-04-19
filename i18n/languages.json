@@ -1,0 +1,24 @@
+{
+  "languages": [
+    { "code": "en", "name": "English",    "nativeName": "English",           "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "en" },
+    { "code": "ja", "name": "Japanese",   "nativeName": "日本語",              "script": "cjk",        "matcher": "segmenter", "dir": "ltr", "wikiPrefix": "ja" },
+    { "code": "de", "name": "German",     "nativeName": "Deutsch",           "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "de" },
+    { "code": "es", "name": "Spanish",    "nativeName": "Español",           "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "es" },
+    { "code": "fr", "name": "French",     "nativeName": "Français",          "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "fr" },
+    { "code": "ru", "name": "Russian",    "nativeName": "Русский",           "script": "cyrillic",   "matcher": "regex",     "dir": "ltr", "wikiPrefix": "ru" },
+    { "code": "it", "name": "Italian",    "nativeName": "Italiano",          "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "it" },
+    { "code": "zh", "name": "Chinese",    "nativeName": "中文",                "script": "cjk",        "matcher": "segmenter", "dir": "ltr", "wikiPrefix": "zh" },
+    { "code": "pt", "name": "Portuguese", "nativeName": "Português",         "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "pt" },
+    { "code": "pl", "name": "Polish",     "nativeName": "Polski",            "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "pl" },
+    { "code": "nl", "name": "Dutch",      "nativeName": "Nederlands",        "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "nl" },
+    { "code": "ar", "name": "Arabic",     "nativeName": "العربية",             "script": "arabic",     "matcher": "regex",     "dir": "rtl", "wikiPrefix": "ar" },
+    { "code": "tr", "name": "Turkish",    "nativeName": "Türkçe",            "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "tr" },
+    { "code": "id", "name": "Indonesian", "nativeName": "Bahasa Indonesia",  "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "id" },
+    { "code": "uk", "name": "Ukrainian",  "nativeName": "Українська",         "script": "cyrillic",   "matcher": "regex",     "dir": "ltr", "wikiPrefix": "uk" },
+    { "code": "fa", "name": "Persian",    "nativeName": "فارسی",               "script": "arabic",     "matcher": "regex",     "dir": "rtl", "wikiPrefix": "fa" },
+    { "code": "ko", "name": "Korean",     "nativeName": "한국어",               "script": "hangul",     "matcher": "segmenter", "dir": "ltr", "wikiPrefix": "ko" },
+    { "code": "sv", "name": "Swedish",    "nativeName": "Svenska",           "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "sv" },
+    { "code": "cs", "name": "Czech",      "nativeName": "Čeština",           "script": "latin",      "matcher": "regex",     "dir": "ltr", "wikiPrefix": "cs" },
+    { "code": "hi", "name": "Hindi",      "nativeName": "हिन्दी",                "script": "devanagari", "matcher": "regex",     "dir": "ltr", "wikiPrefix": "hi" }
+  ]
+}
