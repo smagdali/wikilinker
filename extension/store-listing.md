@@ -25,7 +25,7 @@ Wikilinker adds Wikipedia links to names on any webpage — people, places, and 
 Features:
 - Links one million Wikipedia names
 - Marks each link with a small ⓦ glyph
-- Works in Firefox Reader and Safari Reader modes
+- Stays visible in reader modes that strip styling
 - Runs on any webpage
 - Links only the first mention of each name
 - Optional filter to skip single-word names
@@ -54,16 +54,16 @@ Bloom filter reference: https://en.wikipedia.org/wiki/Bloom_filter
 
 ## Firefox AMO — Summary (250 chars max)
 
-Wikilinker adds Wikipedia links to names on any webpage — people, places, and organizations. Each link is marked with a small ⓦ that stays visible in Reader mode. One million names matched locally. No tracking. No network requests.
+Wikilinker adds Wikipedia links to names on any webpage — people, places, and organizations. Each link is marked with a small ⓦ that stays visible in Firefox Reader mode. One million names matched locally. No tracking. No network requests.
 
 ## Firefox AMO — Detailed description
 
-Wikilinker adds Wikipedia links to names on any webpage — people, places, and organizations. Each link is marked with a small ⓦ so it stays visible in reader modes that strip styling.
+Wikilinker adds Wikipedia links to names on any webpage — people, places, and organizations. Each link is marked with a small ⓦ so it stays visible in Firefox Reader mode.
 
 Features:
 - Links one million Wikipedia names
 - Marks each link with a small ⓦ glyph
-- Works in Firefox Reader and Safari Reader modes
+- Stays visible in Firefox Reader mode
 - Runs on any webpage
 - Links only the first mention of each name
 - Optional filter to skip single-word names
@@ -98,12 +98,12 @@ wikipedia,links,names,reader,news,knowledge,articles,learning,reference,encyclop
 
 ### Description
 
-Wikilinker adds Wikipedia links to names on any webpage — people, places, and organizations. Each link is marked with a small ⓦ so it stays visible in reader modes that strip styling.
+Wikilinker adds Wikipedia links to names on any webpage — people, places, and organizations. Each link is marked with a small ⓦ so it stays visible in Safari Reader mode.
 
 Features:
 - Links one million Wikipedia names
 - Marks each link with a small ⓦ glyph
-- Works in Safari Reader mode
+- Stays visible in Safari Reader mode
 - Runs on any webpage
 - Links only the first mention of each name
 - Optional filter to skip single-word names
