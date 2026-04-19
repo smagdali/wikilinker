@@ -2,22 +2,24 @@
 #
 # Build pageview ranking from N days of Wikimedia pageview_complete dumps.
 #
-# Usage: bash scripts/build-pageview-ranking.sh [--days 30] [--concurrency 4]
+# Usage: bash scripts/build-pageview-ranking.sh [--lang en] [--days 30] [--concurrency 4]
 #
-# Downloads daily pageview dumps, extracts en.wikipedia entries,
-# aggregates counts across all days, and writes titles-ranked.tsv.
+# Downloads daily pageview dumps, extracts {lang}.wikipedia entries,
+# aggregates counts across all days, and writes i18n/{lang}/titles-ranked.tsv.
 #
 # Dependencies: curl, bzcat, awk, sort, python3
 #
 set -euo pipefail
 
 # Defaults
+LANG_CODE=en
 DAYS=30
 CONCURRENCY=4
 
 # Parse args
 while [[ $# -gt 0 ]]; do
   case $1 in
+    --lang) LANG_CODE=$2; shift 2 ;;
     --days) DAYS=$2; shift 2 ;;
     --concurrency) CONCURRENCY=$2; shift 2 ;;
     *) echo "Unknown arg: $1" >&2; exit 1 ;;
@@ -25,15 +27,21 @@ while [[ $# -gt 0 ]]; do
 done
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
 CACHE_DIR="$SCRIPT_DIR/../../whitelabel.org/wikiproxy-data/pageviews-cache"
-OUTPUT="$SCRIPT_DIR/../../whitelabel.org/wikiproxy-data/titles-ranked.tsv"
-WORK_DIR="$CACHE_DIR/work"
+OUTPUT_DIR="$ROOT_DIR/i18n/$LANG_CODE"
+OUTPUT="$OUTPUT_DIR/titles-ranked.tsv"
+WORK_DIR="$CACHE_DIR/work-$LANG_CODE"
+WIKI_PREFIX="$LANG_CODE.wikipedia"
 USER_AGENT="Wikilinker/1.0 (https://github.com/smagdali/wikilinker; stefan@whitelabel.org)"
+
+mkdir -p "$OUTPUT_DIR"
 
 mkdir -p "$CACHE_DIR" "$WORK_DIR"
 
 echo "=== Pageview Ranking Builder ==="
-echo "Days: $DAYS | Concurrency: $CONCURRENCY"
+echo "Language: $LANG_CODE ($WIKI_PREFIX) | Days: $DAYS | Concurrency: $CONCURRENCY"
+echo "Output: $OUTPUT"
 
 # Generate date list (yesterday back N days)
 dates=()
@@ -118,8 +126,8 @@ fi
 
 echo ""
 
-# === Phase 2: Extract en.wikipedia entries (one sorted file per day) ===
-echo "=== Phase 2: Extracting en.wikipedia entries ==="
+# === Phase 2: Extract {lang}.wikipedia entries (one sorted file per day) ===
+echo "=== Phase 2: Extracting $WIKI_PREFIX entries ==="
 
 extract_one() {
   local d=$1
@@ -137,7 +145,7 @@ extract_one() {
 
   echo "  [processing] $d ..."
   bzcat "$infile" \
-    | awk '$1 == "en.wikipedia" { print $2 "\t" $(NF-1) }' \
+    | awk -v prefix="$WIKI_PREFIX" '$1 == prefix { print $2 "\t" $(NF-1) }' \
     | sort -t$'\t' -k1,1 \
     > "$outfile.tmp"
   mv "$outfile.tmp" "$outfile"
@@ -146,7 +154,7 @@ extract_one() {
 }
 
 export -f extract_one
-export WORK_DIR
+export WORK_DIR WIKI_PREFIX
 
 printf '%s\n' "${dates[@]}" | xargs -P"$CONCURRENCY" -I{} bash -c 'extract_one "$@"' _ {}
 
@@ -232,4 +240,4 @@ echo ""
 echo "Cleaning up work directory..."
 rm -rf "$WORK_DIR"
 
-echo "Done! Run 'node scripts/build-bloom.mjs' next to rebuild the bloom filter."
+echo "Done! Run 'node scripts/build-bloom.mjs --lang $LANG_CODE' next to rebuild the bloom filter."

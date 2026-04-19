@@ -11,6 +11,9 @@ node_modules/
 *.zip
 build/
 
+# i18n data (raw per-language pageview rankings — large, regenerable)
+i18n/*/titles-ranked.tsv
+
 # Xcode user state
 **/xcuserdata/
 **/*.xcuserstate
