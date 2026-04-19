@@ -87,6 +87,17 @@ await build({
   logLevel: 'info',
 });
 
+// ── Default build: keep extension/_locales/en/messages.json in sync ─
+
+if (outputToDistOnly) {
+  const messagesSrc = 'i18n/en/messages.json';
+  if (existsSync(messagesSrc)) {
+    const localesDir = 'extension/_locales/en';
+    mkdirSync(localesDir, { recursive: true });
+    cpSync(messagesSrc, path.join(localesDir, 'messages.json'));
+  }
+}
+
 // ── Full extension tree for --lang builds ──────────────────
 
 if (pkgDir) {

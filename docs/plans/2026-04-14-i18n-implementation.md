@@ -205,6 +205,8 @@ One `xcodebuild archive` — the archive contains all localizations. Then `xcrun
 
 Per-locale `Localizable.strings` files in `safari/Wikilinker/Shared (App)/Resources/{lang}.lproj/` drive display name + splash screen copy. Generated from `i18n/{lang}/messages.json` at build time.
 
+**Pre-requisite (pbxproj surgery)**: The `_locales/` folder must be added as a `PBXFileReference` with `lastKnownFileType = folder` in `safari/Wikilinker/Wikilinker.xcodeproj/project.pbxproj`, with `PBXBuildFile` entries referenced by both extension `PBXResourcesBuildPhase` lists (iOS and macOS). Without this, chrome.i18n strings don't ship in the Safari bundle and `__MSG_extensionName__` placeholders fail to resolve at runtime.
+
 ### Task 24: Create `scripts/publish-all.sh`
 
 Orchestrates the full pipeline:

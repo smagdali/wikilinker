@@ -21,6 +21,10 @@ cp "$ROOT_DIR/extension/styles.css" "$SAFARI_RES/"
 cp "$ROOT_DIR/extension/dist/background.js" "$SAFARI_RES/dist/"
 cp "$ROOT_DIR/extension/dist/content.js" "$SAFARI_RES/dist/"
 
+# Copy _locales (chrome.i18n messages)
+rm -rf "$SAFARI_RES/_locales"
+cp -R "$ROOT_DIR/extension/_locales" "$SAFARI_RES/"
+
 # Strip ko-fi link and its trailing separator (Apple rejects donation links)
 # Matches the full line with ko-fi plus the following middot line
 sed -i '' '/ko-fi/,/&middot;/{d;}' "$SAFARI_RES/popup.html"

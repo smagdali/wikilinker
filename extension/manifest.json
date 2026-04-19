@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Wikilinker",
+  "name": "__MSG_extensionName__",
   "version": "0.6.5",
-  "description": "Auto-links names to Wikipedia — people, places, and organizations on any webpage",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
   "browser_specific_settings": {
     "gecko": {
       "id": "wikilinker@whitelabel.org",

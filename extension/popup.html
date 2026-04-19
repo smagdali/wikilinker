@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wikilinker Settings</title>
+  <title data-i18n="extensionName">Wikilinker</title>
   <style>
     * {
       box-sizing: border-box;
@@ -180,12 +180,12 @@
 <body>
   <h1>
     <img src="icons/icon48.png" alt="">
-    Wikilinker
+    <span data-i18n="popupTitle">Wikilinker</span>
   </h1>
-  <p class="subtitle">Auto-link names to Wikipedia</p>
+  <p class="subtitle" data-i18n="popupSubtitle">Auto-link names to Wikipedia</p>
 
   <div class="main-toggle toggle-row">
-    <span class="toggle-label">Enable Wikilinker</span>
+    <span class="toggle-label" data-i18n="popupEnable">Enable Wikilinker</span>
     <label class="toggle">
       <input type="checkbox" id="enabled" checked>
       <span class="slider"></span>
@@ -194,32 +194,32 @@
 
   <div class="option-toggle" id="multiWordSection">
     <div class="toggle-row">
-      <span class="toggle-label">Exclude single words</span>
+      <span class="toggle-label" data-i18n="popupExcludeSingleWords">Exclude single words</span>
       <label class="toggle">
         <input type="checkbox" id="multiWordOnly">
         <span class="slider"></span>
       </label>
     </div>
-    <div class="option-note">Skip single-word matches like "blue" and "high"</div>
+    <div class="option-note" data-i18n="popupExcludeSingleWordsNote">Skip single-word matches like "blue" and "high"</div>
   </div>
 
   <div class="stats">
     <div class="stats-row">
-      <span>Names in database:</span>
-      <span class="stats-value" id="entityCount">Loading...</span>
+      <span data-i18n="popupNamesInDatabase">Names in database:</span>
+      <span class="stats-value" id="entityCount" data-i18n="popupLoading">Loading...</span>
     </div>
     <div class="stats-row">
-      <span>Links on this page:</span>
+      <span data-i18n="popupLinksOnThisPage">Links on this page:</span>
       <span class="stats-value" id="pageLinks">-</span>
     </div>
   </div>
 
   <div class="footer">
-    <a href="https://ko-fi.com/smagdali" target="_blank">☕ Buy Stef a coffee</a>
+    <a href="https://ko-fi.com/smagdali" target="_blank" data-i18n="popupBuyCoffee">☕ Buy Stef a coffee</a>
     &middot;
-    <a href="https://whitelabel.org/wikilinker/about" target="_blank">About</a>
+    <a href="https://whitelabel.org/wikilinker/about" target="_blank" data-i18n="popupAbout">About</a>
     &middot;
-    <a href="https://github.com/smagdali/wikilinker" target="_blank">GitHub</a>
+    <a href="https://github.com/smagdali/wikilinker" target="_blank" data-i18n="popupGitHub">GitHub</a>
   </div>
 
   <script src="popup.js"></script>

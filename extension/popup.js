@@ -2,6 +2,14 @@
 //
 // Handles settings UI and persistence for the popup.
 
+// Replace [data-i18n] text content with chrome.i18n messages.
+function applyI18n() {
+  for (const el of document.querySelectorAll('[data-i18n]')) {
+    const msg = chrome.i18n.getMessage(el.dataset.i18n);
+    if (msg) el.textContent = msg;
+  }
+}
+
 const enabledCheckbox = () => document.getElementById('enabled');
 const multiWordOnlyCheckbox = () => document.getElementById('multiWordOnly');
 const multiWordSection = () => document.getElementById('multiWordSection');
@@ -82,6 +90,7 @@ async function loadStats() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
+  applyI18n();
   await loadSettings();
   await loadStats();
 
