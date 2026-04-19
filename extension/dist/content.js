@@ -166,9 +166,8 @@
     }
   }
 
-  // server/shared/matcher-core.js
-  var SKIP_WORDS = /* @__PURE__ */ new Set([
-    // Pronouns and determiners
+  // i18n/en/skip-words.json
+  var skip_words_default = [
     "The",
     "This",
     "That",
@@ -193,7 +192,6 @@
     "You",
     "Your",
     "My",
-    // Days and months
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -213,7 +211,6 @@
     "October",
     "November",
     "December",
-    // Common English words that are also Wikipedia titles
     "About",
     "Address",
     "After",
@@ -405,11 +402,9 @@
     "Writer",
     "Year",
     "Zero",
-    // Compass/directional (match as part of multi-word like "South Korea")
     "North",
     "East",
     "West",
-    // Demonym adjectives — link the country instead
     "African",
     "American",
     "Arab",
@@ -447,7 +442,6 @@
     "Ukrainian",
     "Vietnamese",
     "Welsh",
-    // Institutional/role words (too generic alone, valid in multi-word phrases)
     "Accessibility",
     "Academic",
     "Athletes",
@@ -484,11 +478,13 @@
     "Security",
     "Transparency",
     "Treasury",
-    // Stock photo attribution words
     "Alamy",
     "Getty",
     "Shutterstock"
-  ]);
+  ];
+
+  // server/shared/matcher-core.js
+  var SKIP_WORDS = new Set(skip_words_default);
   function meetsMinLength(phrase) {
     if (phrase.includes(" ")) return true;
     if (/^[A-Z]+$/.test(phrase)) return phrase.length >= 3;

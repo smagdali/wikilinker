@@ -1,89 +1,14 @@
 // shared/matcher-core.js
 //
 // Pure-function entity matching logic shared between the server and
-// Chrome extension. No I/O, no DOM — just string processing.
+// browser extension. No I/O, no DOM — just string processing.
 
-// Common words to skip — these are English words that happen to have Wikipedia
+import skipWordsEn from '../../i18n/en/skip-words.json' with { type: 'json' };
+
+// Common words to skip — these are words that happen to have Wikipedia
 // articles but are almost never useful entity links in news text.
-export const SKIP_WORDS = new Set([
-  // Pronouns and determiners
-  'The', 'This', 'That', 'There', 'Their', 'They', 'What', 'When',
-  'Where', 'Which', 'Who', 'Why', 'How',
-  'He', 'She', 'His', 'Her', 'Him', 'Its', 'We', 'Our', 'You', 'Your', 'My',
-  // Days and months
-  'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December',
-  // Common English words that are also Wikipedia titles
-  'About', 'Address', 'After', 'Again', 'Album', 'Also', 'Ammunition', 'Another', 'Archive', 'Assault',
-  'Before', 'Being', 'Blog', 'Both', 'Building', 'Business', 'But',
-  'Cash', 'Cast', 'Category', 'Christmas', 'City', 'Code', 'Collect', 'Community',
-  'Compliance', 'Contact', 'Content', 'Control', 'Copyright', 'Country', 'Credit', 'Culture',
-  'Data', 'Date', 'Description', 'Design', 'Despite', 'Download',
-  'Each', 'Education', 'Email', 'Ensure', 'Error', 'Even', 'Every', 'Everything',
-  'Evidence', 'Example', 'Excellent', 'Expect', 'Export',
-  'Family', 'Feedback', 'Film', 'File', 'Fireworks', 'First', 'Following', 'Former',
-  'Free', 'Freedom', 'From', 'Future',
-  'General', 'Golden', 'Good', 'Government', 'Great', 'Greatness', 'Greed',
-  'Head', 'Hello', 'Help', 'Here', 'Home',
-  "I'll", 'Identity', 'Image', 'Indeed', 'Information',
-  'Just',
-  'Keep',
-  'Language', 'Last', 'Length', 'Life', 'Like', 'Link', 'List', 'Live', 'Look',
-  'Machine', 'Many', 'Marketing', 'Media', 'Meanwhile', 'Minutes', 'More', 'Most', 'Much',
-  'Name', 'Nation', 'Need', 'Network', 'Never', 'New', 'News', 'Newsletter',
-  'Next', 'Night', 'Nobody', 'None', 'Nothing', 'Number',
-  'Office', 'Often', 'Only', 'Other', 'Over', 'Overview',
-  'Page', 'Past', 'People', 'Play', 'Please', 'Pointless', 'Police', 'Policy',
-  'Power', 'Privacy', 'Productivity', 'Public', 'Publication',
-  'Question',
-  'Radio', 'Real', 'Record', 'Report', 'Research', 'Review',
-  'Same', 'Service', 'Several', 'Shift', 'Sign', 'Since', 'Sniper', 'Some', 'Source',
-  'South', 'Special', 'Speed', 'Stalemate', 'Standard', 'State', 'Steam', 'Still',
-  'Success', 'Such', 'Sunrise', 'Support', 'System',
-  'Table', 'Take', 'Targets', 'Technology', 'Test', 'Three',
-  'Time', 'Title', 'Today', 'Together',
-  'Very',
-  'Watch', 'Website', 'Wedding', 'Weight', 'Welcome', 'Well', 'While', 'White',
-  'Whole', 'Woman', 'Wood', 'Word', 'Work', 'World', 'Writer',
-  'Year',
-  'Zero',
-  // Compass/directional (match as part of multi-word like "South Korea")
-  'North', 'East', 'West',
-  // Demonym adjectives — link the country instead
-  'African', 'American', 'Arab', 'Asian', 'Australian',
-  'Brazilian', 'British',
-  'Canadian', 'Chinese',
-  'Dutch',
-  'Egyptian', 'English', 'European',
-  'French',
-  'German', 'Greek',
-  'Indian', 'Iranian', 'Iraqi', 'Irish', 'Islamic', 'Israeli', 'Italian',
-  'Japanese',
-  'Korean',
-  'Latin',
-  'Mexican',
-  'Palestinian', 'Polish',
-  'Russian',
-  'Scottish', 'Spanish', 'Swedish',
-  'Turkish',
-  'Ukrainian',
-  'Vietnamese',
-  'Welsh',
-  // Institutional/role words (too generic alone, valid in multi-word phrases)
-  'Accessibility', 'Academic', 'Athletes', 'Bureaucrat', 'Cabinet', 'Chair',
-  'Commons', 'Conservative',
-  'Constitution', 'Creativity', 'Customs', 'Democracy', 'Deputy', 'Environment',
-  'Founder', 'Geography', 'Health', 'History', 'House', 'Immigration',
-  'Justice', 'Liberal', 'Ministry',
-  'Opposition',
-  'Parliament', 'Partnership', 'Poetry', 'Prince', 'Princess',
-  'Producer', 'Professor',
-  'Republic',
-  'Secretary', 'Security', 'Transparency', 'Treasury',
-  // Stock photo attribution words
-  'Alamy', 'Getty', 'Shutterstock',
-]);
+// Loaded from i18n/{lang}/skip-words.json; default to English here.
+export const SKIP_WORDS = new Set(skipWordsEn);
 
 // Minimum length rules for single-word candidates:
 // - ALL CAPS (acronyms like FBI, NATO): 3+ chars (kills ambiguous 2-letter: US, UK, PM, MP)
