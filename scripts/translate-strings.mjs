@@ -37,6 +37,9 @@ const storeListingMd = readFileSync(
 const styleGuide = readFileSync(
   join(ROOT_DIR, 'docs/i18n-style-guide.md'), 'utf8',
 );
+const englishArticleVoyager = JSON.parse(
+  readFileSync(join(ROOT_DIR, 'i18n/en/article-content/voyager.json'), 'utf8'),
+);
 
 const client = getClient();
 
@@ -61,10 +64,10 @@ async function translateMessages(lang) {
   const keyList = Object.keys(englishMessages);
   const outputSchema = Object.fromEntries(keyList.map((k) => [k, '<translated string>']));
 
-  const response = await client.messages.create({
+  const stream = client.messages.stream({
     model: MODEL,
-    max_tokens: 4096,
-    thinking: { type: 'adaptive' },
+    max_tokens: 16000,
+    // thinking disabled for bulk translation — was consuming all tokens
     system: [{
       type: 'text',
       text: SYSTEM_PROMPT,
@@ -96,6 +99,7 @@ ${JSON.stringify(outputSchema, null, 2)}`,
     }],
   });
 
+  const response = await stream.finalMessage();
   const text = joinTextBlocks(response);
   let translated;
   try {
@@ -134,10 +138,12 @@ const STORE_SCHEMA_KEYS = [
 ];
 
 async function translateStoreListing(lang) {
-  const response = await client.messages.create({
+  // Stream for long-output safety; adaptive thinking can consume a big
+  // chunk of max_tokens so give plenty of headroom for the JSON body.
+  const stream = client.messages.stream({
     model: MODEL,
-    max_tokens: 8192,
-    thinking: { type: 'adaptive' },
+    max_tokens: 32000,
+    // thinking disabled for bulk translation — was consuming all tokens
     system: [{
       type: 'text',
       text: SYSTEM_PROMPT,
@@ -177,6 +183,7 @@ Character limits are hard — translations can expand 30-40% over English, so tr
     }],
   });
 
+  const response = await stream.finalMessage();
   const text = joinTextBlocks(response);
   let parsed;
   try {
@@ -192,6 +199,62 @@ Character limits are hard — translations can expand 30-40% over English, so tr
   }
 
   logUsage(`store/${lang.code}`, response.usage);
+  return parsed;
+}
+
+// ── Article content (Voyager template for screenshots) ───────────────────
+
+const ARTICLE_KEYS = Object.keys(englishArticleVoyager);
+
+async function translateArticleContent(lang) {
+  const stream = client.messages.stream({
+    model: MODEL,
+    max_tokens: 16000,
+    // thinking disabled for bulk translation — was consuming all tokens
+    system: [{
+      type: 'text',
+      text: SYSTEM_PROMPT,
+      cache_control: { type: 'ephemeral', ttl: CACHE_TTL },
+    }],
+    messages: [{
+      role: 'user',
+      content: [
+        {
+          type: 'text',
+          text: `Translate this synthetic news article used to generate Wikilinker store-listing screenshots. Keep proper nouns (Voyager 1, Voyager 2, Jupiter, Saturn, Uranus, Neptune, Io, NASA, Cape Canaveral, Jet Propulsion Laboratory, Pasadena, Pioneer, Pale Blue Dot, Carl Sagan, Bach, Chuck Berry, Deep Space Network, California, Madrid, Canberra) in their conventional form for the target language. HTML markup in the "body" field must be preserved exactly.
+
+Source (English):
+\`\`\`json
+${JSON.stringify(englishArticleVoyager, null, 2)}
+\`\`\`
+
+Output: a JSON object with exactly the same keys as the source, each value replaced by the translation. Output only the JSON object.`,
+          cache_control: { type: 'ephemeral', ttl: CACHE_TTL },
+        },
+        {
+          type: 'text',
+          text: `Target language: ${lang.name} (${lang.nativeName}). Output only the JSON object.`,
+        },
+      ],
+    }],
+  });
+
+  const response = await stream.finalMessage();
+  const text = joinTextBlocks(response);
+  let parsed;
+  try {
+    parsed = JSON.parse(extractJson(text));
+  } catch (e) {
+    throw new Error(`Failed to parse article-content JSON for ${lang.code}: ${e.message}\n--- raw output ---\n${text}\n--- end ---`);
+  }
+
+  for (const key of ARTICLE_KEYS) {
+    if (typeof parsed[key] !== 'string') {
+      throw new Error(`Missing or non-string "${key}" in article content for ${lang.code}`);
+    }
+  }
+
+  logUsage(`article/${lang.code}`, response.usage);
   return parsed;
 }
 
@@ -215,6 +278,14 @@ for (const lang of targets) {
     JSON.stringify(storeListing, null, 2) + '\n',
   );
   console.log(`  wrote i18n/${lang.code}/store-listing.json`);
+
+  const articleContent = await translateArticleContent(lang);
+  mkdirSync(join(langDir, 'article-content'), { recursive: true });
+  writeFileSync(
+    join(langDir, 'article-content/voyager.json'),
+    JSON.stringify(articleContent, null, 2) + '\n',
+  );
+  console.log(`  wrote i18n/${lang.code}/article-content/voyager.json`);
 }
 
 console.log(`\nDone. Translated ${targets.length} language(s).`);

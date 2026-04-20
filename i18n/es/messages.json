@@ -4,7 +4,7 @@
     "description": "Extension name shown in the browser"
   },
   "extensionDescription": {
-    "message": "Auto-links names to Wikipedia — people, places, and organizations on any webpage",
+    "message": "Enlaza automáticamente nombres a Wikipedia — personas, lugares y organizaciones en cualquier página web",
     "description": "Extension description shown in the browser and stores"
   },
   "popupTitle": {
@@ -12,39 +12,39 @@
     "description": "Heading at the top of the popup"
   },
   "popupSubtitle": {
-    "message": "Auto-link names to Wikipedia",
+    "message": "Enlaza nombres a Wikipedia automáticamente",
     "description": "Tagline under the popup heading"
   },
   "popupEnable": {
-    "message": "Enable Wikilinker",
+    "message": "Activar Wikilinker",
     "description": "Main on/off toggle label"
   },
   "popupExcludeSingleWords": {
-    "message": "Exclude single words",
+    "message": "Excluir palabras sueltas",
     "description": "Toggle that filters out single-word matches"
   },
   "popupExcludeSingleWordsNote": {
-    "message": "Skip single-word matches like \"blue\" and \"high\"",
+    "message": "Omite coincidencias de una sola palabra como \"azul\" y \"alto\"",
     "description": "Hint shown under the exclude-single-words toggle"
   },
   "popupNamesInDatabase": {
-    "message": "Names in database:",
+    "message": "Nombres en la base de datos:",
     "description": "Stats label showing the total number of Wikipedia names"
   },
   "popupLoading": {
-    "message": "Loading...",
+    "message": "Cargando...",
     "description": "Placeholder text while the name count loads"
   },
   "popupLinksOnThisPage": {
-    "message": "Links on this page:",
+    "message": "Enlaces en esta página:",
     "description": "Stats label showing how many wikilinks were added to the current page"
   },
   "popupBuyCoffee": {
-    "message": "☕ Buy Stef a coffee",
+    "message": "☕ Invita un café a Stef",
     "description": "Footer link to ko-fi donation page"
   },
   "popupAbout": {
-    "message": "About",
+    "message": "Acerca de",
     "description": "Footer link to the About page"
   },
   "popupGitHub": {

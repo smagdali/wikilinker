@@ -23,6 +23,7 @@
     "@anthropic-ai/sdk": "^0.90.0",
     "chrome-webstore-upload-cli": "^3.5.0",
     "esbuild": "^0.27.3",
+    "playwright": "^1.59.1",
     "web-ext": "^9.4.0"
   }
 }

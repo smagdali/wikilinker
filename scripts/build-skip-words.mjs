@@ -62,10 +62,11 @@ Output: only a JSON array of strings. No preamble, no explanation, no code fence
 // ── Per-language build ─────────────────────────────────────────────────────
 
 async function buildSkipWords(lang) {
-  const response = await client.messages.create({
+  // Skip-words is a bulk translation + lookup task — no thinking needed.
+  // Streaming just for long-output safety.
+  const stream = client.messages.stream({
     model: MODEL,
-    max_tokens: 4096,
-    thinking: { type: 'adaptive' },
+    max_tokens: 8000,
     system: [{
       type: 'text',
       text: SYSTEM_PROMPT,
@@ -94,6 +95,7 @@ Output only the JSON array of strings.`,
     }],
   });
 
+  const response = await stream.finalMessage();
   const text = joinTextBlocks(response);
   let arr;
   try {
