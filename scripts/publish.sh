@@ -105,6 +105,7 @@ publish_firefox_for_lang() {
     --source-dir "$source_dir" \
     --artifacts-dir "$ROOT_DIR/build/web-ext-artifacts/$lang" \
     --channel listed \
+    --amo-metadata "$SCRIPT_DIR/amo-metadata.json" \
     --api-key "$WEB_EXT_API_KEY" \
     --api-secret "$WEB_EXT_API_SECRET"
 
