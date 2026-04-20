@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/smagdali/wikilinker#readme",
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.90.0",
     "chrome-webstore-upload-cli": "^3.5.0",
     "esbuild": "^0.27.3",
     "web-ext": "^9.4.0"
