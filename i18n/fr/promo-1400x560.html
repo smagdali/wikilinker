@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1400px; height: 560px;
+    background: linear-gradient(135deg, #f8fafc, #eef2f7);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .icon {
+    width: 80px; height: 80px; background: #fff; border: 1.5px solid #e2e8f0;
+    border-radius: 16px; display: flex; align-items: center; justify-content: center;
+  }
+  .icon-inner {
+    background: rgba(52, 168, 83, 0.12); border-radius: 6px;
+    padding: 4px 10px; font-size: 50px; font-weight: bold; color: #0645ad;
+    text-decoration: underline; text-underline-offset: 4px;
+  }
+  .title {
+    font-size: 42px; font-weight: bold; color: #0645ad; text-decoration: underline;
+    background: rgba(52, 168, 83, 0.12); padding: 6px 12px; border-radius: 4px;
+  }
+  .tagline { font-size: 22px; color: #4b5563; margin-bottom: 28px; }
+  .example {
+    background: #fff; border: 1.5px solid #e2e8f0; border-radius: 10px;
+    padding: 28px 32px; width: 900px; font-size: 20px; color: #374151;
+    line-height: 1.8; font-family: Georgia, 'Times New Roman', serif;
+  }
+  .wikilink {
+    color: #0645ad; text-decoration: underline;
+    background: rgba(52, 168, 83, 0.12); padding: 2px 3px; border-radius: 3px;
+  }
+  .footer {
+    margin-top: 24px; font-size: 16px; color: #9ca3af;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="icon"><span class="icon-inner">W</span></div>
+    <span class="title">Wikilinker</span>
+  </div>
+  <div class="tagline">Liens automatiques vers Wikipedia pour personnes, lieux et organisations</div>
+  <div class="example">
+    Le président a rencontré les dirigeants de l'<span class="wikilink">OTAN</span> à
+    <span class="wikilink">Bruxelles</span> pour discuter de l'accord commercial entre
+    l'<span class="wikilink">Union européenne</span> et le <span class="wikilink">Royaume-Uni</span>.
+    L'<span class="wikilink">Organisation mondiale du commerce</span> a appelé à une coopération renouvelée entre
+    <span class="wikilink">Washington</span> et <span class="wikilink">Pékin</span> sur la réforme tarifaire.
+  </div>
+  <div class="footer">1 000 000 de noms · toute page web · traitement local, sans suivi</div>
+</body>
+</html>

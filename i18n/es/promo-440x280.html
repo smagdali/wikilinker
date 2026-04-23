@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 440px; height: 280px;
+    background: linear-gradient(135deg, #f8fafc, #eef2f7);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .icon {
+    width: 48px; height: 48px; background: #fff; border: 1px solid #e2e8f0;
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  }
+  .icon-inner {
+    background: rgba(52, 168, 83, 0.12); border-radius: 4px;
+    padding: 2px 6px; font-size: 30px; font-weight: bold; color: #0645ad;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .title {
+    font-size: 24px; font-weight: bold; color: #0645ad; text-decoration: underline;
+    background: rgba(52, 168, 83, 0.12); padding: 4px 8px; border-radius: 3px;
+  }
+  .tagline { font-size: 13px; color: #4b5563; margin-bottom: 14px; }
+  .example {
+    background: #fff; border: 1px solid #e2e8f0; border-radius: 6px;
+    padding: 12px 14px; width: 360px; font-size: 12.5px; color: #374151;
+    line-height: 1.7;
+  }
+  .wikilink {
+    color: #0645ad; text-decoration: underline;
+    background: rgba(52, 168, 83, 0.12); padding: 1px 2px; border-radius: 2px;
+  }
+  .footer {
+    margin-top: 10px; font-size: 10px; color: #9ca3af;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="icon"><span class="icon-inner">W</span></div>
+    <span class="title">Wikilinker</span>
+  </div>
+  <div class="tagline">Enlaces automáticos a Wikipedia</div>
+  <div class="example">
+    El presidente se reunió con líderes de la <span class="wikilink">OTAN</span> en
+    <span class="wikilink">Bruselas</span> para discutir el acuerdo comercial entre la
+    <span class="wikilink">Unión Europea</span>
+    y el <span class="wikilink">Reino Unido</span>.
+  </div>
+  <div class="footer">1 000 000 de nombres · cualquier página web · procesamiento local, sin seguimiento</div>
+</body>
+</html>

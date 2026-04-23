@@ -178,6 +178,16 @@ Playwright doesn't currently support Safari Web Extensions directly, so for Safa
 
 Same approach as 2026-03-10 plan — HTML templates rendered via Playwright, with localised tagline per language. Sizes: 440×280 (small) + 1400×560 (marquee).
 
+**Per-language promo requirement**: each non-English target language needs its own `i18n/<lang>/promo-440x280.html` and `i18n/<lang>/promo-1400x560.html`, then rendered via `scripts/render-promos.mjs --lang <code>` (or `--all-langs`). These are OPTIONAL in the Chrome Web Store but make the listing much stronger — the rendered PNG shows the extension in context with target-language sample text, so a user browsing the CWS in their language sees a relevant example.
+
+**Process for each new language**:
+1. Copy `extension/promo-440x280.html` and `extension/promo-1400x560.html` to `i18n/<lang>/`
+2. Translate the tagline, the example sentence (president/NATO/Brussels/etc.), and the footer
+3. Run `node scripts/render-promos.mjs --lang <code>`
+4. Upload the resulting PNGs via the CWS dashboard listing editor
+
+The English example sentence uses well-known proper nouns (NATO, Brussels, European Union, United Kingdom, WTO, Washington, Beijing) that have obvious localisation in every target language — no creative writing needed, just accurate translation.
+
 ---
 
 ## Phase 7: Publishing Pipeline
